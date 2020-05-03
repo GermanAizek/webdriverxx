@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{09BBD4E0-5F3E-3DC2-80E5-F06880D44F9F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>curl_project</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project\include;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-mkdir.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating directories for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/tmp
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-mkdir.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating directories for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/tmp
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-mkdir.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Creating directories for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/tmp
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-mkdir.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Creating directories for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/tmp
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-mkdir.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing download step (download, verify and extract) for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/download-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/verify-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/extract-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-download.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\curl_project-urlinfo.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing download step (download, verify and extract) for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/download-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/verify-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/extract-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-download.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\curl_project-urlinfo.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing download step (download, verify and extract) for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/download-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/verify-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/extract-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-download.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\curl_project-urlinfo.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing download step (download, verify and extract) for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/download-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/verify-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -P D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/extract-curl_project.cmake
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-download.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\curl_project-urlinfo.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No update step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-update.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No update step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-update.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No update step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-update.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No update step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-update.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No patch step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-patch.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No patch step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-patch.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No patch step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-patch.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No patch step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-patch.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-configure.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing configure step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -DCURL_STATICLIB=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_CURL_EXE=OFF -DBUILD_CURL_TESTS=OFF -DCMAKE_USE_OPENSSL=OFF -DCURL_ZLIB=OFF -DHTTP_ONLY=ON "-GVisual Studio 14 2015" D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-configure.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing configure step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -DCURL_STATICLIB=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_CURL_EXE=OFF -DBUILD_CURL_TESTS=OFF -DCMAKE_USE_OPENSSL=OFF -DCURL_ZLIB=OFF -DHTTP_ONLY=ON "-GVisual Studio 14 2015" D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-configure.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing configure step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -DCURL_STATICLIB=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_CURL_EXE=OFF -DBUILD_CURL_TESTS=OFF -DCMAKE_USE_OPENSSL=OFF -DCURL_ZLIB=OFF -DHTTP_ONLY=ON "-GVisual Studio 14 2015" D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-configure.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing configure step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -DCURL_STATICLIB=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_CURL_EXE=OFF -DBUILD_CURL_TESTS=OFF -DCMAKE_USE_OPENSSL=OFF -DCURL_ZLIB=OFF -DHTTP_ONLY=ON "-GVisual Studio 14 2015" D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-configure.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-build.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing build step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe --build . --config Debug
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-build.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing build step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe --build . --config Release
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-build.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing build step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe --build . --config MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-build.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing build step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe --build . --config RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-build.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No install step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-install.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No install step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-install.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No install step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-install.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No install step for 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/6bcc567b39dcf2fd940e2461fc86cb68/curl_project-install.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\19fea3bb826574c87af3ef3960c2c237\curl_project-complete.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Completed 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)/curl_project-complete
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/19fea3bb826574c87af3ef3960c2c237/curl_project-complete.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Completed 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)/curl_project-complete
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/19fea3bb826574c87af3ef3960c2c237/curl_project-complete.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Completed 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)/curl_project-complete
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/19fea3bb826574c87af3ef3960c2c237/curl_project-complete.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Completed 'curl_project'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E make_directory D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/$(Configuration)/curl_project-complete
+if %errorlevel% neq 0 goto :cmEnd
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -E touch D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/curl/src/curl_project-stamp/$(Configuration)/curl_project-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/19fea3bb826574c87af3ef3960c2c237/curl_project-complete.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-mkdir;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-download;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-update;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-patch;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-configure;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-build;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\src\curl_project-stamp\$(Configuration)\curl_project-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\f68880ae47f08024195109b20ce9bfa4\curl_project.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/f68880ae47f08024195109b20ce9bfa4/curl_project.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\curl_project</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/f68880ae47f08024195109b20ce9bfa4/curl_project.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\curl_project</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/f68880ae47f08024195109b20ce9bfa4/curl_project.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\curl_project</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/CMakeFiles/f68880ae47f08024195109b20ce9bfa4/curl_project.rule;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\$(Configuration)\curl_project-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\curl_project</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -SD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx -BD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects --check-stamp-file D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject-download.cmake.in;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindGit.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageMessage.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\RepositoryInfo.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\tmp\googletest-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -SD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx -BD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects --check-stamp-file D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject-download.cmake.in;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindGit.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageMessage.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\RepositoryInfo.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\tmp\googletest-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -SD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx -BD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects --check-stamp-file D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject-download.cmake.in;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindGit.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageMessage.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\RepositoryInfo.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\tmp\googletest-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\bin\cmake.exe -SD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx -BD:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects --check-stamp-file D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/vcprojects/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/DevelopmentEnvironment/Workspaces/VisualStudio2015Projects/Cpp/webdriverxx/test/CMakeLists.txt;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject-download.cmake.in;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\ExternalProject.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindGit.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\FindPackageMessage.cmake;D:\DevelopmentEnvironment\Softwares\cmake-3.13.0-win64-x64\share\cmake-3.13\Modules\RepositoryInfo.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\curl\tmp\curl_project-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\googletest\tmp\googletest-cfgcmd.txt.in;D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\curl_project" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\ZERO_CHECK.vcxproj">
+      <Project>{8BCF9D8F-E816-364B-91A8-75FFF429927F}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

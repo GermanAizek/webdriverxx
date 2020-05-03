@@ -1,0 +1,1 @@
+cmd='D:/DevelopmentEnvironment/Softwares/cmake-3.13.0-win64-x64/bin/cmake.exe;-GVisual Studio 14 2015;<SOURCE_DIR><SOURCE_SUBDIR>'

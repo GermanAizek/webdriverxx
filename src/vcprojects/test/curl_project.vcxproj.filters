@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\6bcc567b39dcf2fd940e2461fc86cb68\curl_project-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\19fea3bb826574c87af3ef3960c2c237\curl_project-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\CMakeFiles\f68880ae47f08024195109b20ce9bfa4\curl_project.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\test\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\DevelopmentEnvironment\Workspaces\VisualStudio2015Projects\Cpp\webdriverxx\vcprojects\test\CMakeFiles\curl_project" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{09D008E4-65F7-3BE4-A53B-471F7C517F33}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

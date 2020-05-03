@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B6E8B537-934D-3AE0-A063-4073321F3C7D}</ProjectGuid>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>webdriverxx</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WEBDRIVERXX_ENABLE_GMOCK_MATCHERS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)\thirdparty\googletest\include;$(SolutionDir)\thirdparty\libcurl-7.63.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\test\alerts_test.cpp" />
+    <ClCompile Include="..\..\test\browsers_test.cpp" />
+    <ClCompile Include="..\..\test\capabilities_test.cpp" />
+    <ClCompile Include="..\..\test\conversions_test.cpp" />
+    <ClCompile Include="..\..\test\client_test.cpp" />
+    <ClCompile Include="..\..\test\element_test.cpp" />
+    <ClInclude Include="..\..\test\environment.h" />
+    <ClCompile Include="..\..\test\examples_test.cpp" />
+    <ClCompile Include="..\..\test\finder_test.cpp" />
+    <ClCompile Include="..\..\test\frames_test.cpp" />
+    <ClCompile Include="..\..\test\http_connection_test.cpp" />
+    <ClCompile Include="..\..\test\js_test.cpp" />
+    <ClCompile Include="..\..\test\keyboard_test.cpp" />
+    <ClCompile Include="..\..\test\main.cpp" />
+    <ClCompile Include="..\..\test\mouse_test.cpp" />
+    <ClCompile Include="..\..\test\resource_test.cpp" />
+    <ClCompile Include="..\..\test\session_test.cpp" />
+    <ClCompile Include="..\..\test\shared_test.cpp" />
+    <ClCompile Include="..\..\test\to_string_test.cpp" />
+    <ClCompile Include="..\..\test\wait_match_test.cpp" />
+    <ClCompile Include="..\..\test\wait_test.cpp" />
+    <ClCompile Include="..\..\test\webdriver_test.cpp" />
+    <ClInclude Include="..\..\include\webdriverxx.h" />
+    <ClInclude Include="..\..\include\webdriverxx\by.h" />
+    <ClInclude Include="..\..\include\webdriverxx\capabilities.h" />
+    <ClInclude Include="..\..\include\webdriverxx\client.h" />
+    <ClInclude Include="..\..\include\webdriverxx\client.inl" />
+    <ClInclude Include="..\..\include\webdriverxx\conversions.h" />
+    <ClInclude Include="..\..\include\webdriverxx\element.h" />
+    <ClInclude Include="..\..\include\webdriverxx\element.inl" />
+    <ClInclude Include="..\..\include\webdriverxx\errors.h" />
+    <ClInclude Include="..\..\include\webdriverxx\js_args.h" />
+    <ClInclude Include="..\..\include\webdriverxx\keys.h" />
+    <ClInclude Include="..\..\include\webdriverxx\response_status_code.h" />
+    <ClInclude Include="..\..\include\webdriverxx\session.h" />
+    <ClInclude Include="..\..\include\webdriverxx\session.inl" />
+    <ClInclude Include="..\..\include\webdriverxx\types.h" />
+    <ClInclude Include="..\..\include\webdriverxx\wait.h" />
+    <ClInclude Include="..\..\include\webdriverxx\wait_match.h" />
+    <ClInclude Include="..\..\include\webdriverxx\webdriver.h" />
+    <ClInclude Include="..\..\include\webdriverxx\window.h" />
+    <ClInclude Include="..\..\include\webdriverxx\picojson.h" />
+    <ClInclude Include="..\..\include\webdriverxx\browsers\chrome.h" />
+    <ClInclude Include="..\..\include\webdriverxx\browsers\firefox.h" />
+    <ClInclude Include="..\..\include\webdriverxx\browsers\ie.h" />
+    <ClInclude Include="..\..\include\webdriverxx\browsers\phantom.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\error_handling.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\factories.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\factories_impl.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\finder.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\finder.inl" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\http_client.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\http_connection.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\http_request.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\keyboard.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\meta_tools.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\resource.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\shared.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\time.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\to_string.h" />
+    <ClInclude Include="..\..\include\webdriverxx\detail\types.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
