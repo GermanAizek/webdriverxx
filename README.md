@@ -4,6 +4,12 @@
 A C++ client library for [Selenium Webdriver](http://www.seleniumhq.org/).
 You can use this library in any C++ project.
 
+COPYRIGHTS
+
+ * 2014-2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
+
+ * 2019 xingyun86 ([peipengshuai@hotmail.com](mailto:peipengshuai@hotmail.com))
+
 
 ## Install on Linux
 
