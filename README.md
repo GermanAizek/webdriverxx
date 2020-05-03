@@ -30,23 +30,12 @@ Start compile projects in Visual Studio
 ## A quick example
 
 ##### Dependencies
-You need to download and run selenium-server before run this example.
+You need to download and run selenium-server.
 http://www.seleniumhq.org/download/
 
-```cpp
-#include <webdriverxx/webdriverxx.h>
-using namespace webdriverxx;
+##### Example codes
 
-int main() {
-    WebDriver firefox = Start(Firefox());
-    firefox
-        .Navigate("http://google.com")
-        .FindElement(ByCss("input[name=q]"))
-        .SendKeys("Hello, world!")
-        .Submit();
-    return 0;    
-}
-```
+Build cmakelists in examples folder and run binary.
 
 ## Features
 
@@ -58,32 +47,11 @@ int main() {
     - [picojson](https://github.com/kazuho/picojson).
 - Can be used with any testing framework.
 - Linux, Mac and Windows.
-- clang (3.4), GCC (4.6) and Visual Studio (2010).
+- Tested on clang 10.0, GCC 9.3 and Visual Studio 2019.
 
 ## More examples
 
-`#include <webdriverxx/webdriver.h>` and `using namespace webdriverxx`
-are assumed in all examples.
-
-### Start browser
-
-```cpp
-#include <webdriverxx/browsers/firefox.h>
-
-WebDriver ff = Start(Firefox());
-```
-
-```cpp
-#include <webdriverxx/browsers/chrome.h>
-
-WebDriver gc = Start(Chrome());
-```
-
-```cpp
-#include <webdriverxx/browsers/ie.h>
-
-WebDriver ie = Start(InternetExplorer());
-```
+All examples are in the examples folder.
 
 ### Use proxy
 
