@@ -314,7 +314,7 @@ TEST_F(TestResource, ThrowsOnHttp502)
 TEST_F(TestResource, ThrowsOnEmptyResponse)
 {
 	Resource resource(kTestUrl, http_client);
-	http_response.body = "";
+	http_response.body.clear();
 	ASSERT_THROW(resource.Get("command"), WebDriverException);
 }
 
