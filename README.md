@@ -14,7 +14,7 @@ COPYRIGHTS
 ## Install on Linux
 
 ```bash
-mkdir build && cd build && cmake ..
+mkdir build && cd build && cmake ../src
 sudo make && sudo make install
 ```
 
@@ -23,7 +23,7 @@ sudo make && sudo make install
 ```
 mkdir build
 cd build
-cmake ..
+cmake ../src
 // For example, open a solution in Visual Studio
 ```
 
