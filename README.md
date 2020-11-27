@@ -24,7 +24,7 @@ sudo make && sudo make install
 mkdir build
 cd build
 cmake ..
-Start compile projects in Visual Studio
+// For example, open a solution in Visual Studio
 ```
 
 ## A quick example
