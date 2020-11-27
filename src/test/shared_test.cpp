@@ -73,7 +73,7 @@ TEST(WidgetMonitor, ShowsCopy) {
 	WidgetMonitor m;
 	Widget w1(m);
 	Widget w2(m);
-	w2 = w1;
+	w2 = std::move(w1);
 	ASSERT_EQ(1, m.copied);
 
 }
@@ -97,9 +97,9 @@ TEST(Shared, ShareSingleWidget) {
 	WidgetMonitor m;
 	{
 		Shared<Widget> a(new Widget(m));
-		Shared<Widget> b = a;
+		Shared<Widget> b = std::move(a);
 		Shared<Widget> c;
-		c = b;
+		c = std::move(b);
 	}
 	ASSERT_EQ(1, m.created);
 	ASSERT_EQ(0, m.copied);
@@ -112,7 +112,7 @@ TEST(Shared, SupportsImplicitTypecasts) {
 		Shared<Widget> c;
 		Shared<WidgetSubclass> a(new WidgetSubclass(m));
 		Shared<Widget> b = a;
-		c = b;
+		c = std::move(b);
 	}
 	ASSERT_EQ(1, m.created);
 	ASSERT_EQ(0, m.copied);
