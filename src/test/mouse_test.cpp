@@ -44,10 +44,11 @@ TEST_F(TestMouse, MovesPointerInsideTarget) {
 
 TEST_F(TestMouse, MovesPointerOutsideTarget) {
 	if (IsFirefox()) return;
-	driver.MoveToCenterOf(target).MoveTo(Offset(55,55)).Click();
-	driver.MoveToCenterOf(target).MoveTo(Offset(-55,55)).Click();
-	driver.MoveToCenterOf(target).MoveTo(Offset(-55,-55)).Click();
-	driver.MoveToCenterOf(target).MoveTo(Offset(55,-55)).Click();
+	const Session& session = driver.MoveToCenterOf(target);
+	session.MoveTo(Offset(55,55)).Click();
+	session.MoveTo(Offset(-55,55)).Click();
+	session.MoveTo(Offset(-55,-55)).Click();
+	session.MoveTo(Offset(55,-55)).Click();
 	ASSERT_EQ("", GetValue(click_type));
 }
 
