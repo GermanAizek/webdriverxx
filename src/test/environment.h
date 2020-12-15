@@ -96,6 +96,7 @@ inline webdriverxx::WebDriver& GetFreshDriver() { return Environment::Instance()
 inline webdriverxx::WebDriver CreateDriver() { return Environment::Instance().CreateDriver(); }
 inline bool TestRealBrowsers() { return GetParameters().test_real_browsers; }
 inline std::string GetBrowserName() { return GetDriver().GetCapabilities().GetBrowserName(); }
+inline bool IsChrome() { return GetBrowserName() == webdriverxx::browser::Chrome; }
 inline bool IsFirefox() { return GetBrowserName() == webdriverxx::browser::Firefox; }
 inline bool IsPhantomJS() { return GetBrowserName() == webdriverxx::browser::PhantomJS; }
 
