@@ -8,7 +8,7 @@ int main()
 
   WebDriver op = Start(Opera());
 
-  WebDriver ph = Start(Phantom());
+  WebDriver ph = Start(PhantomJS());
 
   WebDriver gc = Start(Chrome());
 
