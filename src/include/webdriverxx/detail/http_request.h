@@ -89,8 +89,8 @@ protected:
 	}
 
 private:
-	long GetHttpCode() const {
-		long http_code = 0;
+	HTTPCode GetHttpCode() const {
+		HTTPCode http_code(0L);
 		const auto result = curl_easy_getinfo(http_connection_, CURLINFO_RESPONSE_CODE, &http_code);
 		WEBDRIVERXX_CHECK(result == CURLE_OK, Fmt()
 			<< "Cannot get HTTP code (" << curl_easy_strerror(result) << ")"

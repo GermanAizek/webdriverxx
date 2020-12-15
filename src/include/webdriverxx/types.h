@@ -2,11 +2,13 @@
 #define WEBDRIVERXX_TYPES_H
 
 #include <string>
+#include <cstdint>
 
 namespace webdriverxx {
 
-typedef unsigned long long TimePoint;
-typedef unsigned Duration;
+typedef uint64_t TimePoint;
+typedef uint32_t Duration;
+typedef long HTTPCode;
 
 struct Size {
 	int width;

@@ -172,9 +172,9 @@ void CustomFromJson(const picojson::value& value, int& result) {
 }
 
 inline
-void CustomFromJson(const picojson::value& value, unsigned& result) {
+void CustomFromJson(const picojson::value& value, uint32_t& result) {
 	WEBDRIVERXX_CHECK(value.is<double>(), "Value is not a number");
-	result = static_cast<unsigned>(value.get<double>());
+	result = static_cast<uint32_t>(value.get<double>());
 }
 
 inline

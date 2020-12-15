@@ -25,7 +25,7 @@ private:
 	SharedObjectBase& operator = (SharedObjectBase&);
 
 private:
-	unsigned ref_;
+	uint32_t ref_;
 };
 
 // Copyable, not thread safe

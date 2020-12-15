@@ -7,11 +7,11 @@ namespace webdriverxx {
 namespace detail {
 
 struct HttpResponse {
-	long http_code;
+	HTTPCode http_code;
 	std::string body;
 
 	HttpResponse()
-		: http_code(0)
+		: http_code(0L)
 	{}
 };
 

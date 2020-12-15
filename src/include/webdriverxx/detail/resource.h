@@ -155,7 +155,7 @@ private:
 		) const {
 		WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
 		WEBDRIVERXX_CHECK(
-			http_response.http_code / 100 != 4 &&
+			static_cast<int32_t>(http_response.http_code / 100) != 4 && // is not 4xx
 			http_response.http_code != 501,
 			"HTTP code indicates that request is invalid");
 
