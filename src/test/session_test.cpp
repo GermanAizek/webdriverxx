@@ -70,7 +70,7 @@ TEST_F(TestSession, GetsWindowPosition) {
 }
 
 TEST_F(TestSession, SetsWindowPosition) {
-	if (IsPhantom()) return;
+	if (IsPhantomJS()) return;
 	Window window = driver.GetCurrentWindow();
 	Point position1;
 	position1.x = 101;

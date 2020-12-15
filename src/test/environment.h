@@ -97,7 +97,7 @@ inline webdriverxx::WebDriver CreateDriver() { return Environment::Instance().Cr
 inline bool TestRealBrowsers() { return GetParameters().test_real_browsers; }
 inline std::string GetBrowserName() { return GetDriver().GetCapabilities().GetBrowserName(); }
 inline bool IsFirefox() { return GetBrowserName() == webdriverxx::browser::Firefox; }
-inline bool IsPhantom() { return GetBrowserName() == webdriverxx::browser::Phantom; }
+inline bool IsPhantomJS() { return GetBrowserName() == webdriverxx::browser::PhantomJS; }
 
 } // namespace test
 

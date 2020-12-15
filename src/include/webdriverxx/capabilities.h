@@ -20,7 +20,7 @@ ConstValue IPad = "iPad";
 ConstValue Mock = "mock";
 ConstValue Opera = "opera";
 ConstValue Safari = "safari";
-ConstValue Phantom = "phantomjs";
+ConstValue PhantomJS = "phantomjs";
 } // namespace browser
 
 namespace platform {

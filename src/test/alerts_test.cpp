@@ -18,26 +18,26 @@ protected:
 };
 
 TEST_F(TestAlerts, AcceptsAlert) {
-	if (IsPhantom()) return;
+	if (IsPhantomJS()) return;
 	driver.Execute("alert('abc')");
 	driver.AcceptAlert();
 }
 
 TEST_F(TestAlerts, DismissesAlert) {
-	if (IsPhantom()) return;
+	if (IsPhantomJS()) return;
 	driver.Execute("alert('abc')");
 	driver.DismissAlert();
 }
 
 TEST_F(TestAlerts, GetsAlertText) {
-	if (IsPhantom()) return;
+	if (IsPhantomJS()) return;
 	driver.Execute("alert('abc')");
 	ASSERT_EQ("abc", driver.GetAlertText());
 	driver.DismissAlert();
 }
 
 TEST_F(TestAlerts, SendsKeysToAlert) {
-	if (IsPhantom()) return;
+	if (IsPhantomJS()) return;
 	driver.Execute("result = prompt('abc')");
 	driver.SendKeysToAlert("def");
 	driver.AcceptAlert();
@@ -45,7 +45,7 @@ TEST_F(TestAlerts, SendsKeysToAlert) {
 }
 
 TEST_F(TestAlerts, DismissesSendedKeys) {
-	if (IsPhantom()) return;
+	if (IsPhantomJS()) return;
 	driver.Execute("result = prompt('abc')");
 	driver.SendKeysToAlert("def");
 	driver.DismissAlert();
