@@ -1,6 +1,7 @@
 #ifndef WEBDRIVERXX_DETAIL_HTTP_CLIENT_H
 #define WEBDRIVERXX_DETAIL_HTTP_CLIENT_H
 
+#include "types.h"
 #include <string>
 
 namespace webdriverxx {
