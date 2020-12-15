@@ -15,6 +15,14 @@ public:
 		, resource_(resource)
 	{}
 
+	~Window() {
+		delete this;
+	}
+
+	void close() const {
+		this->~Window();
+	}
+
 	std::string GetHandle() const {
 		return handle_;
 	}
@@ -39,6 +47,16 @@ public:
 
 	const Window& Maximize() const {
 		resource_->Post("maximize");
+		return *this;
+	}
+
+	const Window& Minimize() const {
+		resource_->Post("minimize");
+		return *this;
+	}
+
+	const Window& Fullscreen() const {
+		resource_->Post("fullscreen");
 		return *this;
 	}
 

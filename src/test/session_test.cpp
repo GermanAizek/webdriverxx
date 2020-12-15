@@ -81,9 +81,24 @@ TEST_F(TestSession, SetsWindowPosition) {
 	ASSERT_EQ(102, position2.y);
 }
 
+TEST_F(TestSession, CloseWindow) {
+	Window window = driver.GetCurrentWindow();
+	window.close();
+}
+
 TEST_F(TestSession, MaximizesWindow) {
 	Window window = driver.GetCurrentWindow();
 	window.Maximize();
+}
+
+TEST_F(TestSession, MinimizesWindow) {
+	Window window = driver.GetCurrentWindow();
+	window.Minimize();
+}
+
+TEST_F(TestSession, FullscreensWindow) {
+	Window window = driver.GetCurrentWindow();
+	window.Fullscreen();
 }
 
 TEST_F(TestSession, GetsWindows) {
