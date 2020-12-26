@@ -72,20 +72,46 @@ class Keyboard;
 
 class Shortcut // copyable
 {
+	friend class detail::Keyboard;
+	std::vector<std::string> keys_;
+	std::vector<std::string> holdkeys;
+	bool isDown;
 public:
+	Shortcut::Shortcut() : isDown(false) {}
+
 	Shortcut& operator << (const std::string& key) {
+		if (isDown) {
+			for (auto& p : holdkeys) {
+				keys_.push_back(p);
+			}
+		}
 		keys_.push_back(key);
 		return *this;
 	}
 
 	Shortcut& operator << (const char* key) {
+		if (isDown) {
+			for (auto& p : holdkeys) {
+				keys_.push_back(p);
+			}
+		}
 		keys_.push_back(key);
 		return *this;
 	}
 
-private:
-	friend class detail::Keyboard;
-	std::vector<std::string> keys_;
+	void setPressed(bool flag) {
+		isDown = flag;
+	}
+
+	Shortcut& addHoldKey(const std::string& key) {
+		holdkeys.push_back(key);
+		return *this;
+	}
+
+	Shortcut& removeHoldKey(const std::string& key) {
+		holdkeys.erase(std::remove(holdkeys.begin(), holdkeys.end(), key), holdkeys.end());
+		return *this;
+	}
 };
 
 } // namespace webdriverxx 

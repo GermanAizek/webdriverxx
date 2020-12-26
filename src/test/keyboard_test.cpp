@@ -25,7 +25,18 @@ TEST_F(TestKeyboard, SendsKeysToElement) {
 		.SendKeys(keys::Left).SendKeys(keys::Left).SendKeys(keys::Left)
 		.SendKeys("def")
 		;
-	ASSERT_EQ("abcdef", e.GetAttribute("value"));
+	ASSERT_EQ("defabc", e.GetAttribute("value"));
+}
+
+TEST_F(TestKeyboard, SendsHoldKeysToElement) {
+	Element e = driver.FindElement(ByName("first"));
+	e.Clear()
+		.KeyDown(keys::Shift)
+		.SendKeys("abc")
+		.KeyUp(keys::Shift)
+		.SendKeys("def")
+		;
+	ASSERT_EQ("ABCdef", e.GetAttribute("value"));
 }
 
 TEST_F(TestKeyboard, SendsShortcuts) {

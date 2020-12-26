@@ -119,6 +119,18 @@ const Element& Element::SendKeys(const Shortcut& shortcut) const {
 }
 
 inline
+const Element& Element::KeyDown(const std::string& keys) const {
+	GetKeyboard().SendKeys(keys);
+	return *this;
+}
+
+inline
+const Element& Element::KeyUp(const std::string& keys) const {
+	GetKeyboard().SendKeys(keys);
+	return *this;
+}
+
+inline
 bool Element::Equals(const Element& other) const {
 	return GetResource().GetBool(std::string("equals/") + other.ref_);
 }
