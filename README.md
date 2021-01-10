@@ -14,10 +14,11 @@ SPECIAL THANKS
  * 2019 xingyun86 ([peipengshuai@hotmail.com](mailto:peipengshuai@hotmail.com))
  * 2020 xloem ([0xloem@gmail.com](mailto:0xloem@gmail.com))
  
-## Install on Linux
+## Downloading
 
 ```bash
 git clone https://github.com/GermanAizek/webdriverxx.git
+cd webdriverxx
 ```
 
 ## Install on Linux
