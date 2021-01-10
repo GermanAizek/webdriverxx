@@ -7,9 +7,18 @@ You can use this library in any C++ project.
 COPYRIGHTS
 
  * 2014-2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
+ * 2017 Ilya Durdyev (durdyev)
+ 
+SPECIAL THANKS
 
  * 2019 xingyun86 ([peipengshuai@hotmail.com](mailto:peipengshuai@hotmail.com))
+ * 2020 xloem ([0xloem@gmail.com](mailto:0xloem@gmail.com))
+ 
+## Install on Linux
 
+```bash
+git clone https://github.com/GermanAizek/webdriverxx.git
+```
 
 ## Install on Linux
 
@@ -20,7 +29,7 @@ sudo make && sudo make install
 
 ## Install on Windows
 
-```
+```bash
 mkdir build
 cd build
 cmake ../src
