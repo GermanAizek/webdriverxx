@@ -19,6 +19,6 @@ include_directories(include)
 add_subdirectory(test)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
-                  DESTINATION /usr/local/include/${PROJECT_NAME}
+                  DESTINATION include/${PROJECT_NAME}
                   FILES_MATCHING PATTERN "*")
 
