@@ -1,6 +1,7 @@
 #ifndef WEBDRIVERXX_DETAIL_SHARED_H
 #define WEBDRIVERXX_DETAIL_SHARED_H
 
+#include <cstdint>
 #include <algorithm>
 
 namespace webdriverxx {
