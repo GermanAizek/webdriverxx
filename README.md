@@ -21,6 +21,25 @@ git clone https://github.com/GermanAizek/webdriverxx.git
 cd webdriverxx
 ```
 
+## Installing Requirements
+
+### Debian/Ubuntu
+
+```bash
+sudo apt-get install default-jre cmake g++ make curl
+```
+
+### Arch Linux
+
+```bash
+sudo pacman -Syu jre-openjdk cmake g++ make curl
+```
+### Gentoo
+
+```bash
+sudo emerge -av virtual/jre dev-util/cmake sys-devel/gcc sys-devel/make net-misc/curl
+```
+
 ## Install on Linux
 
 ```bash
@@ -34,7 +53,7 @@ sudo make && sudo make install
 mkdir build
 cd build
 cmake ../src
-// For example, open a solution in Visual Studio
+# For example, open a solution in Visual Studio
 ```
 
 ## A quick example
