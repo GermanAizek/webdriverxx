@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <algorithm>
 
 namespace webdriverxx {
 namespace keys { 
@@ -77,7 +78,7 @@ class Shortcut // copyable
 	std::vector<std::string> holdkeys;
 	bool isDown;
 public:
-	Shortcut::Shortcut() : isDown(false) {}
+	Shortcut() : isDown(false) {}
 
 	Shortcut& operator << (const std::string& key) {
 		if (isDown) {
@@ -109,7 +110,8 @@ public:
 	}
 
 	Shortcut& removeHoldKey(const std::string& key) {
-		holdkeys.erase(std::remove(holdkeys.begin(), holdkeys.end(), key), holdkeys.end());
+		auto removed = std::remove(holdkeys.begin(), holdkeys.end(), key);
+		holdkeys.erase(removed, holdkeys.end());
 		return *this;
 	}
 };
