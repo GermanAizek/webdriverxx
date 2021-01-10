@@ -40,12 +40,26 @@ cmake ../src
 ## A quick example
 
 ##### Dependencies
-You need to download and run selenium-server.
-http://www.seleniumhq.org/download/
+You need to download and run selenium-server-standalone.
+
+Complete list can be seen here: https://selenium-release.storage.googleapis.com/index.html
+
+```bash
+wget https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
+java -jar seleniumjar.jar
+```
 
 ##### Example codes
 
 Build cmakelists in examples folder and run binary.
+
+```bash
+cd examples/example_start_browsers
+mkdir build && cd build
+cmake ..
+make
+./example_start_browsers
+```
 
 ## Features
 
