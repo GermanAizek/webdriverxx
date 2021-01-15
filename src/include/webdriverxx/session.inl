@@ -22,7 +22,7 @@ Capabilities Session::GetCapabilities() const {
 }
 
 inline
-std::string Session::GetSource() const {
+std::string Session::GetPageSource() const {
 	return resource_->GetString("source");
 }
 

@@ -21,7 +21,7 @@ class Client;
 class Session { // copyable
 public:	
 	Capabilities GetCapabilities() const;
-	std::string GetSource() const;
+	std::string GetPageSource() const;
 	std::string GetTitle() const;
 	std::string GetUrl() const;
 	std::string GetScreenshot() const; // Base64 PNG
