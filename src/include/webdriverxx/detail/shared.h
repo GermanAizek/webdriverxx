@@ -54,7 +54,7 @@ public:
 	}
 
 	template<typename T2>
-	Shared(const Shared<T2>& other) 
+	Shared(const Shared<T2>& other)
 		: ptr_(other.ptr_)
 		, ref_(other.ref_)
 	{

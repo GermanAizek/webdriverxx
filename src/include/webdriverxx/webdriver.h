@@ -24,7 +24,7 @@ public:
 
 inline
 WebDriver Start(
-	const Capabilities& desired, 
+	const Capabilities& desired,
 	const Capabilities& required = Capabilities(),
 	const std::string& url = kDefaultWebDriverUrl
 	)

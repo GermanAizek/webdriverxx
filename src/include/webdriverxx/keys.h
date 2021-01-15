@@ -1,12 +1,12 @@
 #ifndef WEBDRIVERXX_KEYS_H
-#define WEBDRIVERXX_KEYS_H 
+#define WEBDRIVERXX_KEYS_H
 
 #include <string>
 #include <vector>
 #include <algorithm>
 
 namespace webdriverxx {
-namespace keys { 
+namespace keys {
 
 const char *const Null = "\xee\x80\x80";
 const char *const Cancel = "\xee\x80\x81";
@@ -65,7 +65,7 @@ const char *const F12 = "\xee\x80\xbc";
 const char *const Command = "\xee\x80\xbd";
 const char *const Meta = Command;
 
-} // namespace keys 
+} // namespace keys
 
 namespace detail {
 class Keyboard;
@@ -116,6 +116,6 @@ public:
 	}
 };
 
-} // namespace webdriverxx 
+} // namespace webdriverxx
 
 #endif

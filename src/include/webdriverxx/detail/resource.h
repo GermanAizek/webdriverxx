@@ -110,7 +110,7 @@ protected:
 
 private:
 	picojson::value Download(
-		const std::string& command, 
+		const std::string& command,
 		HttpResponse (IHttpClient::* member)(const std::string& url) const,
 		const char* request_type
 		) const {
@@ -132,7 +132,7 @@ private:
 	}
 
 	picojson::value Upload(
-		const std::string& command, 
+		const std::string& command,
 		const picojson::value& upload_data,
 		HttpResponse (IHttpClient::* member)(const std::string& url, const std::string& upload_data) const,
 		const char* request_type

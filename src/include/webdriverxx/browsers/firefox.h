@@ -15,7 +15,7 @@ struct Firefox : Capabilities { // copyable
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(Firefox)
 	// Profile is a profile folder, zipped and base64 encoded.
-	// TODO: add FirefoxProfile 
+	// TODO: add FirefoxProfile
 	WEBDRIVERXX_PROPERTY(Profile, "firefox_profile", std::string)
 	WEBDRIVERXX_PROPERTY(LoggingPrefs, "loggingPrefs", LoggingPrefs)
 	WEBDRIVERXX_PROPERTY(FirefoxBinary, "firefox_binary", std::string)

@@ -1,5 +1,5 @@
 #ifndef WEBDRIVERXX_JS_ARGS_H
-#define WEBDRIVERXX_JS_ARGS_H 
+#define WEBDRIVERXX_JS_ARGS_H
 
 #include "conversions.h"
 #include "picojson.h"
@@ -35,6 +35,6 @@ private:
 	picojson::value args_;
 };
 
-} // namespace webdriverxx 
+} // namespace webdriverxx
 
 #endif
