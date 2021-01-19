@@ -133,7 +133,7 @@ struct SocksProxy : ManualProxy { // copyable
 	WEBDRIVERXX_PROPERTY(ProxyAddress, "socksProxy", std::string)
 	WEBDRIVERXX_PROPERTY(Username, "socksUsername", std::string)
 	WEBDRIVERXX_PROPERTY(Password, "socksPassword", std::string)
-	WEBDRIVERXX_PROPERTY(ProxyVersion, "socksVersion", uint8_t) // it is 4 or 5
+	WEBDRIVERXX_PROPERTY(ProxyVersion, "socksVersion", int) // [4,5]
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
