@@ -142,7 +142,7 @@ TEST_F(TestSession, DoesRefresh) {
 
 TEST_F(TestSession, GetsPageSource) {
 	driver.Navigate(GetTestPageUrl("session.html"));
-	std::string source = driver.GetSource();
+	std::string source = driver.GetPageSource();
 	ASSERT_NE(std::string::npos, source.find("<html"));
 	ASSERT_NE(std::string::npos, source.find("</html>"));
 }
