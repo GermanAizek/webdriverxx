@@ -119,20 +119,20 @@ struct HttpProxy : ManualProxy { // copyable
 			} else {
 				SetProxyAddress(address + '@' + username + ':'); // pass empty
 			}
-        }
-        else {
+		}
+		else {
 			SetProxyAddress(address);
-        }
+		}
 	}
 
-	auto SetUsername(const std::string& username) {
+	HttpProxy& SetUsername(const std::string& username) {
 		SetProxyAddress(GetProxyAddress() + "@" + username + ":"); // pass empty
-	    return *this;
+		return *this;
 	}
 
-	auto SetPassword(const std::string& password) {
-	    SetProxyAddress(GetProxyAddress() + password); // pass empty
-	    return *this;
+	HttpProxy& SetPassword(const std::string& password) {
+		SetProxyAddress(GetProxyAddress() + password); // pass empty
+		return *this;
 	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(HttpProxy)
