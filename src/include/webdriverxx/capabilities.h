@@ -47,14 +47,14 @@ ConstValue Ignore = "ignore";
 namespace proxy_type {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Direct = "direct";
-ConstValue Manual = "manual"; // Manual proxy settings configured, e.g. setting a proxy for HTTP, a proxy for FTP
-ConstValue Pac = "pac"; // Proxy autoconfiguration from a URL
-ConstValue Autodetect = "autodetect"; // Proxy autodetection, probably with WPAD
-ConstValue System = "system"; // Use system settings
+ConstValue Direct = "DIRECT";         // Direct connection, no proxy (default on Windows).
+ConstValue Manual = "MANUAL";         // Manual proxy settings (e.g., for httpProxy).
+ConstValue Pac = "PAC";               // Proxy autoconfiguration from URL.
+ConstValue Autodetect = "AUTODETECT"; // Proxy autodetection (presumably with WPAD).
+ConstValue System = "SYSTEM";         // Use system settings (default on Linux).
 } // namespace proxy_type
 
-#define WEBDRIVERXX_PROPERTIES_BEGIN(this_class)	typedef this_class This;
+#define WEBDRIVERXX_PROPERTIES_BEGIN(this_class) typedef this_class This;
 #define WEBDRIVERXX_PROPERTIES_END()
 
 #define WEBDRIVERXX_PROPERTY_RONLY(name, id, type) \
@@ -111,7 +111,29 @@ struct FtpProxy : ManualProxy { // copyable
 };
 
 struct HttpProxy : ManualProxy { // copyable
-	explicit HttpProxy(const std::string& address) { SetProxyAddress(address); }
+	explicit HttpProxy(const std::string& address, const std::string& username = "", const std::string& password = "") {
+		if (!username.empty()) {
+			if (!password.empty()) {
+				// TODO: create tunnel and connect
+				SetProxyAddress(address + '@' + username + ':' + password);
+			} else {
+				SetProxyAddress(address + '@' + username + ':'); // pass empty
+			}
+		}
+		else {
+			SetProxyAddress(address);
+		}
+	}
+
+	HttpProxy& SetUsername(const std::string& username) {
+		SetProxyAddress(GetProxyAddress() + "@" + username + ":"); // pass empty
+		return *this;
+	}
+
+	HttpProxy& SetPassword(const std::string& password) {
+		SetProxyAddress(GetProxyAddress() + password); // pass empty
+		return *this;
+	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(HttpProxy)
 	WEBDRIVERXX_PROPERTY(ProxyAddress, "httpProxy", std::string)
@@ -119,7 +141,19 @@ struct HttpProxy : ManualProxy { // copyable
 };
 
 struct SslProxy : ManualProxy { // copyable
-	explicit SslProxy(const std::string& address) { SetProxyAddress(address); }
+	explicit SslProxy(const std::string& address, const std::string& username = "", const std::string& password = "") {
+		if (!username.empty()) {
+			if (!password.empty()) {
+				// TODO: create tunnel and connect
+				SetProxyAddress(address + '@' + username + ':' + password);
+			} else {
+				SetProxyAddress(address + '@' + username + ':'); // pass empty
+			}
+		}
+		else {
+			SetProxyAddress(address);
+		}
+	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(SslProxy)
 	WEBDRIVERXX_PROPERTY(ProxyAddress, "sslProxy", std::string)
