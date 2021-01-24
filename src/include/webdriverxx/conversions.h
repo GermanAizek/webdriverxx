@@ -74,7 +74,11 @@ picojson::value ToJsonImpl(const T& value, DefaultTag) {
 	// to the picojson::value. Define CustomToJson
 	// function (see examples below) in the T's namespace
 	// to resolve the issue.
+#ifndef _WIN32
 	return picojson::value(value);
+#else
+	return ToJson(value);
+#endif
 }
 
 template<typename T>

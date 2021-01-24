@@ -19,14 +19,15 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 if(WIN32)
 	# curl
-	add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/curl)
+	#add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/curl)
 	include_directories(${CMAKE_SOURCE_DIR}/thirdparty/curl/include)
 	link_directories(${CMAKE_SOURCE_DIR}/thirdparty/curl/lib)
+	add_subdirectory(${CMAKE_SOURCE_DIR}/test)
 elseif(UNIX AND NOT APPLE)
 	find_package(CURL REQUIRED)
 	include_directories(${CURL_INCLUDE_DIR})
-endif()
-
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+	
+	install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
                   DESTINATION include/${PROJECT_NAME}
                   FILES_MATCHING PATTERN "*")
+endif()

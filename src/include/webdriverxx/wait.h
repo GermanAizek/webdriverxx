@@ -19,13 +19,17 @@ Value Wait(
 	const TimePoint timeout = detail::Now() + timeoutMs;
 	for (;;) {
 		const auto value_ptr = getter(nullptr);
-		if (value_ptr)
+		if (value_ptr) {
 			return *value_ptr;
+		}
+		
 		if (detail::Now() >= timeout) {
 			std::string description;
-			const auto value_ptr = getter(&description);
-			if (value_ptr)
-				return *value_ptr;
+			const auto value_ptr2 = getter(&description);
+			if (value_ptr2) {
+				return *value_ptr2;
+			}
+
 			throw WebDriverException(detail::Fmt()
 				<< "Timeout after " << timeoutMs << "ms of waiting, last attempt returned: "
 				<< description
