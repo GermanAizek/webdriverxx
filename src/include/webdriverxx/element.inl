@@ -11,7 +11,8 @@ picojson::value CustomToJson(const Element& element) {
 }
 
 inline
-Element::Element() {}
+Element::Element() : w3c(false)
+{}
 
 inline
 Element::Element(

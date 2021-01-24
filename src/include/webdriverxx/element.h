@@ -15,6 +15,14 @@ namespace webdriverxx {
 
 // An element from DOM
 class Element { // copyable
+private:
+	bool w3c;
+	detail::Resource& GetResource() const;
+	detail::Keyboard GetKeyboard() const;
+
+	std::string ref_;
+	detail::Shared<detail::Resource> resource_;
+	detail::Shared<detail::IFinderFactory> factory_;
 public:
 	Element();
 	
@@ -53,15 +61,6 @@ public:
 	bool operator != (const Element& other) const;
 	bool operator == (const Element& other) const;
 	bool operator < (const Element& other) const;
-
-private:
-	detail::Resource& GetResource() const;
-	detail::Keyboard GetKeyboard() const;
-
-private:
-	std::string ref_;
-	detail::Shared<detail::Resource> resource_;
-	detail::Shared<detail::IFinderFactory> factory_;
 };
 
 } // namespace webdriverxx
