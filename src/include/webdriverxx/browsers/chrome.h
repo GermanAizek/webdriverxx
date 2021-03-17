@@ -2,12 +2,12 @@
 #define WEBDRIVERXX_BROWSERS_CHROME_H
 
 #include "../capabilities.h"
-#include <list>
+#include <unordered_set>
 
 namespace webdriverxx {
 namespace chrome {
 namespace device {
-	std::list<std::string> deviceList {
+	std::unordered_set<std::string> deviceList {
 		"BlackBerry Z30",
 		"Blackberry PlayBook",
 		"Galaxy Note 3",
@@ -45,6 +45,14 @@ namespace device {
 		"Surface Duo",
 		"Galaxy Fold"
 	};
+
+	std::string Get(const std::string& name) {
+		auto pos = deviceList.find(name);
+		if (pos != deviceList.end())
+			return *pos;
+		else
+			return std::string();
+	}
 	
 	struct deviceMetrics : JsonObject {
 		WEBDRIVERXX_PROPERTIES_BEGIN(deviceMetrics)
