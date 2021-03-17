@@ -63,6 +63,7 @@ set(SOURCE_FILES
 	wait_match_test.cpp
 	wait_test.cpp
 	webdriver_test.cpp
+	emulatechrome_test.cpp
 	)
 
 file(COPY pages DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
