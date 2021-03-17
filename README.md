@@ -143,6 +143,13 @@ driver.FindElement(ByTag("input")).SendKeys("Hello, world!");
 driver.SendKeys(Shortcut() << keys::Control << "t");
 ```
 
+### Emulate mobile devices (only Chrome)
+```cpp
+chrome::MobileEmulation me;
+me.SetdeviceName(chrome::device::Get("Galaxy Note 3"));
+WebDriver ff = Start(Chrome().SetMobileEmulation(me));
+```
+
 ### Execute Javascript
 
 ```cpp
