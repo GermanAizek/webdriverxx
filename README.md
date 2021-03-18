@@ -72,6 +72,7 @@ java -jar seleniumjar.jar
 
 Build cmakelists in examples folder and run binary.
 
+On Linux:
 ```bash
 cd examples/example_start_browsers
 mkdir build && cd build
@@ -79,6 +80,16 @@ cmake ..
 make
 ./example_start_browsers
 ```
+
+On Windows:
+```bash
+cd examples/example_start_browsers
+mkdir build && cd build
+cmake -DCURL_INCLUDE_DIR=<path_folder_webdriverxx>/src/thirdparty/curl/include ..
+# For example, open a solution in Visual Studio
+```
+
+
 
 ## Features
 
