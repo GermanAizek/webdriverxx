@@ -2,3 +2,6 @@
 	path = thirdparty/curl
 	url = https://github.com/curl/curl.git
 	branch = master
+[submodule "src/thirdparty/curl"]
+	path = src/thirdparty/curl
+	url = https://github.com/curl/curl.git
