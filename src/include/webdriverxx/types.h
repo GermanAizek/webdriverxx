@@ -11,8 +11,8 @@ typedef uint32_t Duration;
 typedef long HTTPCode;
 
 struct Size {
-	size_t width;
-	size_t height;
+	int width;
+	int height;
 	Size() : width(0), height(0) {}
 };
 
