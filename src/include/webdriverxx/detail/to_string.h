@@ -112,6 +112,21 @@ std::string ToString(const T& value) {
 	return s.str();
 }
 
+template<typename T>
+std::string ToUtf8(const T& value) {
+	std::string result("");
+	for (int i = 0; i < value.size(); i++) {
+		if (value[i] == '\\') {
+			result.push_back('//');
+			i += 5;
+		}
+		else {
+			result.push_back(value[i]);
+		}
+	}
+	return result;
+}
+
 } // namespace detail
 } // namespace webdriverxx
 
