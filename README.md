@@ -7,7 +7,7 @@ You can use this library in any C++ project.
 COPYRIGHTS
 
  * 2014-2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
- * 2017 Ilya Durdyev (durdyev)
+ * 2017 Ilya Durdyev (IDurdyev)
  
 SPECIAL THANKS
 
@@ -61,7 +61,9 @@ cmake ../src
 ### GeckoDriver
 
 To work with geckodriver, you need any browser built on the gecko engine.
+
 Firefox (ESR, Nightly), IceCat, Waterfox, Pale Moon, SeaMonkey and etc.
+
 In our examples, we will install regular firefox.
 
 ### Debian/Ubuntu
@@ -86,11 +88,13 @@ USE="geckodriver" sudo emerge -av www-client/firefox
 ### Dependencies
 
 The first thing you need is full runtime environment Java.
+
 You need to download and run selenium-server-standalone.
 
 #### Windows
 
 Download and install: https://www.oracle.com/java/technologies/javase-jre8-downloads.html
+
 Complete list can be seen here: https://selenium-release.storage.googleapis.com/index.html
 
 #### Linux
