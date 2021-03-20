@@ -56,31 +56,56 @@ cmake ../src
 # For example, open a solution in Visual Studio
 ```
 
-## Installing geckodriver or chromedriver on Linux
+## Install geckodriver or chromedriver on Linux
 
 ### GeckoDriver
 
-To work with geckodriver, you need any browser built on the gecko engine.
+To work with geckodriver, you need any browser built on the Gecko engine.
 
 Firefox (ESR, Nightly), IceCat, Waterfox, Pale Moon, SeaMonkey and etc.
 
-In our examples, we will install regular firefox.
+In our examples, we will install regular Firefox.
 
-### Debian/Ubuntu
+#### Debian/Ubuntu
 
 ```bash
 sudo apt-get install geckodriver
 ```
 
-### Arch Linux
+#### Arch Linux
 
 ```bash
 sudo pacman -Syu geckodriver
 ```
-### Gentoo
+#### Gentoo
 
 ```bash
 USE="geckodriver" sudo emerge -av www-client/firefox
+```
+
+### ChromeDriver
+
+To work with chromedriver, you need any browser built on the Chromium engine.
+
+Chromium, Google Chrome, Opera, Vivaldi and etc.
+
+In our examples, we will install regular Google Chrome.
+
+#### Debian/Ubuntu
+
+```bash
+sudo apt-get install chromium-driver
+```
+
+#### Arch Linux
+
+```bash
+sudo yay -S --aur aur/chromedriver
+```
+#### Gentoo
+
+```bash
+sudo emerge -av www-client/chromedriver-bin
 ```
 
 ## A quick example
@@ -99,24 +124,18 @@ Complete list can be seen here: https://selenium-release.storage.googleapis.com/
 
 #### Linux
 
-### Debian/Ubuntu
-
-```bash
-sudo apt-get install default-jre
-```
-
 ##### Arch Linux
 
 ```bash
-sudo pacman -Syu jre-openjdk
 sudo yay -S --aur aur/selenium-server-standalone
+java -jar /usr/share/selenium-server/selenium-server-standalone.jar
 ```
 
 ##### Any Linux distribution
 
 ```bash
 wget https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-java -jar seleniumjar.jar
+java -jar selenium-server-standalone-3.9.1.jar
 ```
 
 ### Example codes
