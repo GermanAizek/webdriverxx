@@ -83,17 +83,39 @@ USE="geckodriver" sudo emerge -av www-client/firefox
 
 ## A quick example
 
-##### Dependencies
+### Dependencies
+
+The first thing you need is full runtime environment Java.
 You need to download and run selenium-server-standalone.
 
+#### Windows
+
+Download and install: https://www.oracle.com/java/technologies/javase-jre8-downloads.html
 Complete list can be seen here: https://selenium-release.storage.googleapis.com/index.html
+
+#### Linux
+
+### Debian/Ubuntu
+
+```bash
+sudo apt-get install default-jre
+```
+
+##### Arch Linux
+
+```bash
+sudo pacman -Syu jre-openjdk
+sudo yay -S --aur aur/selenium-server-standalone
+```
+
+##### Any Linux distribution
 
 ```bash
 wget https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
 java -jar seleniumjar.jar
 ```
 
-##### Example codes
+### Example codes
 
 Build cmakelists in examples folder and run binary.
 
