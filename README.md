@@ -56,6 +56,31 @@ cmake ../src
 # For example, open a solution in Visual Studio
 ```
 
+## Installing geckodriver or chromedriver on Linux
+
+### GeckoDriver
+
+To work with geckodriver, you need any browser built on the gecko engine.
+Firefox (ESR, Nightly), IceCat, Waterfox, Pale Moon, SeaMonkey and etc.
+In our examples, we will install regular firefox.
+
+### Debian/Ubuntu
+
+```bash
+sudo apt-get install geckodriver
+```
+
+### Arch Linux
+
+```bash
+sudo pacman -Syu geckodriver
+```
+### Gentoo
+
+```bash
+USE="geckodriver" sudo emerge -av www-client/firefox
+```
+
 ## A quick example
 
 ##### Dependencies
