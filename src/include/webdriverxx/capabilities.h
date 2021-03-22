@@ -10,48 +10,48 @@ namespace webdriverxx {
 namespace browser {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Android = "android";
-ConstValue Chrome = "chrome";
-ConstValue Firefox = "firefox";
-ConstValue HtmlUnit = "htmlunit";
+ConstValue Android          = "android";
+ConstValue Chrome           = "chrome";
+ConstValue Firefox          = "firefox";
+ConstValue HtmlUnit         = "htmlunit";
 ConstValue InternetExplorer = "internet explorer";
-ConstValue IPhone = "iPhone";
-ConstValue IPad = "iPad";
-ConstValue Mock = "mock";
-ConstValue Opera = "opera";
-ConstValue Safari = "safari";
-ConstValue PhantomJS = "phantomjs";
+ConstValue IPhone           = "iPhone";
+ConstValue IPad             = "iPad";
+ConstValue Mock             = "mock";
+ConstValue Opera            = "opera";
+ConstValue Safari           = "safari";
+ConstValue PhantomJS        = "phantomjs";
 } // namespace browser
 
 namespace platform {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Any = "ANY";
-ConstValue Windows = "WINDOWS";
-ConstValue Xp = "XP";
-ConstValue Vista = "VISTA";
-ConstValue Mac = "MAC";
-ConstValue Linux = "LINUX";
-ConstValue Unix = "UNIX";
-ConstValue Android = "ANDROID";
+ConstValue Any              = "ANY";
+ConstValue Windows          = "WINDOWS";
+ConstValue Xp               = "XP";
+ConstValue Vista            = "VISTA";
+ConstValue Mac              = "MAC";
+ConstValue Linux            = "LINUX";
+ConstValue Unix             = "UNIX";
+ConstValue Android          = "ANDROID";
 } // namespace platform
 
 namespace unexpected_alert_behaviour {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Accept = "accept";
-ConstValue Dismiss = "dismiss";
-ConstValue Ignore = "ignore";
+ConstValue Accept           = "accept";
+ConstValue Dismiss          = "dismiss";
+ConstValue Ignore           = "ignore";
 } // namespace unexpected_alert_behaviour
 
 namespace proxy_type {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Direct = "DIRECT";         // Direct connection, no proxy (default on Windows).
-ConstValue Manual = "MANUAL";         // Manual proxy settings (e.g., for httpProxy).
-ConstValue Pac = "PAC";               // Proxy autoconfiguration from URL.
-ConstValue Autodetect = "AUTODETECT"; // Proxy autodetection (presumably with WPAD).
-ConstValue System = "SYSTEM";         // Use system settings (default on Linux).
+ConstValue Direct           = "DIRECT";         // Direct connection, no proxy (default on Windows).
+ConstValue Manual           = "MANUAL";         // Manual proxy settings (e.g., for httpProxy).
+ConstValue Pac              = "PAC";            // Proxy autoconfiguration from URL.
+ConstValue Autodetect       = "AUTODETECT";     // Proxy autodetection (presumably with WPAD).
+ConstValue System           = "SYSTEM";         // Use system settings (default on Linux).
 } // namespace proxy_type
 
 #define WEBDRIVERXX_PROPERTIES_BEGIN(this_class) typedef this_class This;
