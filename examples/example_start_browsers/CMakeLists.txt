@@ -9,10 +9,13 @@ option(CURL_STATICLIB "Set to ON to build libcurl with static linking." ON)
 
 if(WIN32)
     add_definitions("-DCURL_STATICLIB")
+    set(CURL_LIBRARY "libcurl.lib")
+else()
+    set(CURL_LIBRARY "-lcurl")
 endif()
 
-set(CURL_LIBRARY "-lcurl")
 find_package(CURL REQUIRED)
+target_link_libraries(example_start_browsers CURL::libcurl)
 include_directories(${CURL_INCLUDE_DIR})
 link_libraries(${CURL_LIBRARIES})
 
