@@ -226,11 +226,12 @@ struct Capabilities : JsonObject { // copyable
 	WEBDRIVERXX_PROPERTY(ElementScrollBehavior, "elementScrollBehavior", int)
 
 	// RemoteWebDriver specific
-	WEBDRIVERXX_PROPERTY_RONLY(SessionId, "webdriver.remote.sessionid", std::string)
+	WEBDRIVERXX_PROPERTY(SessionId, "webdriver.remote.sessionid", std::string)
 	WEBDRIVERXX_PROPERTY(QuietExceptions, "webdriver.remote.quietExceptions", bool)
 	
 	// Grid-specific
-	WEBDRIVERXX_PROPERTY_RONLY(SeleniumProtocol, "seleniumProtocol", std::string)
+	WEBDRIVERXX_PROPERTY(Path, "path", std::string)
+	WEBDRIVERXX_PROPERTY(SeleniumProtocol, "seleniumProtocol", std::string)
 	WEBDRIVERXX_PROPERTY(MaxInstances, "maxInstances", int)
 	WEBDRIVERXX_PROPERTY(Environment, "environment", std::string)
 	
