@@ -174,20 +174,22 @@ struct SocksProxy : ManualProxy { // copyable
 namespace log_level {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Off = "OFF";
-ConstValue Severe = "SEVERE";
-ConstValue Warning = "WARNING";
-ConstValue Info = "INFO";
-ConstValue Config = "CONFIG";
-ConstValue Fine = "FINE";
-ConstValue Finer = "FINER";
-ConstValue Finest = "FINEST";
-ConstValue All = "ALL";
+ConstValue Off              = "OFF";
+ConstValue Severe           = "SEVERE";
+ConstValue Warning          = "WARNING";
+ConstValue Info             = "INFO";
+ConstValue Config           = "CONFIG";
+ConstValue Fine             = "FINE";
+ConstValue Finer            = "FINER";
+ConstValue Finest           = "FINEST";
+ConstValue All              = "ALL";
 } // namespace log_level
 
 struct LoggingPrefs : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(LoggingPrefs)
-	WEBDRIVERXX_PROPERTY(Level, "driver", log_level::Value)
+	WEBDRIVERXX_PROPERTY(Level, "driver",  log_level::Value)
+	WEBDRIVERXX_PROPERTY(Level, "server",  log_level::Value)
+	WEBDRIVERXX_PROPERTY(Level, "browser", log_level::Value)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
