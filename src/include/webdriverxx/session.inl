@@ -42,6 +42,11 @@ std::string Session::GetScreenshot() const {
 }
 
 inline
+JsonObject Session::GetTimeoutMs() const {
+	return resource_->GetValue<JsonObject>("timeouts");
+}
+
+inline
 const Session& Session::SetTimeoutMs(timeout::Type type, int milliseconds) {
 	resource_->Post("timeouts",
 		JsonObject()
