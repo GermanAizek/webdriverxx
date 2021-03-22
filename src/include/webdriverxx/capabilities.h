@@ -200,14 +200,16 @@ struct Capabilities : JsonObject { // copyable
 	// If a capability is not listed below use Get/Set/Has public members.
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(Capabilities)
+	// Used by the selenium server for browser selection
 	WEBDRIVERXX_PROPERTY(BrowserName, "browserName", browser::Value)
 	WEBDRIVERXX_PROPERTY(Version, "version", std::string)
 	WEBDRIVERXX_PROPERTY(Platform, "platform", platform::Value)
-
-	WEBDRIVERXX_PROPERTY_RONLY(TakesScreenshot, "takesScreenshot", bool)
+	
+	// Read-only capabilities
 	WEBDRIVERXX_PROPERTY_RONLY(HandlesAlerts, "handlesAlerts", bool)
 	WEBDRIVERXX_PROPERTY_RONLY(CssSelectorsEnabled, "cssSelectorsEnabled", bool)
 
+	// Read-write capabilities
 	WEBDRIVERXX_PROPERTY(JavascriptEnabled, "javascriptEnabled", bool)
 	WEBDRIVERXX_PROPERTY(DatabaseEnabled, "databaseEnabled", bool)
 	WEBDRIVERXX_PROPERTY(LocationContextEnabled, "locationContextEnabled", bool)
@@ -221,8 +223,15 @@ struct Capabilities : JsonObject { // copyable
 	WEBDRIVERXX_PROPERTY(UnexpectedAlertBehaviour, "unexpectedAlertBehaviour", unexpected_alert_behaviour::Value)
 	WEBDRIVERXX_PROPERTY(ElementScrollBehavior, "elementScrollBehavior", int)
 
+	// RemoteWebDriver specific
 	WEBDRIVERXX_PROPERTY_RONLY(SessionId, "webdriver.remote.sessionid", std::string)
 	WEBDRIVERXX_PROPERTY(QuietExceptions, "webdriver.remote.quietExceptions", bool)
+	
+	// Grid-specific
+	WEBDRIVERXX_PROPERTY_RONLY(SeleniumProtocol, "seleniumProtocol", std::string)
+	WEBDRIVERXX_PROPERTY(MaxInstances, "maxInstances", int)
+	WEBDRIVERXX_PROPERTY(Environment, "environment", std::string)
+	
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
