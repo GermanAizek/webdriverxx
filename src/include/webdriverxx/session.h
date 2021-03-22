@@ -80,6 +80,8 @@ public:
 	const Session& SetTimeoutMs(timeout::Type type, int milliseconds);
 	const Session& SetImplicitTimeoutMs(int milliseconds);
 	const Session& SetAsyncScriptTimeoutMs(int milliseconds);
+	
+	std::string PrintPage(const JsonObject& print_options = nullptr) const;
 
 	void DeleteSession() const; // No need to delete sessions created by WebDriver or Client
 	virtual ~Session() {}

@@ -380,4 +380,10 @@ picojson::value Session::InternalEvalJsonValue(
 		);
 }
 
+inline
+std::string Session::PrintPage(const JsonObject& print_options) const {
+	resource_->PostValue("print", print_options);
+	return *this;
+}
+
 } // namespace webdriverxx
