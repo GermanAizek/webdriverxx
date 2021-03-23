@@ -15,7 +15,6 @@ else()
 endif()
 
 find_package(CURL REQUIRED)
-target_link_libraries(example_start_browsers CURL::libcurl)
 include_directories(${CURL_INCLUDE_DIR})
 link_libraries(${CURL_LIBRARIES})
 
