@@ -10,7 +10,7 @@ struct FirefoxProfile : JsonObject {
 	WEBDRIVERXX_PROPERTY(AcceptUntrustedCerts,  "webdriver_accept_untrusted_certs",  bool)
 	WEBDRIVERXX_PROPERTY(AssumeUntrustedIssuer, "webdriver_assume_untrusted_issuer", bool)
 	WEBDRIVERXX_PROPERTY(LogDriver,             "webdriver.log.driver",              log_level::Value)
-	WEBDRIVERXX_PROPERTY(LogFile,               "webdriver.log.file",                std::string)
+	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "webdriver.log.file",                std::string)
 	WEBDRIVERXX_PROPERTY(LoadStrategy,          "webdriver.load.strategy",           std::string)
 	WEBDRIVERXX_PROPERTY(LogFile,               "webdriver_firefox_port",            int) // default 7055
 	WEBDRIVERXX_PROPERTIES_END()
