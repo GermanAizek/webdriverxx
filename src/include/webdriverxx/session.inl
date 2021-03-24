@@ -386,8 +386,39 @@ picojson::value Session::InternalEvalJsonValue(
 }
 
 inline
-JsonObject Session::PrintPage(const JsonObject& print_options) const {
-	return resource_->Post("print", print_options);
+picojson::value Session::PrintPage(
+	const std::string& orientation,
+	float scale,
+	bool background,
+	float page_width,
+	float page_height,
+	bool shrink_to_fit,
+	std::vector<std::string> page_ranges,
+	float margin_top,
+	float margin_left,
+	float margin_bottom,
+	float margin_right
+	) const {
+	auto page = JsonObject()
+			.Set("width", page_width)
+			.Set("height", page_height);
+	
+	auto margin = JsonObject()
+			.Set("top", margin_top)
+			.Set("left", margin_left)
+			.Set("bottom", margin_bottom)
+			.Set("right", margin_right);
+			
+	return resource_->Post("print",
+		JsonObject()
+			.Set("orientation", orientation)
+			.Set("scale", scale)
+			.Set("background", background)
+			.Set("page", page)
+			.Set("margin", margin)
+			.Set("shrinkToFit", shrink_to_fit)
+			.Set("pageRanges", page_ranges)
+		);
 }
 
 } // namespace webdriverxx

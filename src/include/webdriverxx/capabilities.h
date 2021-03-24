@@ -187,9 +187,9 @@ ConstValue All              = "ALL";
 
 struct LoggingPrefs : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(LoggingPrefs)
-	WEBDRIVERXX_PROPERTY(Level, "driver",  log_level::Value)
-	WEBDRIVERXX_PROPERTY(Level, "server",  log_level::Value)
-	WEBDRIVERXX_PROPERTY(Level, "browser", log_level::Value)
+	WEBDRIVERXX_PROPERTY(DriverLogLevel, "driver",  log_level::Value)
+	WEBDRIVERXX_PROPERTY(ServerLogLevel, "server",  log_level::Value)
+	WEBDRIVERXX_PROPERTY(BrowserLogLevel, "browser", log_level::Value)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 

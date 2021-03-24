@@ -83,7 +83,11 @@ public:
 	const Session& SetImplicitTimeoutMs(int milliseconds);
 	const Session& SetAsyncScriptTimeoutMs(int milliseconds);
 	
-	JsonObject PrintPage(const JsonObject& print_options = nullptr) const;
+	picojson::value PrintPage(const std::string& orientation = "portrait",
+		float scale = 1.0, bool background = true, float page_width = 1366.0,
+		float page_height = 768.0, bool shrink_to_fit = true,
+		std::vector<std::string> page_ranges = {"1"}, float margin_top = 0.0,
+		float margin_left = 0.0, float margin_bottom = 0.0, float margin_right = 0.0) const;
 
 	void DeleteSession() const; // No need to delete sessions created by WebDriver or Client
 	virtual ~Session() {}
