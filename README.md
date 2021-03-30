@@ -47,6 +47,13 @@ mkdir build && cd build && cmake ../src
 sudo make && sudo make install
 ```
 
+## Install on FreeBSD
+
+```bash
+mkdir build && cd build && cmake ../src
+make && make install
+```
+
 ## Install on Windows
 
 ```bash
