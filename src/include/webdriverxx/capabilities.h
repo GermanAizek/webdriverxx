@@ -161,7 +161,7 @@ struct SslProxy : ManualProxy { // copyable
 };
 
 struct SocksProxy : ManualProxy { // copyable
-	explicit SocksProxy(const std::string& address) { SetProxyAddress(address); }
+	explicit SocksProxy(const std::string& address) { SetProxyAddress(address); SetProxyVersion(5); }
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(SocksProxy)
 	WEBDRIVERXX_PROPERTY(ProxyAddress, "socksProxy", std::string)
