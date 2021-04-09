@@ -122,11 +122,12 @@ of the active window handles in the following way:\n\n\
 	case kInvalidXPathSelectorReturnTyper: return "";
 	case kElementNotInteractable: return "";
 	case kInsecureCertificate: return "";
-	case kInvalidArgument: return "";
+	// TODO: find out the switch-case value
+	//case kInvalidArgument: return "";
 	case kInvalidCoordinates: return "";
 	case kInvalidSessionId: return "";
-	case kNoSuchCookie: return "";
-	case kUnableToCaptureScreen: return "";
+	//case kNoSuchCookie: return "";
+	//case kUnableToCaptureScreen: return "";
 	case kElementClickIntercepted: return "";
 	case kUnknownMethod: return "";
 	case kMethodNotAllowed: return "";
