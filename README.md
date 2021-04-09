@@ -331,7 +331,7 @@ java -jar selenium-server.jar standalone &
 ./webdriverxx --browser=<firefox|chrome|...>
 ```
 
-#### Linux
+#### Windows
 ```bash
 java -jar selenium-server.jar standalone
 webdriverxx.exe --browser=<firefox|chrome|...>
