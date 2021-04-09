@@ -4,7 +4,7 @@
 A C++ client library for [Selenium Webdriver](http://www.seleniumhq.org/).
 You can use this library in any C++ project.
 
-Only 4.x and more Selenium Server.
+*Only 4.x and more Selenium Server.*
 
 COPYRIGHTS
 
