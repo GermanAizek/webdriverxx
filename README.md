@@ -4,6 +4,8 @@
 A C++ client library for [Selenium Webdriver](http://www.seleniumhq.org/).
 You can use this library in any C++ project.
 
+Only 4.x and more Selenium Server.
+
 COPYRIGHTS
 
  * 2014-2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
@@ -125,9 +127,9 @@ You need to download and run selenium-server-standalone.
 
 #### Windows
 
-Download and install: https://www.oracle.com/java/technologies/javase-jre8-downloads.html
+Download Java Runtime Enviroment and install: https://www.oracle.com/java/technologies/javase-jre8-downloads.html
 
-Complete list can be seen here: https://selenium-release.storage.googleapis.com/index.html
+Selenium Server can be seen here: https://selenium-release.storage.googleapis.com/4.0-beta-2/selenium-server-4.0.0-beta-2.jar
 
 #### Linux
 
@@ -141,8 +143,8 @@ java -jar /usr/share/selenium-server/selenium-server-standalone.jar
 ##### Any Linux distribution
 
 ```bash
-wget https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-java -jar selenium-server-standalone-3.9.1.jar
+wget https://selenium-release.storage.googleapis.com/4.0-beta-2/selenium-server-4.0.0-beta-2.jar
+java -jar selenium-server-4.0.0-beta-2.jar
 ```
 
 ### Example codes
@@ -170,6 +172,7 @@ cmake -DCURL_INCLUDE_DIR=<path_folder_webdriverxx>/src/thirdparty/curl/include .
 
 ## Features
 
+- **Very lightweight framework** (When compared with all implementations of api selenium)
 - Chainable commands.
 - Value-like objects compatible with STL containers.
 - Header-only.
@@ -177,8 +180,8 @@ cmake -DCURL_INCLUDE_DIR=<path_folder_webdriverxx>/src/thirdparty/curl/include .
     - [libcurl](http://curl.haxx.se/libcurl/),
     - [picojson](https://github.com/kazuho/picojson).
 - Can be used with any testing framework.
-- Linux, Mac and Windows.
-- Tested on clang 10.0, GCC 9.3 and Visual Studio 2019.
+- Linux, Mac, FreeBSD and Windows.
+- Tested on GCC 9.3, Clang 10.0 and MSVC Visual Studio 2019.
 
 ## More examples
 
@@ -320,11 +323,18 @@ auto final_url = WaitForMatch(url, HasSubstr("some_magic"));
 ### Testing with real browsers
 
 Prerequisites:
-- [Selenium Server](http://www.seleniumhq.org/download/)
+- [Selenium Server (4.x and more)](http://www.seleniumhq.org/download/)
 
+#### Linux
 ```bash
-selenium-server -p 4444 &
+java -jar selenium-server.jar standalone &
 ./webdriverxx --browser=<firefox|chrome|...>
+```
+
+#### Linux
+```bash
+java -jar selenium-server.jar standalone
+webdriverxx.exe --browser=<firefox|chrome|...>
 ```
 
 ## Advanced topics
