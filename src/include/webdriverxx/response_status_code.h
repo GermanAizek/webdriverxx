@@ -28,7 +28,19 @@ enum Value {
 	kIMEEngineActivationFailed = 31,
 	kInvalidSelector = 32,
 	kSessionNotCreatedException = 33,
-	kMoveTargetOutOfBounds = 34
+	kMoveTargetOutOfBounds = 34,
+	kInvalidXPathSelector = 51,
+	kInvalidXPathSelectorReturnTyper = 52,
+	kElementNotInteractable = 60,
+	kInsecureCertificate,
+	kInvalidArgument = 61,
+	kInvalidCoordinates,
+	kInvalidSessionId,
+	kNoSuchCookie = 62,
+	kUnableToCaptureScreen = 63,
+	kElementClickIntercepted = 64,
+	kUnknownMethod,
+	kMethodNotAllowed = 405
 };
 
 inline
@@ -106,6 +118,18 @@ of the active window handles in the following way:\n\n\
 	case kInvalidSelector: return "Argument was an invalid selector (e.g. XPath/CSS).";
 	case kSessionNotCreatedException: return "A new session could not be created.";
 	case kMoveTargetOutOfBounds: return "Target provided for a move action is out of bounds.";
+	case kInvalidXPathSelector: return "";
+	case kInvalidXPathSelectorReturnTyper: return "";
+	case kElementNotInteractable: return "";
+	case kInsecureCertificate: return "";
+	case kInvalidArgument: return "";
+	case kInvalidCoordinates: return "";
+	case kInvalidSessionId: return "";
+	case kNoSuchCookie: return "";
+	case kUnableToCaptureScreen: return "";
+	case kElementClickIntercepted: return "";
+	case kUnknownMethod: return "";
+	case kMethodNotAllowed: return "";
 	}
 	return "Unknown";
 }
