@@ -138,6 +138,7 @@ expression and it is either syntactically invalid (i.e. it is not a\n\
 xpath expression) or the expression does not select WebElements\n\
 (e.g. \"count(//input)\").\
 		";
+		// TODO: Replace except info python code to cpp
 	case kSessionNotCreatedException:
 		return "A new session could not be created.";
 	case kMoveTargetOutOfBounds:
@@ -145,20 +146,58 @@ xpath expression) or the expression does not select WebElements\n\
 Thrown when the target provided to the `ActionsChains` move()\n\
 method is invalid, i.e. out of document.\
 		";
-	// TODO: Add more info excepts
-	case kInvalidXPathSelector: return "";
-	case kInvalidXPathSelectorReturnTyper: return "";
-	case kElementNotInteractable: return "";
-	case kInsecureCertificate: return "";
+	case kInvalidXPathSelector:
+		return "\
+Thrown when the selector which is used to find an element does not return\n\
+a WebElement. Currently this only happens when the selector is an xpath\n\
+expression and it is either syntactically invalid (i.e. it is not a\n\
+xpath expression) or the expression does not select WebElements\n\
+(e.g. \"count(//input)\").\
+		";
+	case kInvalidXPathSelectorReturnTyper:
+		return "\
+Thrown when the selector which is used to find an element does not return\n\
+a WebElement. Currently this only happens when the selector is an xpath\n\
+expression and it is either syntactically invalid (i.e. it is not a\n\
+xpath expression) or the expression does not select WebElements\n\
+(e.g. \"count(//input)\").\
+		";
+	case kElementNotInteractable:
+		return "\
+Thrown when an element is present in the DOM but interactions\n\
+with that element will hit another element due to paint order.\
+		";
+	case kInsecureCertificate:
+		return "\
+Navigation caused the user agent to hit a certificate warning, which is usually the result\n\
+of an expired or invalid TLS certificate.\
+		";
 	// TODO: find out the switch-case value
-	//case kInvalidArgument: return "";
-	case kInvalidCoordinates: return "";
-	case kInvalidSessionId: return "";
-	//case kNoSuchCookie: return "";
-	//case kUnableToCaptureScreen: return "";
-	case kElementClickIntercepted: return "";
-	case kUnknownMethod: return "";
-	case kMethodNotAllowed: return "";
+	//case kInvalidArgument:
+	//	return "The arguments passed to a command are either invalid or malformed.";
+	case kInvalidCoordinates:
+		return "The coordinates provided to an interaction's operation are invalid.";
+	case kInvalidSessionId:
+		return "\
+Occurs if the given session id is not in the list of active sessions, meaning the session\n\
+either does not exist or that it's not active.\
+		";
+	//case kNoSuchCookie:
+	//	return "\
+No cookie matching the given path name was found amongst the associated cookies of the\n\
+current browsing context's active document.\
+		";
+	//case kUnableToCaptureScreen:
+	//	return "A screen capture was made impossible.";
+	case kElementClickIntercepted:
+		return "\
+The Element Click command could not be completed because the element receiving the events\n\
+is obscuring the element that was requested to be clicked.\
+		";
+	case kUnknownMethod:
+		return "The requested command matched a known URL but did not match any methods for that URL.";
+	//case kMethodNotAllowed:
+	//	return "";
 	}
 	return "Unknown";
 }
