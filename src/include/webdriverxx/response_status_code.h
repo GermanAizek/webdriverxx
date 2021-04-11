@@ -104,20 +104,48 @@ For example, selecting a 'script' element.\
 Thrown when window target to be switched doesn't exist.\n\n\
 To find the current set of active window handles, you can get a list\n\
 of the active window handles in the following way:\n\n\
-	std::cout << driver.GetWindows()[0].GetHandle();\n\
+	std::cout << driver.GetWindows()[0].GetHandle();\
+		";
+	case kInvalidCookieDomain:
+		return "\
+Thrown when attempting to add a cookie under a different domain\n\
+than the current URL.\
+		";
+	case kUnableToSetCookie:
+		return "Thrown when a driver fails to set a cookie.";
+	case kUnexpectedAlertOpen:
+		return "\
+Thrown when an unexpected alert has appeared.\n\n\
+Usually raised when  an unexpected modal is blocking the webdriver from executing\n\
+commands.\
+		";
+	case kScriptTimeout:
+		return "Thrown when a command does not complete in enough time.";
+	case kInvalidElementCoordinates:
+		return "The coordinates provided to an interaction's operation are invalid.";
+	case kIMENotAvailable:
+		return "\
+Thrown when IME support is not available. This exception is thrown for every IME-related\n\
+method call if IME support is not available on the machine.\
+		";
+	case kIMEEngineActivationFailed:
+		return "Thrown when activating an IME engine has failed.";
+	case kInvalidSelector:
+		return "\
+Thrown when the selector which is used to find an element does not return\n\
+a WebElement. Currently this only happens when the selector is an xpath\n\
+expression and it is either syntactically invalid (i.e. it is not a\n\
+xpath expression) or the expression does not select WebElements\n\
+(e.g. \"count(//input)\").\
+		";
+	case kSessionNotCreatedException:
+		return "A new session could not be created.";
+	case kMoveTargetOutOfBounds:
+		return "\
+Thrown when the target provided to the `ActionsChains` move()\n\
+method is invalid, i.e. out of document.\
 		";
 	// TODO: Add more info excepts
-	case kInvalidCookieDomain: return "An illegal attempt was made to set a cookie under a different domain than the current page.";
-	case kUnableToSetCookie: return "A request to set a cookie's value could not be satisfied.";
-	case kUnexpectedAlertOpen: return "A modal dialog was open, blocking this operation";
-	case kNoAlertOpenError: return "An attempt was made to operate on a modal dialog when one was not open.";
-	case kScriptTimeout: return "A script did not complete before its timeout expired.";
-	case kInvalidElementCoordinates: return "The coordinates provided to an interactions operation are invalid.";
-	case kIMENotAvailable: return "IME was not available.";
-	case kIMEEngineActivationFailed: return "An IME engine could not be started.";
-	case kInvalidSelector: return "Argument was an invalid selector (e.g. XPath/CSS).";
-	case kSessionNotCreatedException: return "A new session could not be created.";
-	case kMoveTargetOutOfBounds: return "Target provided for a move action is out of bounds.";
 	case kInvalidXPathSelector: return "";
 	case kInvalidXPathSelectorReturnTyper: return "";
 	case kElementNotInteractable: return "";
