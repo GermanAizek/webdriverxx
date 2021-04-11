@@ -25,6 +25,7 @@ public:
 	std::string GetTitle() const;
 	std::string GetUrl() const;
 	std::string GetScreenshot() const; // Base64 PNG
+	std::string GetElementScreenshot(const Element& element) const; // Base64 PNG
 
 	const Session& Navigate(const std::string& url) const;
 	const Session& Get(const std::string& url) const; // Same as Navigate

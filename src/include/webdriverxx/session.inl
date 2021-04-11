@@ -42,6 +42,11 @@ std::string Session::GetScreenshot() const {
 }
 
 inline
+std::string Session::GetElementScreenshot(const Element& element) const {
+	return resource_->GetString("element/" + element.GetRef() + "/screenshot");
+}
+
+inline
 JsonObject Session::GetTimeoutMs() const {
 	return resource_->GetValue<JsonObject>("timeouts");
 }

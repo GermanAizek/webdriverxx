@@ -157,6 +157,12 @@ TEST_F(TestSession, GetsScreenshot) {
 	ASSERT_TRUE(!driver.GetScreenshot().empty());
 }
 
+TEST_F(TestSession, GetsElementScreenshot) {
+	const std::string page = GetTestPageUrl("navigation1.html");
+	Element element = driver.Navigate(page).FindElement(ByTag("input"));
+	ASSERT_TRUE(!driver.GetElementScreenshot(element).empty());
+}
+
 TEST_F(TestSession, SetsTimeouts) {
 	driver.SetTimeoutMs(timeout::Implicit, 1000);
 	driver.SetTimeoutMs(timeout::PageLoad, 1000);
