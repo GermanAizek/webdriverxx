@@ -184,9 +184,9 @@ either does not exist or that it's not active.\
 		";
 	//case kNoSuchCookie:
 	//	return "\
-No cookie matching the given path name was found amongst the associated cookies of the\n\
-current browsing context's active document.\
-		";
+//No cookie matching the given path name was found amongst the associated cookies of the\n\
+//current browsing context's active document.\
+//		";
 	//case kUnableToCaptureScreen:
 	//	return "A screen capture was made impossible.";
 	case kElementClickIntercepted:
