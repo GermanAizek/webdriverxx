@@ -98,7 +98,62 @@ static const int B64index[256] =
     41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
 };
 
-string b64encode(const void* data, const size_t &len)
+unsigned char* b64encode(const unsigned char *src, size_t len,
+                              size_t *out_len)
+{
+    unsigned char *out, *pos;
+    const unsigned char *end, *in;
+    size_t olen;
+    int line_len;
+
+    olen = len * 4 / 3 + 4; /* 3-byte blocks to 4-byte */
+    olen += olen / 72; /* line feeds */
+    olen++; /* nul termination */
+    if (olen < len) return 0; /* integer overflow */
+    out = (unsigned char*)malloc(olen);
+    if (out == NULL) return 0;
+
+    end = src + len;
+    in = src;
+    pos = out;
+    line_len = 0;
+    while (end - in >= 3) {
+        *pos++ = B64chars[in[0] >> 2];
+        *pos++ = B64chars[((in[0] & 0x03) << 4) | (in[1] >> 4)];
+        *pos++ = B64chars[((in[1] & 0x0f) << 2) | (in[2] >> 6)];
+        *pos++ = B64chars[in[2] & 0x3f];
+        in += 3;
+        line_len += 4;
+        if (line_len >= 72) {
+            *pos++ = '\n';
+            line_len = 0;
+        }
+    }
+
+    if (end - in) {
+        *pos++ = B64chars[in[0] >> 2];
+        if (end - in == 1) {
+            *pos++ = B64chars[(in[0] & 0x03) << 4];
+            *pos++ = '=';
+        } else {
+            *pos++ = B64chars[((in[0] & 0x03) << 4) |
+                                  (in[1] >> 4)];
+            *pos++ = B64chars[(in[1] & 0x0f) << 2];
+        }
+        *pos++ = '=';
+        line_len += 4;
+    }
+
+    if (line_len)
+        *pos++ = '\n';
+
+    *pos = '\0';
+    if (out_len)
+        *out_len = pos - out;
+    return out;
+}
+
+string b64encode2(const void* data, const size_t &len)
 {
 #ifdef USE_STD
     string result((len + 2) / 3 * 4, '=');
