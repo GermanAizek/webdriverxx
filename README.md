@@ -8,14 +8,15 @@ You can use this library in any C++ project.
 
 COPYRIGHTS
 
- * 2014-2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
+ * 2019 - Current Herman Semenov ([germanaizek@yandex.ru](mailto:germanaizek@yandex.ru))
+ * 2014 - 2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
  * 2017 Ilya Durdyev (IDurdyev)
  
 SPECIAL THANKS
 
  * 2019 xingyun86 ([peipengshuai@hotmail.com](mailto:peipengshuai@hotmail.com))
  * 2020 xloem ([0xloem@gmail.com](mailto:0xloem@gmail.com))
- * 2021 SrMilton ([MiltinLindin@gmail.com](mailto:MiltinLindin@gmail.com))
+ * 2021 SrMilton ([miltonmanuelcramos@gmail.com](mailto:miltonmanuelcramos@gmail.com))
  
 ## Downloading
 
