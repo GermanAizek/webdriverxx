@@ -36,6 +36,20 @@ public:
 		return *this;
 	}
 
+	Rect GetRect() const {
+		return resource_->GetValue<Rect>("rect");
+	}
+
+	const Window& SetRect(const Rect& rect) const {
+		resource_->PostValue("rect", JsonObject()
+							 //.Set("rect", ToJson(rect)));
+							 .Set("x", rect.x)
+							 .Set("y", rect.y)
+							 .Set("width", rect.width)
+							 .Set("height", rect.height));
+		return *this;
+	}
+
 	Point GetPosition() const {
 		return resource_->GetValue<Point>("position");
 	}
