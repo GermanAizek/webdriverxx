@@ -42,6 +42,20 @@ std::string Session::GetScreenshot() const {
 }
 
 inline
+int Session::GetScreenshotAsFile(const std::string& filename) const {
+    std::string name = filename;
+    if (filename.find(".png") == std::string::npos) {
+        name += ".png";
+    }
+    std::ofstream out(name, ios::binary);
+    if (!out) return 1;
+    out << b64decode(resource_->GetString("screenshot"));
+    out.close();
+    return 0;
+}
+
+// BUG: maybe GetRef() to str
+inline
 std::string Session::GetElementScreenshot(const Element& element) const {
 	return resource_->GetString("element/" + element.GetRef() + "/screenshot");
 }
