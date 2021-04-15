@@ -14,6 +14,16 @@ struct Size {
 	int width;
 	int height;
 	Size() : width(0), height(0) {}
+	Size(int w, int h) : width(w), height(h) {}
+};
+
+struct Rect {
+	int x;
+	int y;
+	int width;
+	int height;
+	Rect() : x(0), y(0), width(0), height(0) {}
+	Rect(int x, int y, int w, int h) : x(x), y(y), width(w), height(h) {}
 };
 
 struct Point {
