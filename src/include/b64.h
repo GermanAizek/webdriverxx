@@ -4,8 +4,10 @@
 #include <iostream>
 #include <vector>
 #define Constant constexpr
-#define ArrayChar(N) std::array<char,N>
-#define string std::string
+#define ArrayChar(N) array<char,N>
+#define string string
+
+using namespace std;
 #else
 #include <stdint.h>
 #include <string.h>
@@ -173,7 +175,11 @@ string Encode(const std::vector<uint8_t>& in)
 string b64encode(const string &bytes)
 {
     string out;
+#ifdef __cplusplus
+    uint32_t eLen = GetEncodeLen(bytes.length());
+#else
     uint32_t eLen = GetEncodeLen(strlen(bytes));
+#endif
     out.resize(eLen);
     EncodeChunk((unsigned char*)bytes.data(), bytes.length(), &out[0]);
     return out;
@@ -181,11 +187,13 @@ string b64encode(const string &bytes)
 
 string b64decode(const string &base64)
 {
-    char* out;
-    uint32_t eLen = GetDecodeExpectedLen(strlen(base64));
+    string out;
+
 #ifdef __cplusplus
+    uint32_t eLen = GetDecodeExpectedLen(base64.length());
     out.resize(eLen);
 #else
+    uint32_t eLen = GetDecodeExpectedLen(strlen(base64));
     Resize(out, strlen(out), eLen);
 #endif
     eLen = DecodeChunk(base64.c_str(), base64.length(), reinterpret_cast<uint8_t*>(&out[0]));
