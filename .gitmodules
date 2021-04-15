@@ -2,3 +2,8 @@
 	path = src/thirdparty/curl
 	url = https://github.com/curl/curl.git
 	branch = master
+
+[submodule "src/thirdparty/picobase64"]
+        path = src/thirdparty/picobase64
+        url = https://github.com/GermanAizek/picobase64.git
+        branch = master
