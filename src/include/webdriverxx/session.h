@@ -99,6 +99,7 @@ public:
 		float margin_left = 0.0, float margin_bottom = 0.0, float margin_right = 0.0) const;
 
 	const Session& InstallAddon(const std::string& path) const;
+	const Session& GetLog() const;
 
 	void DeleteSession() const; // No need to delete sessions created by WebDriver or Client
 	virtual ~Session() {}

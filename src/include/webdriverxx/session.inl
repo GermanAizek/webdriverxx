@@ -450,4 +450,11 @@ const Session& Session::InstallAddon(const std::string& path) const {
 	return *this;
 }
 
+inline
+const Session& Session::GetLog() const {
+	std::cout << "Test get log";
+	resource_->Post("log");
+	return *this;
+}
+
 } // namespace webdriverxx
