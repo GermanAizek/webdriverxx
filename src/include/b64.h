@@ -1,251 +1,194 @@
-/*
- *
- * Copyrights
- * Name Polfosol [https://github.com/polfosol]
- * (author bs64 encode and decode)
- *
- * Herman Semenov <GermanAizek@yandex.ru> [https://github.com/GermanAizek]
- * (port to C and minimize header)
- *
- */
-
-#ifdef USE_STD
-#include <string>
-using namespace std;
+#ifdef __cplusplus
+#include <array>
+#include <cstdint>
+#include <iostream>
+#include <vector>
+#define Constant constexpr
+#define ArrayChar(N) std::array<char,N>
+#define string std::string
 #else
-#define WORD_SIZE (sizeof(unsigned long))
-#define WORD_MASK (WORD_SIZE -1)
+#include <stdint.h>
+#include <string.h>
+#define Constant const
+#define ArrayChar(N) char[N]
+#define string const char*
 
-typedef unsigned long size_t;
-#define string (char*)
+void Resize(char* str, size_t curSize, size_t newSize){
+    //Allocate new array and copy in data
+    char *newArray = new char[newSize];
+    memcpy(newArray, str, curSize);
 
-#define b64fill(_arr, _count, _value) \
-{ \
-    size_t i; \
-    typeof(_arr) const __arr = (_arr); \
-    typeof(_count) const __count = (_count); \
-    typeof(_value) const __value = (_value); \
-    for (i = 0; i < __count; i++) \
-      __arr[i] = __value; \
+    //Delete old array
+    delete [] str;
+
+    //Swap pointers and new size
+    str = newArray;
+    curSize = newSize;
 }
-
 #endif
 
-const size_t b64strlen(const char *str)
+void EncodeChunk(const uint8_t *in, uint32_t inLen, char *out)
 {
-    const char *chrptr;
-    const unsigned long int *lngwordptr;
-    unsigned long int lngword, himagic, lomagic;
+    /*
+      translation table
+    */
+     Constant ArrayChar(64) tTable = {
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
-    for (chrptr = str; ((unsigned long int) chrptr & (sizeof (lngword) - 1)) != 0; ++chrptr)
-        if (*chrptr == '\0')
-            return chrptr - str;
+    // process bulks
+    int inLongLen = (inLen - 2);
+    int i;
 
-    lngwordptr = (unsigned long int *) chrptr;
-
-    himagic = 0x80808080L;
-    lomagic = 0x01010101L;
-    if (sizeof (lngword) > 4)
-    {
-        himagic = ((himagic << 16) << 16) | himagic;
-        lomagic = ((lomagic << 16) << 16) | lomagic;
+    // process blocks
+    const uint8_t *it = in;
+    char *ot = out;
+    for (i = 0; i < inLongLen; i += 3) {
+      ot[0] = tTable[((it[0]) >> 2)];
+      ot[1] = tTable[(((it[0] & 0x03) << 4) | (((it[1]) >> 4)))];
+      ot[2] = tTable[(((it[1] & 0x0f) << 2) | (((it[2]) >> 6)))];
+      ot[3] = tTable[(it[2] & 0x3f)];
+      it += 3;
+      ot += 4;
     }
-    if (sizeof (lngword) > 8)
-        return ~0u;
 
-    for (;;)
-    {
-        lngword = *lngwordptr++;
-
-        if (((lngword - lomagic) & ~lngword & himagic) != 0)
-        {
-            const char *cp = (const char *) (lngwordptr - 1);
-
-            if (cp[0] == 0)
-                return cp - str;
-            if (cp[1] == 0)
-                return cp - str + 1;
-            if (cp[2] == 0)
-                return cp - str + 2;
-            if (cp[3] == 0)
-                return cp - str + 3;
-            if (sizeof (lngword) > 4)
-            {
-                if (cp[4] == 0)
-                    return cp - str + 4;
-                if (cp[5] == 0)
-                    return cp - str + 5;
-                if (cp[6] == 0)
-                    return cp - str + 6;
-                if (cp[7] == 0)
-                    return cp - str + 7;
-            }
-        }
+    // check for pad
+    inLongLen = (inLen - i);
+    if (inLongLen > 0) {
+      ot[0] = tTable[(it[0]) >> 2];
+      if (inLongLen == 1) {
+        ot[1] = tTable[(it[0] & 0x3) << 4];
+        ot[2] = '=';
+        ot[3] = '=';
+      } else {
+        ot[1] = tTable[(((it[0] & 0x3) << 4) | ((it[1] & 0xf0) >> 4))];
+        ot[2] = tTable[((it[1] & 0x0f)) << 2];
+        ot[3] = '=';
+      }
     }
 }
 
-static const char* B64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-
-static const int B64index[256] =
+uint32_t DecodeChunk(const char *in, uint32_t inLen,uint8_t *out)
 {
-    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  62, 63, 62, 62, 63,
-    52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 0,  0,  0,  0,  0,  0,
-    0,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14,
-    15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 0,  0,  0,  0,  63,
-    0,  26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
-};
+    Constant ArrayChar(256) valTable = {
+        /* ASCII table */
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 62, 64, 64, 64, 63, 52, 53, 54, 55, 56, 57,
+        58, 59, 60, 61, 64, 64, 64, 64, 64, 64, 64, 0,  1,  2,  3,  4,  5,  6,
+        7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+        25, 64, 64, 64, 64, 64, 64, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+        37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        64, 64, 64, 64};
 
-unsigned char* b64encode(const unsigned char *src, size_t len,
-                              size_t *out_len)
-{
-    unsigned char *out, *pos;
-    const unsigned char *end, *in;
-    size_t olen;
-    int line_len;
+    int i;
 
-    olen = len * 4 / 3 + 4; /* 3-byte blocks to 4-byte */
-    olen += olen / 72; /* line feeds */
-    olen++; /* nul termination */
-    if (olen < len) return 0; /* integer overflow */
-    out = (unsigned char*)malloc(olen);
-    if (out == NULL) return 0;
+  // disable code duplication
+  #define __FBASE_INIT_DECODE_SEGMENT                                            \
+    const uint8_t *it = reinterpret_cast<const uint8_t *>(&in[i]);               \
+    uint8_t *ot = &out[oIndex];                                                  \
+    uint8_t v0 = valTable[it[0]];                                                \
+    uint8_t v1 = valTable[it[1]];                                                \
+    uint8_t v2 = valTable[it[2]];                                                \
+    uint8_t v3 = valTable[it[3]];
 
-    end = src + len;
-    in = src;
-    pos = out;
-    line_len = 0;
-    while (end - in >= 3) {
-        *pos++ = B64chars[in[0] >> 2];
-        *pos++ = B64chars[((in[0] & 0x03) << 4) | (in[1] >> 4)];
-        *pos++ = B64chars[((in[1] & 0x0f) << 2) | (in[2] >> 6)];
-        *pos++ = B64chars[in[2] & 0x3f];
-        in += 3;
-        line_len += 4;
-        if (line_len >= 72) {
-            *pos++ = '\n';
-            line_len = 0;
-        }
+
+     // check size
+    if (inLen == 0 || (inLen % 4) != 0) {
+      return 0;
     }
 
-    if (end - in) {
-        *pos++ = B64chars[in[0] >> 2];
-        if (end - in == 1) {
-            *pos++ = B64chars[(in[0] & 0x03) << 4];
-            *pos++ = '=';
-        } else {
-            *pos++ = B64chars[((in[0] & 0x03) << 4) |
-                                  (in[1] >> 4)];
-            *pos++ = B64chars[(in[1] & 0x0f) << 2];
-        }
-        *pos++ = '=';
-        line_len += 4;
+    // remove pads from bulk process
+    int inLongLen = (inLen - 4);
+    uint32_t oIndex = 0;
+    for (i = 0; i < inLongLen; i += 4, oIndex += 3) {
+      __FBASE_INIT_DECODE_SEGMENT
+      ot[0] = ((v0 << 2) | (v1 >> 4)); // 6 bytes from v0 + 2 byte from v1
+      ot[1] = ((v1 << 4) | (v2 >> 2)); // 4 byte from v1 and 4 byte from v2
+      ot[2] = ((v2 << 6) | (v3));      // 2 byte from v2 and 6 byte from v3
     }
 
-    if (line_len)
-        *pos++ = '\n';
+    // check for last segment
+    {
+      __FBASE_INIT_DECODE_SEGMENT
+      uint32_t padCnt = 0;
+      ot[0] = ((v0 << 2) | (v1 >> 4)); // 6 bytes from v0 + 2 byte from v1
+      if (v2 != 64) {
+        ot[1] = ((v1 << 4) | (v2 >> 2));
+      } else {
+        ot[1] = ((v1 << 4)); // 4 byte from v1 + pad
+        padCnt++;
+      }
+      if (v3 != 64) {
+        ot[2] = ((v2 << 6) | (v3));
+      } else {
+        ot[2] = ((v2 << 6)); // 2 byte from v2 + pad
+        padCnt++;
+      }
+      oIndex += (3 - padCnt);
+    }
+    out[oIndex] = 0;
+    return oIndex;
+}
 
-    *pos = '\0';
-    if (out_len)
-        *out_len = pos - out;
+uint32_t GetEncodeLen(uint32_t inLen)
+{
+    return ((inLen + 2) / 3) * 4;
+}
+
+uint32_t GetDecodeExpectedLen(uint32_t inLen)
+{
+    return ((inLen + 3) / 4) * 3;
+}
+
+std::vector<uint8_t> Decode(const std::string &in)
+{
+    std::vector<uint8_t> out;
+    uint32_t len = GetDecodeExpectedLen(in.size());
+    out.resize(len);
+    len = DecodeChunk(in.c_str(), in.length(), &out[0]);
+    out.resize(len);
     return out;
 }
 
-string b64encode2(const void* data, const size_t &len)
+string Encode(const std::vector<uint8_t>& in)
 {
-#ifdef USE_STD
-    string result((len + 2) / 3 * 4, '=');
-#else
-    char* result;
-    result = (char*)malloc(sizeof(char) * len);
-    if (result == NULL)
-        exit(1);
-    b64fill(result, (len + 2) / 3 * 4, '=');
-#endif
-
-    char *p = (char*) data, *str = &result[0];
-    size_t j = 0, pad = len % 3;
-    const size_t last = len - pad;
-
-    for (size_t i = 0; i < last; i += 3)
-    {
-        int n = int(p[i]) << 16 | int(p[i + 1]) << 8 | p[i + 2];
-        str[j++] = B64chars[n >> 18];
-        str[j++] = B64chars[n >> 12 & 0x3F];
-        str[j++] = B64chars[n >> 6 & 0x3F];
-        str[j++] = B64chars[n & 0x3F];
-    }
-    if (pad)  /// Set padding
-    {
-        int n = --pad ? int(p[last]) << 8 | p[last + 1] : p[last];
-        str[j++] = B64chars[pad ? n >> 10 & 0x3F : n >> 2];
-        str[j++] = B64chars[pad ? n >> 4 & 0x03F : n << 4 & 0x3F];
-        str[j++] = pad ? B64chars[n << 2 & 0x3F] : '=';
-    }
-    //std::cout << result << '\n';
-    //char* ret = result;
-    //free(result);
-    return result;
+    string out;
+    uint32_t eLen = GetEncodeLen(in.size());
+    out.resize(eLen);
+    EncodeChunk(in.data(), in.size(), &out[0]);
+    return out;
 }
 
-string b64decode(const void* data, const size_t &len)
+string b64encode(const string &bytes)
 {
-    if (len == 0) return "";
-
-    unsigned char *p = (unsigned char*) data;
-    size_t j = 0,
-        pad1 = len % 4 || p[len - 1] == '=',
-        pad2 = pad1 && (len % 4 > 2 || p[len - 2] != '=');
-    const size_t last = (len - pad1) / 4 << 2;
-#ifdef USE_STD
-    string result(last / 4 * 3 + pad1 + pad2, '\0');
-#else
-    char* result;
-    result = (char*)malloc(sizeof(char) * len);
-    if (result == NULL)
-        exit(1);
-    b64fill(result, last / 4 * 3 + pad1 + pad2, '\0');
-#endif
-    unsigned char *str = (unsigned char*) &result[0];
-
-    for (size_t i = 0; i < last; i += 4)
-    {
-        int n = B64index[p[i]] << 18 | B64index[p[i + 1]] << 12 | B64index[p[i + 2]] << 6 | B64index[p[i + 3]];
-        str[j++] = n >> 16;
-        str[j++] = n >> 8 & 0xFF;
-        str[j++] = n & 0xFF;
-    }
-    if (pad1)
-    {
-        int n = B64index[p[last]] << 18 | B64index[p[last + 1]] << 12;
-        str[j++] = n >> 16;
-        if (pad2)
-        {
-            n |= B64index[p[last + 2]] << 6;
-            str[j++] = n >> 8 & 0xFF;
-        }
-    }
-    return result;
+    string out;
+    uint32_t eLen = GetEncodeLen(strlen(bytes));
+    out.resize(eLen);
+    EncodeChunk((unsigned char*)bytes.data(), bytes.length(), &out[0]);
+    return out;
 }
 
-const string b64encode(const string str)
+string b64decode(const string &base64)
 {
-#ifdef USE_STD
-    return b64encode(str.c_str(), str.size());
+    char* out;
+    uint32_t eLen = GetDecodeExpectedLen(strlen(base64));
+#ifdef __cplusplus
+    out.resize(eLen);
 #else
-    char* b64str = b64encode(str, b64strlen(str));
-    return b64str;
+    Resize(out, strlen(out), eLen);
 #endif
-}
-
-const string b64decode(const string str64)
-{
-#ifdef USE_STD
-    return b64decode(str64.c_str(), str64.size());
-#else
-    char* b64str = b64decode(str64, b64strlen(str64));
-    return b64str;
-#endif
+    eLen = DecodeChunk(base64.c_str(), base64.length(), reinterpret_cast<uint8_t*>(&out[0]));
+    out.resize(eLen);
+    return out;
 }
