@@ -1,4 +1,4 @@
-#include "conversions.h"
+﻿#include "conversions.h"
 #include "detail/error_handling.h"
 #include "detail/types.h"
 #include <algorithm>
@@ -43,15 +43,15 @@ std::string Session::GetScreenshot() const {
 
 inline
 int Session::GetScreenshotAsFile(const std::string& filename) const {
-    std::string name = filename;
-    if (filename.find(".png") == std::string::npos) {
-        name += ".png";
-    }
-    std::ofstream out(name, ios::binary);
-    if (!out) return 1;
-    out << b64decode(resource_->GetString("screenshot"));
-    out.close();
-    return 0;
+	std::string name = filename;
+	if (filename.find(".png") == std::string::npos) {
+		name += ".png";
+	}
+	std::ofstream out(name, ios::binary);
+	if (!out) return 1;
+	out << b64decode(resource_->GetString("screenshot"));
+	out.close();
+	return 0;
 }
 
 // BUG: maybe GetRef() to str
@@ -438,6 +438,16 @@ picojson::value Session::PrintPage(
 			.Set("shrinkToFit", shrink_to_fit)
 			.Set("pageRanges", page_ranges)
 		);
+}
+
+// TODO: Make session install addon
+inline
+const Session& Session::InstallAddon(const std::string& path) const {
+	if (IsFirefox()) {
+		std::cout << "Test addon install";
+		resource_->Post("moz/addon/install", "path", path);
+	}
+	return *this;
 }
 
 } // namespace webdriverxx

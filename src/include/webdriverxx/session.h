@@ -21,7 +21,12 @@ namespace webdriverxx {
 class Client;
 
 class Session { // copyable
-public:	
+public:
+	std::string GetBrowserName() const { return this->GetCapabilities().GetBrowserName(); }
+	bool IsChrome() const { return GetBrowserName() == webdriverxx::browser::Chrome; }
+	bool IsFirefox() const { return GetBrowserName() == webdriverxx::browser::Firefox; }
+	bool IsPhantomJS() const { return GetBrowserName() == webdriverxx::browser::PhantomJS; }
+
 	Capabilities GetCapabilities() const;
 	std::string GetPageSource() const;
 	std::string GetTitle() const;
@@ -92,6 +97,8 @@ public:
 		float page_height = 768.0, bool shrink_to_fit = true,
 		std::vector<std::string> page_ranges = {"1"}, float margin_top = 0.0,
 		float margin_left = 0.0, float margin_bottom = 0.0, float margin_right = 0.0) const;
+
+	const Session& InstallAddon(const std::string& path) const;
 
 	void DeleteSession() const; // No need to delete sessions created by WebDriver or Client
 	virtual ~Session() {}
