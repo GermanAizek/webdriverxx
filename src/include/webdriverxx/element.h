@@ -40,6 +40,7 @@ public:
 	Point GetLocation() const;
 	Point GetLocationInView() const;
 	Size GetSize() const;
+	Rect GetRect() const;
 	std::string GetAttribute(const std::string& name) const;
 	std::string GetCssProperty(const std::string& name) const;
 	std::string GetTagName() const;

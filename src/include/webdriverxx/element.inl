@@ -61,6 +61,11 @@ Size Element::GetSize() const {
 }
 
 inline
+Rect Element::GetRect() const {
+	return GetResource().GetValue<Rect>("rect");
+}
+
+inline
 std::string Element::GetAttribute(const std::string& name) const {
 	return GetResource().GetString(std::string("attribute/") + name);
 }
