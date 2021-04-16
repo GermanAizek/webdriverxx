@@ -357,6 +357,24 @@ const Session& Session::ButtonUp(mouse::Button button) const {
 }
 
 inline
+std::string Session::GetOrientation() const {
+	return resource_->GetString("orientation");
+}
+
+inline
+const Session& Session::SetOrientation(const std::string& value) const {
+	std::string upperValue = std::move(value);
+	const std::array<std::string, 2> allowed = {"LANDSCAPE", "PORTRAIT"};
+	std::transform(upperValue.begin(), upperValue.end(), upperValue.begin(), ::toupper);
+	if (std::find(allowed.begin(), allowed.end(), upperValue) != allowed.end()) {
+		resource_->Post("orientation", "orientation", upperValue);
+	} else {
+		throw "You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'";
+	}
+	return *this;
+}
+
+inline
 const Session& Session::InternalMouseButtonCommand(const char* command, mouse::Button button) const {
 	resource_->Post(command, "button", static_cast<int>(button));
 	return *this;

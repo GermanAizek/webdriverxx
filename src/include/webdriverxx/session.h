@@ -85,9 +85,11 @@ public:
 	const Session& DoubleClick() const;
 	const Session& ButtonDown(mouse::Button = mouse::LeftButton) const;
 	const Session& ButtonUp(mouse::Button = mouse::LeftButton) const;
+
+	std::string GetOrientation() const;
+	const Session& SetOrientation(const std::string& value) const;
 	
 	JsonObject GetTimeoutMs() const;
-	
 	const Session& SetTimeoutMs(timeout::Type type, int milliseconds);
 	const Session& SetImplicitTimeoutMs(int milliseconds);
 	const Session& SetAsyncScriptTimeoutMs(int milliseconds);
