@@ -33,6 +33,11 @@ struct Point {
 	Point(int x, int y) : x(x), y(y) {}
 };
 
+enum Orientation {
+	LANDSCAPE,
+	PORTRAIT
+};
+
 typedef Point Offset;
 
 struct Cookie {

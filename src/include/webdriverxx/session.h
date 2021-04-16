@@ -87,7 +87,9 @@ public:
 	const Session& ButtonUp(mouse::Button = mouse::LeftButton) const;
 
 	std::string GetOrientation() const;
-	const Session& SetOrientation(const std::string& value) const;
+	template <typename T = int>
+	const Session& SetOrientation(T value) const;
+	//const Session& SetOrientation(const std::string& value) const;
 	
 	JsonObject GetTimeoutMs() const;
 	const Session& SetTimeoutMs(timeout::Type type, int milliseconds);

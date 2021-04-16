@@ -361,17 +361,28 @@ std::string Session::GetOrientation() const {
 	return resource_->GetString("orientation");
 }
 
+template <typename T = int>
 inline
-const Session& Session::SetOrientation(const std::string& value) const {
-	std::string upperValue = std::move(value);
-	const std::array<std::string, 2> allowed = {"LANDSCAPE", "PORTRAIT"};
-	std::transform(upperValue.begin(), upperValue.end(), upperValue.begin(), ::toupper);
-	if (std::find(allowed.begin(), allowed.end(), upperValue) != allowed.end()) {
+const Session& Session::SetOrientation(T value) const {
+	//std::string upperValue = std::move(value);
+	const std::array<const char*, 2> allowed = {"LANDSCAPE", "PORTRAIT"};
+	//std::transform(upperValue.begin(), upperValue.end(), upperValue.begin(), ::toupper);
+	//if (std::find(allowed.begin(), allowed.end(), upperValue) != allowed.end()) {
+	switch (static_cast<int>(value)) {
+	case 0:
+	case 1:
+		resource_->Post("orientation", "orientation", allowed[value]);
+		break;
+	default:
+		throw WebDriverException("You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'");
+		break;
+	}
+	/*if ()
 		resource_->Post("orientation", "orientation", upperValue);
 	} else {
 		throw WebDriverException("You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'");
 	}
-	return *this;
+	return *this;*/
 }
 
 inline
