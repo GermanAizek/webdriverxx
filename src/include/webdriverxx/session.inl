@@ -369,7 +369,7 @@ const Session& Session::SetOrientation(const std::string& value) const {
 	if (std::find(allowed.begin(), allowed.end(), upperValue) != allowed.end()) {
 		resource_->Post("orientation", "orientation", upperValue);
 	} else {
-		throw "You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'";
+		throw WebDriverException("You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'");
 	}
 	return *this;
 }
