@@ -43,6 +43,8 @@ public:
 	Rect GetRect() const;
 	std::string GetAttribute(const std::string& name) const;
 	std::string GetCssProperty(const std::string& name) const;
+	std::string GetAriaRole() const;
+	std::string GetAriaLabel() const;
 	std::string GetTagName() const;
 	std::string GetText() const;
 

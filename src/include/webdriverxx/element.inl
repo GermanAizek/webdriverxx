@@ -76,6 +76,16 @@ std::string Element::GetCssProperty(const std::string& name) const {
 }
 
 inline
+std::string Element::GetAriaRole() const {
+	return GetResource().GetString("computedrole");
+}
+
+inline
+std::string Element::GetAriaLabel() const {
+	return GetResource().GetString("computedlabel");
+}
+
+inline
 std::string Element::GetTagName() const {
 	return GetResource().GetString("name");
 }
