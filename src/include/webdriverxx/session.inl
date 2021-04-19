@@ -214,8 +214,9 @@ std::vector<Window> Session::GetWindows() const {
 	WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
 	const auto handles =
 		FromJson<std::vector<std::string>>(
-			resource_->Get("window_handles")
+			resource_->Get("window_handles") // in W3C Get("window/handles")
 			);
+
 	std::vector<Window> result;
 	result.reserve(handles.size());
 	std::transform(handles.begin(), handles.end(), std::back_inserter(result),
@@ -361,14 +362,10 @@ std::string Session::GetOrientation() const {
 	return resource_->GetString("orientation");
 }
 
-template <typename T = int>
 inline
-const Session& Session::SetOrientation(T value) const {
-	//std::string upperValue = std::move(value);
+const Session& Session::SetOrientation(int value) const {
 	const std::array<const char*, 2> allowed = {"LANDSCAPE", "PORTRAIT"};
-	//std::transform(upperValue.begin(), upperValue.end(), upperValue.begin(), ::toupper);
-	//if (std::find(allowed.begin(), allowed.end(), upperValue) != allowed.end()) {
-	switch (static_cast<int>(value)) {
+	switch (value) {
 	case 0:
 	case 1:
 		resource_->Post("orientation", "orientation", allowed[value]);
@@ -377,12 +374,6 @@ const Session& Session::SetOrientation(T value) const {
 		throw WebDriverException("You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'");
 		break;
 	}
-	/*if ()
-		resource_->Post("orientation", "orientation", upperValue);
-	} else {
-		throw WebDriverException("You can only set the orientation to 'LANDSCAPE' and 'PORTRAIT'");
-	}
-	return *this;*/
 }
 
 inline
