@@ -74,11 +74,7 @@ picojson::value ToJsonImpl(const T& value, DefaultTag) {
 	// to the picojson::value. Define CustomToJson
 	// function (see examples below) in the T's namespace
 	// to resolve the issue.
-#ifndef _WIN32
 	return picojson::value(value);
-#else
-	return ToJson(value);
-#endif
 }
 
 template<typename T>
@@ -230,6 +226,25 @@ picojson::value CustomToJson(const Size& size) {
 inline
 void CustomFromJson(const picojson::value& value, Size& result) {
 	WEBDRIVERXX_CHECK(value.is<picojson::object>(), "Size is not an object");
+	result.width = FromJson<int>(value.get("width"));
+	result.height = FromJson<int>(value.get("height"));
+}
+
+inline
+picojson::value CustomToJson(const Rect& rect) {
+	return JsonObject()
+		.Set("x", rect.x)
+		.Set("y", rect.y)
+		.Set("width", rect.width)
+		.Set("height", rect.height)
+		;
+}
+
+inline
+void CustomFromJson(const picojson::value& value, Rect& result) {
+	WEBDRIVERXX_CHECK(value.is<picojson::object>(), "Rect is not an object");
+	result.x = FromJson<int>(value.get("x"));
+	result.y = FromJson<int>(value.get("y"));
 	result.width = FromJson<int>(value.get("width"));
 	result.height = FromJson<int>(value.get("height"));
 }
