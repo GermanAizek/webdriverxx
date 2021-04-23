@@ -6,6 +6,7 @@ namespace response_status_code {
 
 enum Value {
 	kSuccess = 0,
+        kNoSuchDriver = 6,
 	kNoSuchElement = 7,
 	kNoSuchFrame = 8,
 	kUnknownCommand = 9,
@@ -34,12 +35,12 @@ enum Value {
 	kElementNotInteractable = 60,
 	kInsecureCertificate,
 	kInvalidArgument = 61,
-	kInvalidCoordinates,
-	kInvalidSessionId,
+        kInvalidCoordinates = Value::kInvalidElementCoordinates,
+        kInvalidSessionId = Value::kNoSuchDriver,
 	kNoSuchCookie = 62,
 	kUnableToCaptureScreen = 63,
 	kElementClickIntercepted = 64,
-	kUnknownMethod,
+        kUnknownMethod = Value::kUnknownCommand,
 	kMethodNotAllowed = 405
 };
 
@@ -175,8 +176,8 @@ of an expired or invalid TLS certificate.\
 	// TODO: find out the switch-case value
 	//case kInvalidArgument:
 	//	return "The arguments passed to a command are either invalid or malformed.";
-	case kInvalidCoordinates:
-		return "The coordinates provided to an interaction's operation are invalid.";
+        //case kInvalidCoordinates:
+        //	return "The coordinates provided to an interaction's operation are invalid.";
 	case kInvalidSessionId:
 		return "\
 Occurs if the given session id is not in the list of active sessions, meaning the session\n\
@@ -194,8 +195,8 @@ either does not exist or that it's not active.\
 The Element Click command could not be completed because the element receiving the events\n\
 is obscuring the element that was requested to be clicked.\
 		";
-	case kUnknownMethod:
-		return "The requested command matched a known URL but did not match any methods for that URL.";
+        //case kUnknownMethod:
+        //	return "The requested command matched a known URL but did not match any methods for that URL.";
 	//case kMethodNotAllowed:
 	//	return "";
 	}

@@ -168,10 +168,13 @@ private:
 			);
 
 		WEBDRIVERXX_CHECK(response.is<picojson::object>(), "Server response is not an object");
-		WEBDRIVERXX_CHECK(response.contains("status"), "Server response has no member \"status\"");
-		WEBDRIVERXX_CHECK(response.get("status").is<double>(), "Response status code is not a number");
-		const auto status =
-			static_cast<response_status_code::Value>(static_cast<int>(response.get("status").get<double>()));
+		response_status_code::Value status;
+		if (response.contains("status")) {
+			if (response.get("status").is<double>()) {
+				status = static_cast<response_status_code::Value>(static_cast<int>(response.get("status").get<double>()));
+			}
+		}
+
 		WEBDRIVERXX_CHECK(response.contains("value"), "Server response has no member \"value\"");
 		const auto& value = response.get("value");
 
@@ -179,14 +182,19 @@ private:
 			WEBDRIVERXX_CHECK(value.is<picojson::object>(), "Server returned HTTP code 500 and \"response.value\" is not an object");
 			WEBDRIVERXX_CHECK(value.contains("message"), "Server response has no member \"value.message\"");
 			WEBDRIVERXX_CHECK(value.get("message").is<std::string>(), "\"value.message\" is not a string");
-			WEBDRIVERXX_THROW(Fmt() << "Server failed to execute command ("
-				<< "message: " << value.get("message").to_str()
-				<< ", status: " << response_status_code::ToString(status)
-				<< ", status_code: " << status
-				<< ")"
-				);
+			auto ss = Fmt();
+			ss << "Server failed to execute command (" << "message: " << value.get("message").to_str();
+			if (response.contains("status")) {
+				ss << ", status: " << response_status_code::ToString(status) << ", status_code: " << status;
+			}
+			ss << ")";
+			WEBDRIVERXX_THROW();
 		}
-		WEBDRIVERXX_CHECK(status == response_status_code::kSuccess, "Non-zero response status code");
+
+		if (response.contains("status")) {
+			WEBDRIVERXX_CHECK(status == response_status_code::kSuccess, "Non-zero response status code");
+		}
+
 		WEBDRIVERXX_CHECK(http_response.http_code == 200, "Unsupported HTTP code");
 
 		return TransformResponse(response);
