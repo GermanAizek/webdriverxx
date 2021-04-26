@@ -31,15 +31,14 @@ inline By ByCss(const std::string& value) {
 }
 
 inline By ByClass(const std::string& value) {
-	std::string selector;
-	for (const auto& p : split(value, ' ')) {
-		selector += '.' + p;
-	}
+	std::string selector = '.' + value;
 	return ByCss(selector);
 }
 
 inline By ById(const std::string& value) {
-	return By("id", value);
+	std::string selector = "*[id=\"" + value + "\"]";
+	std::cout << selector << std::endl;
+	return ByCss(selector);
 }
 
 inline By ByName(const std::string& value) {
