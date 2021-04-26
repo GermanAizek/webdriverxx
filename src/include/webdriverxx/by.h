@@ -37,12 +37,12 @@ inline By ByClass(const std::string& value) {
 
 inline By ById(const std::string& value) {
 	std::string selector = "*[id=\"" + value + "\"]";
-	std::cout << selector << std::endl;
 	return ByCss(selector);
 }
 
 inline By ByName(const std::string& value) {
-	return By("name", value);
+	std::string selector = "*[name=\"" + value + "\"]";
+	return ByCss(selector);
 }
 
 inline By ByLinkText(const std::string& value) {
@@ -54,7 +54,7 @@ inline By ByPartialLinkText(const std::string& value) {
 }
 
 inline By ByTag(const std::string& value) {
-	return By("tag name", value);
+	return ByCss(value);
 }
 
 inline By ByXPath(const std::string& value) {
