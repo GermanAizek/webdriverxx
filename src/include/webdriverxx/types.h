@@ -2,6 +2,7 @@
 #define WEBDRIVERXX_TYPES_H
 
 #include <string>
+#include <vector>
 #include <cstdint>
 
 namespace webdriverxx {
@@ -101,6 +102,24 @@ enum Button {
 	RightButton = 2
 };
 } // namespace mouse
+
+std::vector<std::string> split(const std::string str, char delimiter) {
+    std::vector<std::string> result;
+    result.reserve(str.size());
+    int start = 0, end = 0;
+    for (const auto& c: str) {
+	if (c != delimiter) {
+	    ++end;
+	    continue;
+	}
+	result.push_back(str.substr(start, end - start));
+	start = ++end;
+    }
+    if (start <= str.size()) {
+	result.push_back(str.substr(start, end - start));
+    }
+    return result;
+}
 
 } // namespace webdriverxx
 
