@@ -2,6 +2,7 @@
 #define WEBDRIVERXX_BY_H
 
 #include <string>
+#include "types.h"
 
 namespace webdriverxx {
 
@@ -25,12 +26,16 @@ private:
 	std::string value_;
 };
 
-inline By ByClass(const std::string& value) {
-	return By("class name", value);
-}
-
 inline By ByCss(const std::string& value) {
 	return By("css selector", value);
+}
+
+inline By ByClass(const std::string& value) {
+	std::string selector;
+	for (const auto& p : split(value, ' ')) {
+		selector += '.' + p;
+	}
+	return ByCss(selector);
 }
 
 inline By ById(const std::string& value) {
