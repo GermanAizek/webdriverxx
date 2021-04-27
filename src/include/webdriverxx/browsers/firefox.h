@@ -11,17 +11,16 @@ public:
 	FirefoxBinary(const std::string& path = nullptr, const std::string& logfile = nullptr) {
 		startcmd_ = path;
 		if (!logfile.empty()) {
-			logfile_ = logfile;
+			logfile_.open(logfile, std::ofstream::binary);
 		} else {
-			std::ofstream devnull_log("/dev/null", std::ofstream::binary);
-			logfile_ = devnull_log;
+			logfile_.open("/dev/null", std::ofstream::binary);
 			//std::streambuf* strm_buffer = std::cout.rdbuf();
 			//std::cout.rdbuf(file.rdbuf());
 		}
 	}
 private:
 	std::string startcmd_;
-	std::string logfile_;
+	std::ofstream logfile_;
 	std::string commandline_;
 	std::string platform_;
 	std::string enviroment_;
