@@ -8,7 +8,7 @@ namespace webdriverxx {
 // TODO: this is dont written
 class FirefoxBinary {
 public:
-	FirefoxBinary(const std::string& path = nullptr, const std::string& logfile = nullptr) {
+	FirefoxBinary(const Session& driver, const std::string& path = "", const std::string& logfile = "") {
 		startcmd_ = path;
 		if (!logfile.empty()) {
 			logfile_.open(logfile, std::ofstream::binary);
@@ -17,6 +17,22 @@ public:
 			//std::streambuf* strm_buffer = std::cout.rdbuf();
 			//std::cout.rdbuf(file.rdbuf());
 		}
+		commandline_.clear();
+		platform_ = driver.GetCapabilities().GetPlatform();
+		if (startcmd_.empty())
+			startcmd_ = GetFirefoxStartCmd();
+		if (!split(startcmd_)) {
+			WebDriverException("\
+Failed to find firefox binary. You can set it by specifying the path to 'firefox_binary':\n\n\
+#include \"webdriverxx/browsers/firefox.h\"\n\n\
+FirefoxBinary binary = FirefoxBinary(driver, \"/path/to/binary\");\n\
+auto ff = Start(Firefox(binary=binary));\n\
+			"); // BUG: WTF
+		}
+	}
+
+	std::string GetFirefoxStartCmd() const {
+
 	}
 private:
 	std::string startcmd_;
