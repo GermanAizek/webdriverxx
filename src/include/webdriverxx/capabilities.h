@@ -29,11 +29,13 @@ typedef const char* const ConstValue;
 ConstValue Any              = "ANY";
 ConstValue Windows          = "WINDOWS";
 ConstValue Xp               = "XP";
-ConstValue Vista            = "VISTA";
+ConstValue Nt               = "NT";
 ConstValue Mac              = "MAC";
 ConstValue Linux            = "LINUX";
 ConstValue Unix             = "UNIX";
 ConstValue Android          = "ANDROID";
+ConstValue Darwin           = "DARWIN";
+ConstValue Java             = "JAVA";
 } // namespace platform
 
 namespace unexpected_alert_behaviour {
