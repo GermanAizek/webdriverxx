@@ -2,6 +2,13 @@
 #define WEBDRIVERXX_BROWSERS_FIREFOX_H
 
 #include "../capabilities.h"
+#include <cstdlib>
+
+#if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
+#include <filesystem>
+#else
+// TODO: https://github.com/gulrak/filesystem as submodule
+#endif
 
 namespace webdriverxx {
 
@@ -21,7 +28,7 @@ public:
 		platform_ = driver.GetCapabilities().GetPlatform();
 		if (startcmd_.empty())
 			startcmd_ = GetFirefoxStartCmd();
-		if (!split(startcmd_)) {
+		if (split(startcmd_).size() < 1) {
 			WebDriverException("\
 Failed to find firefox binary. You can set it by specifying the path to 'firefox_binary':\n\n\
 #include \"webdriverxx/browsers/firefox.h\"\n\n\
@@ -32,7 +39,35 @@ auto ff = Start(Firefox(binary=binary));\n\
 	}
 
 	std::string GetFirefoxStartCmd() const {
+		std::string startcmd = "";
+		if (platform_ == "darwin") {
+			startcmd = "/Applications/Firefox.app/Contents/MacOS/firefox-bin";
+			if (!std::filesystem::exists(startcmd)) {
 
+			}
+#ifdef WIN32_
+			startcmd = std::getenv("USERPROFILE") + startcmd;
+#else
+			/*
+			>>> os.path.expanduser(~/file.txt)
+			# '/home/docs/file.txt'
+
+			>>> os.environ["HOME"] = '/home/testuser'
+			>>> os.path.expanduser(~/file.txt)
+			# '/home/testuser/file.txt'
+
+			>>> os.path.expanduser('~docs/file.txt')
+			# '/home/docs/file.txt'
+			*/
+#endif
+
+		} else if (platform_ == "windows") {
+
+		} else if (platform_ == "java") {
+
+		} else {
+
+		}
 	}
 private:
 	std::string startcmd_;
