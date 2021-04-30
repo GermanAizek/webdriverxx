@@ -83,7 +83,7 @@ auto WaitUntil(
 	return detail::Wait<Value>(
 		[&getter](std::string* description) -> std::unique_ptr<Value> {
 			auto value_ptr = detail::TryToCallGetter<Value>(getter, description);
-			if (!value_ptr || !!*value_ptr)
+			if (!value_ptr || detail::BoolCast(*value_ptr))
 				return value_ptr;
 			if (description)
 				*description = "Value is falsy";
