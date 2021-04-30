@@ -10,10 +10,10 @@
 namespace webdriverxx {
 
 template<typename T>
-picojson::value ToJson(const T& value);
+inline picojson::value ToJson(const T& value);
 
 template<typename T>
-T FromJson(const picojson::value& value);
+inline T FromJson(const picojson::value& value);
 
 class JsonObject { // copyable
 public:
@@ -21,7 +21,7 @@ public:
 	explicit JsonObject(const picojson::object& object) : value_(object) {}
 
 	template<typename T>
-	T Get(const std::string& name) const {
+	inline T Get(const std::string& name) const {
 		const auto& map = value_.get<picojson::object>();
 		const auto it = map.find(name);
 		WEBDRIVERXX_CHECK(it != map.end(), detail::Fmt() << "No \"" << name << "\" in JsonObject");
@@ -29,19 +29,19 @@ public:
 	}
 
 	template<typename T>
-	T GetOptional(const std::string& name, const T& default_value = T()) const {
+	inline T GetOptional(const std::string& name, const T& default_value = T()) const {
 		const auto& map = value_.get<picojson::object>();
 		const auto it = map.find(name);
 		return it != map.end() ? FromJson<T>(it->second) : default_value;
 	}
 
 	template<typename T>
-	JsonObject& Set(const std::string& name, const T& value) {
+	inline JsonObject& Set(const std::string& name, const T& value) {
 		value_.get<picojson::object>()[name] = ToJson(value);
 		return *this;
 	}
 
-	bool Has(const std::string& name) const {
+	inline bool Has(const std::string& name) const {
 		const auto& map = value_.get<picojson::object>();
 		return map.find(name) != map.end();
 	}
@@ -68,7 +68,7 @@ struct Tag :
 	> {};
 
 template<typename T>
-picojson::value ToJsonImpl(const T& value, DefaultTag) {
+inline picojson::value ToJsonImpl(const T& value, DefaultTag) {
 	// Compile error here usually indicates
 	// that compiler doesn't know how to convert the type T
 	// to the picojson::value. Define CustomToJson
@@ -78,7 +78,7 @@ picojson::value ToJsonImpl(const T& value, DefaultTag) {
 }
 
 template<typename T>
-picojson::value ToJsonImpl(const T& value, IterableTag) {
+inline picojson::value ToJsonImpl(const T& value, IterableTag) {
 	typedef typename std::iterator_traits<decltype(std::begin(value))>::value_type Item;
 	picojson::value result = picojson::value(picojson::array());
 	picojson::array& dst = result.get<picojson::array>();
@@ -146,6 +146,7 @@ void FromJsonImpl(const picojson::value& value, T& result, DefaultTag) {
 }
 
 template<typename T>
+inline
 void FromJsonImpl(const picojson::value& value, T& result, IterableTag) {
 	WEBDRIVERXX_CHECK(value.is<picojson::array>(), "Value is not an array");
 	const picojson::array& array = value.get<picojson::array>();
@@ -195,6 +196,7 @@ void CustomFromJson(const picojson::value& value, JsonObject& result) {
 }
 
 template<typename T>
+inline
 void CustomFromJson(const picojson::value& value, T& result) {
 	using conversions_detail::FromJsonImpl;
 	using conversions_detail::Tag;
@@ -202,6 +204,7 @@ void CustomFromJson(const picojson::value& value, T& result) {
 }
 
 template<typename T>
+inline
 T FromJson(const picojson::value& value) {
 	T result;
 	CustomFromJson(value, result);
@@ -264,7 +267,6 @@ void CustomFromJson(const picojson::value& value, Point& result) {
 	result.y = FromJson<int>(value.get("y"));
 }
 
-inline
 picojson::value CustomToJson(const Cookie& cookie) {
 	JsonObject result;
 	result.Set("name", cookie.name);
