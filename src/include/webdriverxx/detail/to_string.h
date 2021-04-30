@@ -9,12 +9,12 @@ namespace webdriverxx {
 namespace detail {
 
 template<typename T>
-void ToStream(const T& value, std::ostream& stream);
+inline void ToStream(const T& value, std::ostream& stream);
 
 namespace to_string_impl {
 
 template<typename T>
-void WriteNonStreamableValue(const T&, std::ostream& stream) {
+inline void WriteNonStreamableValue(const T&, std::ostream& stream) {
 	stream << "<non-printable>";
 }
 
@@ -48,13 +48,13 @@ struct Tag :
 	>> {};
 
 template<typename T>
-void ToStreamImpl(const T& value, std::ostream& stream, DefaultTag) {
+inline void ToStreamImpl(const T& value, std::ostream& stream, DefaultTag) {
 	using namespace webdriverxx_to_string_impl;
 	stream << value;
 }
 
 template<typename T>
-void ToStreamImpl(T* value, std::ostream& stream, DefaultTag) {
+inline void ToStreamImpl(T* value, std::ostream& stream, DefaultTag) {
 	stream << '*';
 	ToStream(*value, stream);
 }
@@ -93,20 +93,20 @@ void ToStreamImpl(const T& value, std::ostream& stream, IterableTag) {
 } // namespace to_string_impl
 
 template<typename T>
-void PrintTo(const T& value, std::ostream* stream) {
+inline void PrintTo(const T& value, std::ostream* stream) {
 	using to_string_impl::ToStreamImpl;
 	using to_string_impl::Tag;
 	ToStreamImpl(value, *stream, typename Tag<T>::type());
 }
 
 template<typename T>
-void ToStream(const T& value, std::ostream& stream)
+inline void ToStream(const T& value, std::ostream& stream)
 {
 	PrintTo(value, &stream); // for compatibility with Google Test's values printers
 }
 
 template<typename T>
-std::string ToString(const T& value) {
+inline std::string ToString(const T& value) {
 	std::ostringstream s;
 	ToStream(value, s);
 	return s.str();

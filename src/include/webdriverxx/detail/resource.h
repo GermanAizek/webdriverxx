@@ -43,16 +43,18 @@ public:
 		} catch (const std::exception&) {}
 	}
 
+	inline
 	const std::string& GetUrl() const {
 		return url_;
 	}
 
+	inline
 	picojson::value Get(const std::string& command = std::string()) const {
 		return Download(command, &IHttpClient::Get, "GET");
 	}
 
 	template<typename T>
-	T GetValue(const std::string& command) const {
+	inline T GetValue(const std::string& command) const {
 		WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
 		return FromJson<T>(Get(command));
 		WEBDRIVERXX_FUNCTION_CONTEXT_END_EX(detail::Fmt() <<
@@ -60,18 +62,22 @@ public:
 			)
 	}
 
+	inline
 	std::string GetString(const std::string& command) const {
 		return GetValue<std::string>(command);
 	}
 
+	inline
 	bool GetBool(const std::string& command) const {
 		return GetValue<bool>(command);
 	}
 
+	inline
 	picojson::value Delete(const std::string& command = std::string()) const {
 		return Download(command, &IHttpClient::Delete, "DELETE");
 	}
 
+	inline
 	picojson::value Post(
 		const std::string& command = std::string(),
 		const picojson::value& upload_data = picojson::value()
@@ -80,7 +86,7 @@ public:
 	}
 
 	template<typename T>
-	void Post(
+	inline void Post(
 		const std::string& command,
 		const std::string& arg_name,
 		const T& arg_value
@@ -89,7 +95,7 @@ public:
 	}	
 
 	template<typename T>
-	void PostValue(const std::string& command, const T& value) const {
+	inline void PostValue(const std::string& command, const T& value) const {
 		WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
 		Post(command, ToJson(value));
 		WEBDRIVERXX_FUNCTION_CONTEXT_END_EX(detail::Fmt() <<
@@ -98,17 +104,20 @@ public:
 	}	
 
 protected:
+	inline
 	virtual picojson::value TransformResponse(picojson::value& response) const {
 		picojson::value result;
 		response.get("value").swap(result);
 		return result;
 	}
 
+	inline
 	virtual void DeleteResource() {
 		Delete();
 	}
 
 private:
+	inline
 	picojson::value Download(
 		const std::string& command,
 		HttpResponse (IHttpClient::* member)(const std::string& url) const,
@@ -125,12 +134,14 @@ private:
 			)
 	}
 
+	inline
 	static std::string ToUploadData(const picojson::value& upload_data)
 	{
 		return upload_data.is<picojson::null>() ?
 			std::string() : upload_data.serialize();
 	}
 
+	inline
 	picojson::value Upload(
 		const std::string& command,
 		const picojson::value& upload_data,
@@ -232,6 +243,7 @@ public:
 	{}
 
 private:
+	inline
 	virtual picojson::value TransformResponse(picojson::value& response) const {
 		picojson::value result;
 		response.swap(result);

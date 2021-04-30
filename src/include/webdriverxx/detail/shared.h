@@ -12,10 +12,12 @@ public:
 	SharedObjectBase() : ref_(0) {}
 	virtual ~SharedObjectBase() {}
 
+	inline
 	virtual void AddRef() {
 		++ref_;
 	}
 
+	inline
 	virtual void Release() {
 		if (--ref_ == 0)
 			delete this;
@@ -39,13 +41,14 @@ public:
 	{}
 
 	template<typename T2>
-	Shared(T2* ptr)
+	inline Shared(T2* ptr)
 		: ptr_(ptr)
 		, ref_(ptr)
 	{
 		if (ref_) ref_->AddRef();
 	}
 
+	inline
 	Shared(const Shared& other)
 		: ptr_(other.ptr_)
 		, ref_(other.ref_)
@@ -54,13 +57,14 @@ public:
 	}
 
 	template<typename T2>
-	Shared(const Shared<T2>& other)
+	inline Shared(const Shared<T2>& other)
 		: ptr_(other.ptr_)
 		, ref_(other.ref_)
 	{
 		if (ref_) ref_->AddRef();
 	}
 
+	inline
 	~Shared() {
 		if (ref_) ref_->Release();
 	}
@@ -71,6 +75,7 @@ public:
 		return *this;
 	}
 
+	inline
 	void Swap(Shared& other) {
 		std::swap(ptr_, other.ptr_);
 		std::swap(ref_, other.ref_);
@@ -84,6 +89,7 @@ public:
 		return ptr_;
 	}
 
+	inline
 	T* Get() const {
 		return ptr_;
 	}
