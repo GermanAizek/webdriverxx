@@ -44,7 +44,6 @@ enum Value {
 	kMethodNotAllowed = 405
 };
 
-inline
 const char* ToString(Value code) {
 	switch(code) {
 	case kSuccess:

@@ -60,12 +60,12 @@ ConstValue System           = "SYSTEM";         // Use system settings (default 
 #define WEBDRIVERXX_PROPERTIES_END()
 
 #define WEBDRIVERXX_PROPERTY_RONLY(name, id, type) \
-	type Get##name() const { return GetOptional<type>(id); } \
-	bool Has##name() { return Has(id); }
+	inline type Get##name() const { return GetOptional<type>(id); } \
+	inline bool Has##name() { return Has(id); }
 
 #define WEBDRIVERXX_PROPERTY(name, id, type) \
 	WEBDRIVERXX_PROPERTY_RONLY(name, id, type) \
-	This& Set##name(const type& value) { Set(id, value); return *this; }
+	inline This& Set##name(const type& value) { Set(id, value); return *this; }
 
 struct Proxy : JsonObject { // copyable
 	WEBDRIVERXX_PROPERTIES_BEGIN(Proxy)

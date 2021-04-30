@@ -19,12 +19,13 @@ public:
 	// to the TestJsExecutor/CanPassArray, TestJsExecutor/CanPassCustomArray
 	// and TestJsExecutor/CanPassCustomObjects tests to get details.
 	template<typename T>
-	JsArgs& operator << (const T& arg) {
+	inline JsArgs& operator << (const T& arg) {
 		args_.get<picojson::array>().push_back(ToJson(arg));
 		return *this;
 	}
 
 	// Alternative backdoor for passing custom data structures as arguments.
+	inline
 	JsArgs& operator << (const picojson::value& arg) {
 		args_.get<picojson::array>().push_back(arg);
 		return *this;

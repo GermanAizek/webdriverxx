@@ -22,10 +22,10 @@ class Client;
 
 class Session { // copyable
 public:
-	std::string GetBrowserName() const { return this->GetCapabilities().GetBrowserName(); }
-	bool IsChrome() const { return GetBrowserName() == webdriverxx::browser::Chrome; }
-	bool IsFirefox() const { return GetBrowserName() == webdriverxx::browser::Firefox; }
-	bool IsPhantomJS() const { return GetBrowserName() == webdriverxx::browser::PhantomJS; }
+	inline std::string GetBrowserName() const { return this->GetCapabilities().GetBrowserName(); }
+	inline bool IsChrome() const { return GetBrowserName() == webdriverxx::browser::Chrome; }
+	inline bool IsFirefox() const { return GetBrowserName() == webdriverxx::browser::Firefox; }
+	inline bool IsPhantomJS() const { return GetBrowserName() == webdriverxx::browser::PhantomJS; }
 
 	Capabilities GetCapabilities() const;
 	std::string GetPageSource() const;

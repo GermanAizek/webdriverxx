@@ -40,7 +40,7 @@ Value Wait(
 }
 
 template<typename Value, typename Getter>
-std::unique_ptr<Value> TryToCallGetter(Getter getter, std::string* description) {
+inline std::unique_ptr<Value> TryToCallGetter(Getter getter, std::string* description) {
 	std::unique_ptr<Value> value_ptr;
 	try {
 		value_ptr.reset(new Value(getter()));
@@ -57,7 +57,7 @@ std::unique_ptr<Value> TryToCallGetter(Getter getter, std::string* description) 
 // Returns that value or throws exception on timeout.
 // Getter is a function or function-like object that returns some copyable value.
 template<typename Getter>
-auto WaitForValue(
+inline auto WaitForValue(
 	Getter getter,
 	Duration timeoutMs = 5000,
 	Duration intervalMs = 50

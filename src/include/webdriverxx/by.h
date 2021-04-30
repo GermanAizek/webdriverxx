@@ -13,10 +13,12 @@ public:
 		, value_(value)
 	{}
 
+	inline
 	const std::string& GetStrategy() const {
 		return strategy_;
 	}
 
+	inline
 	const std::string& GetValue() const {
 		return value_;
 	}
@@ -26,38 +28,46 @@ private:
 	std::string value_;
 };
 
-inline By ByCss(const std::string& value) {
+inline
+By ByCss(const std::string& value) {
 	return By("css selector", value);
 }
 
-inline By ByClass(const std::string& value) {
+inline
+By ByClass(const std::string& value) {
 	std::string selector = '.' + value;
 	return ByCss(selector);
 }
 
-inline By ById(const std::string& value) {
+inline
+By ById(const std::string& value) {
 	std::string selector = "*[id=\"" + value + "\"]";
 	return ByCss(selector);
 }
 
-inline By ByName(const std::string& value) {
+inline
+By ByName(const std::string& value) {
 	std::string selector = "*[name=\"" + value + "\"]";
 	return ByCss(selector);
 }
 
-inline By ByLinkText(const std::string& value) {
+inline
+By ByLinkText(const std::string& value) {
 	return By("link text", value);
 }
 
-inline By ByPartialLinkText(const std::string& value) {
+inline
+By ByPartialLinkText(const std::string& value) {
 	return By("partial link text", value);
 }
 
-inline By ByTag(const std::string& value) {
+inline
+By ByTag(const std::string& value) {
 	return ByCss(value);
 }
 
-inline By ByXPath(const std::string& value) {
+inline
+By ByXPath(const std::string& value) {
 	return By("xpath", value);
 }
 

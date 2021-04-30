@@ -41,7 +41,8 @@ public:
 		return *this;
 	}
 
-	inline bool Has(const std::string& name) const {
+	inline
+	bool Has(const std::string& name) const {
 		const auto& map = value_.get<picojson::object>();
 		return map.find(name) != map.end();
 	}
@@ -121,14 +122,14 @@ picojson::value CustomToJson(int value) {
 }
 
 template<typename T>
-picojson::value CustomToJson(const T& value) {
+inline picojson::value CustomToJson(const T& value) {
 	using conversions_detail::ToJsonImpl;
 	using conversions_detail::Tag;
 	return ToJsonImpl(value, typename Tag<T>::type());
 }
 
 template<typename T>
-picojson::value ToJson(const T& value) {
+inline picojson::value ToJson(const T& value) {
 	return CustomToJson(value);
 }
 
@@ -137,7 +138,7 @@ picojson::value ToJson(const T& value) {
 namespace conversions_detail {
 
 template<typename T>
-void FromJsonImpl(const picojson::value& value, T& result, DefaultTag) {
+inline void FromJsonImpl(const picojson::value& value, T& result, DefaultTag) {
 	// Compile error here usually indicates
 	// that compiler doesn't know how to convert the picojson::value
 	// to the type T. Define CustomFromJson function (see examples below)
@@ -146,8 +147,7 @@ void FromJsonImpl(const picojson::value& value, T& result, DefaultTag) {
 }
 
 template<typename T>
-inline
-void FromJsonImpl(const picojson::value& value, T& result, IterableTag) {
+inline void FromJsonImpl(const picojson::value& value, T& result, IterableTag) {
 	WEBDRIVERXX_CHECK(value.is<picojson::array>(), "Value is not an array");
 	const picojson::array& array = value.get<picojson::array>();
 	typedef typename std::iterator_traits<decltype(std::begin(result))>::value_type Item;
@@ -196,27 +196,23 @@ void CustomFromJson(const picojson::value& value, JsonObject& result) {
 }
 
 template<typename T>
-inline
-void CustomFromJson(const picojson::value& value, T& result) {
+inline void CustomFromJson(const picojson::value& value, T& result) {
 	using conversions_detail::FromJsonImpl;
 	using conversions_detail::Tag;
 	return FromJsonImpl(value, result, typename Tag<T>::type());
 }
 
 template<typename T>
-inline
-T FromJson(const picojson::value& value) {
+inline T FromJson(const picojson::value& value) {
 	T result;
 	CustomFromJson(value, result);
 	return result;
 }
 
 template<typename T>
-T OptionalFromJson(const picojson::value& value, const T& default_value = T()) {
+inline T OptionalFromJson(const picojson::value& value, const T& default_value = T()) {
 	return value.is<picojson::null>() ? default_value : FromJson<T>(value);
 }
-
-///////////////////////////////////////////////////////////////////
 
 inline
 picojson::value CustomToJson(const Size& size) {

@@ -19,27 +19,33 @@ public:
 		delete this;
 	}
 
+	inline
 	void close() const {
 		this->~Window();
 	}
 
+	inline
 	std::string GetHandle() const {
 		return handle_;
 	}
 
+	inline
 	Size GetSize() const {
 		return resource_->GetValue<Size>("size");
 	}
 
+	inline
 	const Window& SetSize(const Size& size) const {
 		resource_->PostValue("size", size);
 		return *this;
 	}
 
+	inline
 	Rect GetRect() const {
 		return resource_->GetValue<Rect>("rect");
 	}
 
+	inline
 	const Window& SetRect(const Rect& rect) const {
 		resource_->PostValue("rect", JsonObject()
 							 //.Set("rect", ToJson(rect)));
@@ -50,25 +56,30 @@ public:
 		return *this;
 	}
 
+	inline
 	Point GetPosition() const {
 		return resource_->GetValue<Point>("position");
 	}
 
+	inline
 	const Window& SetPosition(const Point& position) const {
 		resource_->PostValue("position", position);
 		return *this;
 	}
 
+	inline
 	const Window& Maximize() const {
 		resource_->Post("maximize");
 		return *this;
 	}
 
+	inline
 	const Window& Minimize() const {
 		resource_->Post("minimize");
 		return *this;
 	}
 
+	inline
 	const Window& Fullscreen() const {
 		resource_->Post("fullscreen");
 		return *this;

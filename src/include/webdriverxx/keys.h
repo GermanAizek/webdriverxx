@@ -100,15 +100,18 @@ public:
 		return *this;
 	}
 
+	inline
 	void setPressed(bool flag) {
 		isDown = flag;
 	}
 
+	inline
 	Shortcut& addHoldKey(const std::string& key) {
 		holdkeys.push_back(key);
 		return *this;
 	}
 
+	inline
 	Shortcut& removeHoldKey(const std::string& key) {
 		auto removed = std::remove(holdkeys.begin(), holdkeys.end(), key);
 		holdkeys.erase(removed, holdkeys.end());

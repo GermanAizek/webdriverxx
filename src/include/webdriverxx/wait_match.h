@@ -18,10 +18,12 @@ class GMockMatcherAdapter {
 public:
 	explicit GMockMatcherAdapter(::testing::Matcher<T> matcher) : matcher_(matcher) {}
 
+	inline
 	bool Apply(const T& value) const {
 		return matcher_.Matches(value);
 	}
 
+	inline
 	std::string DescribeMismatch(const T& value) const {
 		std::ostringstream s;
 		s << "Expected: ";
@@ -35,6 +37,7 @@ public:
 	}
 
 private:
+	inline
 	std::string GetMismatchDetails(const T& value) const {
 		std::ostringstream s;
 		matcher_.ExplainMatchResultTo(value, &s);
@@ -48,7 +51,7 @@ private:
 } // detail
 
 template<class T, class M>
-detail::GMockMatcherAdapter<T,M> MakeMatcherAdapter(const M& matcher, typename std::enable_if<std::is_convertible<M,::testing::Matcher<T>>::value>::type* = nullptr) {
+inline detail::GMockMatcherAdapter<T,M> MakeMatcherAdapter(const M& matcher, typename std::enable_if<std::is_convertible<M,::testing::Matcher<T>>::value>::type* = nullptr) {
 	return detail::GMockMatcherAdapter<T,M>(matcher);
 };
 
@@ -64,10 +67,12 @@ class PredicateMatcherAdapter {
 public:
 	explicit PredicateMatcherAdapter(P& predicate) : predicate_(&predicate) {}
 
+	inline
 	bool Apply(const T& value) const {
 		return (*predicate_)(value);
 	}
 
+	inline
 	std::string DescribeMismatch(const T& value) const {
 		return detail::Fmt() << "Value " << ToString(value) << " does not match predicate";
 	}
@@ -84,12 +89,12 @@ void MakeMatcherAdapter(...);
 namespace detail {
 
 template<typename T, typename M>
-PredicateMatcherAdapter<T,M> SelectMakeMatcherAdapter(M& matcher, std::true_type /*no_custom_adapters*/) {
+inline PredicateMatcherAdapter<T,M> SelectMakeMatcherAdapter(M& matcher, std::true_type /*no_custom_adapters*/) {
 	return PredicateMatcherAdapter<T,M>(matcher);
 }
 
 template<typename T, typename M>
-auto SelectMakeMatcherAdapter(const M& matcher, std::false_type /*no_custom_adapters*/) -> decltype(MakeMatcherAdapter<T>(matcher)) {
+inline auto SelectMakeMatcherAdapter(const M& matcher, std::false_type /*no_custom_adapters*/) -> decltype(MakeMatcherAdapter<T>(matcher)) {
 	return MakeMatcherAdapter<T>(matcher);
 }
 
