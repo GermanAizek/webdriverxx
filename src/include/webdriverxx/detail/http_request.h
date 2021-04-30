@@ -19,11 +19,13 @@ public:
 		curl_slist_free_all(head_);
 	}
 
+	inline
 	void Add(const std::string& name, const std::string& value) {
 		head_ = curl_slist_append(head_, (name + ": " + value).c_str());
 		WEBDRIVERXX_CHECK(head_, "Cannot add HTTP header");
 	}
 
+	inline
 	curl_slist* Get() const {
 		return head_;
 	}
@@ -44,6 +46,7 @@ public:
 
 	virtual ~HttpRequest() {}
 
+	inline
 	HttpResponse Execute() {
 		curl_easy_reset(http_connection_);
 		SetOption(CURLOPT_URL, url_.c_str());
@@ -74,7 +77,7 @@ protected:
 	virtual void SetCustomRequestOptions() {}
 
 	template<typename T>
-	void SetOption(CURLoption option, const T& value) const {
+	inline void SetOption(CURLoption option, const T& value) const {
 		const auto result = curl_easy_setopt(http_connection_, option, value);
 		WEBDRIVERXX_CHECK(result == CURLE_OK, Fmt()
 			<< "Cannot set HTTP session option ("
@@ -84,11 +87,13 @@ protected:
 			);
 	}
 
+	inline
 	void AddHeader(const std::string& name, const std::string& value) {
 		headers_.Add(name, value);
 	}
 
 private:
+	inline
 	HTTPCode GetHttpCode() const {
 		HTTPCode http_code(0L);
 		const auto result = curl_easy_getinfo(http_connection_, CURLINFO_RESPONSE_CODE, &http_code);
@@ -99,7 +104,7 @@ private:
 	}
 
 	static
-	size_t WriteCallback(void* buffer, size_t size, size_t nmemb, void* userdata) {
+	inline size_t WriteCallback(void* buffer, size_t size, size_t nmemb, void* userdata) {
 		std::string* data_received = reinterpret_cast<std::string*>(userdata);
 		const auto buffer_size = size * nmemb;
 		data_received->append(reinterpret_cast<const char*>(buffer), buffer_size);
@@ -125,6 +130,7 @@ public:
 	{}
 
 private:
+	inline
 	void SetCustomRequestOptions() {
 		SetOption(CURLOPT_CUSTOMREQUEST, "DELETE");
 	}
@@ -144,6 +150,7 @@ public:
 	{}
 
 protected:
+	inline
 	void SetCustomRequestOptions() {
 		SetOption(CURLOPT_POST, 1L);
 		SetOption(CURLOPT_POSTFIELDSIZE, upload_data_.length());
@@ -154,7 +161,7 @@ protected:
 
 private:
 	static
-	size_t ReadCallback(void* buffer, size_t size, size_t nmemb, void* userdata) {
+	inline size_t ReadCallback(void* buffer, size_t size, size_t nmemb, void* userdata) {
 		HttpPostRequest* that = reinterpret_cast<HttpPostRequest*>(userdata);
 		auto buffer_size = size * nmemb;
 		auto copy_size = that->unsent_length_ < buffer_size ? that->unsent_length_ : buffer_size;

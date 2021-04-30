@@ -20,6 +20,7 @@ public:
 		: session_resource_(session_resource)
 	{}
 
+	inline
 	virtual Element MakeElement(const std::string& id) {
 		return Element(
 			id,
@@ -28,6 +29,7 @@ public:
 			);
 	}
 
+	inline
 	virtual Finder MakeFinder(const Shared<Resource>& context) {
 		return Finder(context, Shared<IElementFactory>(this));
 	}

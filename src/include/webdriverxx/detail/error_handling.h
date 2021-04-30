@@ -25,7 +25,7 @@ private:
 };
 
 template<typename T>
-bool BoolCast(T value) {
+inline bool BoolCast(T value) {
 	return !!value;
 }
 

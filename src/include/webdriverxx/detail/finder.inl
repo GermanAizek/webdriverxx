@@ -6,7 +6,6 @@
 namespace webdriverxx {
 namespace detail {
 
-inline
 Finder::Finder(
 	const Shared<Resource>& context,
 	const Shared<IElementFactory>& factory

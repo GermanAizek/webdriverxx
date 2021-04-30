@@ -16,10 +16,12 @@ public:
 	{}
 
 	// does not clamp the key
+	inline
 	const Keyboard& SendKeys(const std::string& keys) const {
 		return SendKeys(Shortcut() << keys);
 	}
 
+	inline
 	const Keyboard& SendKeys(const Shortcut& shortcut) const {
 		resource_->Post(command_, JsonObject()
 			.Set("value", ToJson(shortcut.keys_)));
@@ -27,6 +29,7 @@ public:
 	}
 
 	// clips the key
+	inline
 	const Keyboard& KeyDown(const std::string& keys) const {
 		auto shortcut = Shortcut();
 		shortcut.setPressed(true);
@@ -35,6 +38,7 @@ public:
 	}
 
 	// releases the pressed key
+	inline
 	const Keyboard& KeyUp(const std::string& keys) const {
 		auto shortcut = Shortcut();
 		shortcut.setPressed(false);

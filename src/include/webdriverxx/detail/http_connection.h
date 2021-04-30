@@ -23,14 +23,17 @@ public:
 		curl_easy_cleanup(connection_);
 	}
 
+	inline
 	HttpResponse Get(const std::string& url) const {
 		return HttpGetRequest(connection_, url).Execute();
 	}
 	
+	inline
 	HttpResponse Delete(const std::string& url) const {
 		return HttpDeleteRequest(connection_, url).Execute();
 	}
 	
+	inline
 	HttpResponse Post(
 		const std::string& url,
 		const std::string& upload_data
@@ -40,7 +43,7 @@ public:
 
 private:
 	static
-	CURL* InitCurl() {
+	inline CURL* InitCurl() {
 		CURL *const result = curl_easy_init();
 		WEBDRIVERXX_CHECK(result, "Cannot initialize CURL");
 		return result;
