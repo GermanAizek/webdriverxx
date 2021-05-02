@@ -47,7 +47,7 @@ int Session::GetScreenshotAsFile(const std::string& filename) const {
 	if (filename.find(".png") == std::string::npos) {
 		name += ".png";
 	}
-	std::ofstream out(name, ios::binary);
+	std::ofstream out(name, std::ios::binary);
 	if (!out) return 1;
 	out << b64decode(resource_->GetString("screenshot"));
 	out.close();
