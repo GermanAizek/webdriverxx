@@ -42,9 +42,14 @@ auto ff = Start(Firefox(binary=binary));\n\
 		std::string startcmd = "";
 		if (platform_ == "darwin") {
 			startcmd = "/Applications/Firefox.app/Contents/MacOS/firefox-bin";
+#if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
 			if (!std::filesystem::exists(startcmd)) {
 
 			}
+#else
+// TODO: Goto on line 10
+#endif
+
 #ifdef WIN32_
 			startcmd = std::getenv("USERPROFILE") + startcmd;
 #else
