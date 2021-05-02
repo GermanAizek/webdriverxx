@@ -114,6 +114,8 @@ struct Firefox : Capabilities { // copyable
 	WEBDRIVERXX_PROPERTY(LoggingPrefs,        "loggingPrefs",        LoggingPrefs)
 	WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",      std::string)
 	WEBDRIVERXX_PROPERTY(PageLoadingStrategy, "pageLoadingStrategy", std::string)
+	// TODO: This is experimental prop
+	WEBDRIVERXX_PROPERTY(FirefoxArgs,         "args",                std::vector<std::string>)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
