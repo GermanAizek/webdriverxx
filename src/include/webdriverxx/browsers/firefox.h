@@ -13,6 +13,7 @@
 namespace webdriverxx {
 
 // TODO: this is dont written
+/*
 class FirefoxBinary {
 public:
 	FirefoxBinary(const Session& driver, const std::string& path = "", const std::string& logfile = "") {
@@ -81,7 +82,7 @@ private:
 	std::string platform_;
 	std::string enviroment_;
 };
-
+*/
 struct LogLevel : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(LogLevel)
 	WEBDRIVERXX_PROPERTY(Level,                 "level",                                log_level::Value)
@@ -90,18 +91,18 @@ struct LogLevel : JsonObject {
 
 struct FirefoxOptions : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxOptions)
-	//WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                                std::vector<std::string>)
-	//WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                                Proxy)
-	//WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",                      std::string)
+	//WEBDRIVERXX_PROPERTY(Preferences,    "prefs",                                std::vector<std::string>)
+	//WEBDRIVERXX_PROPERTY(Proxy,          "proxy",                                Proxy)
+	//WEBDRIVERXX_PROPERTY(Profile,      "firefox_profile",                      std::string)
 	//WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",                         LoggingPrefs)
-	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",                       std::string)
+	//WEBDRIVERXX_PROPERTY(Binary,       "firefox_binary",                       std::string)
 	//WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",                  std::string)
 	// Tested section
-	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                              std::string) // BASE64 STR
-	WEBDRIVERXX_PROPERTY(FirefoxBinary,         "binary",                               std::string)
-	WEBDRIVERXX_PROPERTY(FirefoxArgs,           "args",                                 std::vector<std::string>)
-	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                                  LogLevel)
-	WEBDRIVERXX_PROPERTY(FirefoxPrefs,          "prefs",                                JsonObject)
+	WEBDRIVERXX_PROPERTY(Profile,        "profile",                              std::string) // BASE64 STR
+	WEBDRIVERXX_PROPERTY(Binary,         "binary",                               std::string)
+	WEBDRIVERXX_PROPERTY(Args,           "args",                                 std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(LogFile,        "log",                                  LogLevel)
+	WEBDRIVERXX_PROPERTY(Prefs,          "prefs",                                JsonObject)
 	// TODO: BUG dont use std::map in WEBDRIVERXX_PROPERTY
 	//WEBDRIVERXX_PROPERTY(FirefoxEnv,          "env",                                  std::map<std::string,JsonObject>)
 	WEBDRIVERXX_PROPERTIES_END()
@@ -113,7 +114,7 @@ struct FirefoxProfile : JsonObject {
 	WEBDRIVERXX_PROPERTY(AcceptUntrustedCerts,  "webdriver_accept_untrusted_certs",     bool)
 	WEBDRIVERXX_PROPERTY(AssumeUntrustedIssuer, "webdriver_assume_untrusted_issuer",    bool)
 	WEBDRIVERXX_PROPERTY(LogDriver,             "webdriver.log.driver",                 log_level::Value)
-	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "webdriver.log.file",                   std::string)
+	WEBDRIVERXX_PROPERTY(LogFile,               "webdriver.log.file",                   std::string)
 	WEBDRIVERXX_PROPERTY(LoadStrategy,          "webdriver.load.strategy",              std::string)
 	WEBDRIVERXX_PROPERTY(Port,                  "webdriver_firefox_port",               int) // default 7055
 	WEBDRIVERXX_PROPERTIES_END()
