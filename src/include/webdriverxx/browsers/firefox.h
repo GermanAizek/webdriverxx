@@ -84,29 +84,29 @@ private:
 
 struct FirefoxOptions : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxOptions)
-	//WEBDRIVERXX_PROPERTY(FirefoxBinary,         "binary",                    FirefoxBinary)
-	WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                     std::vector<std::string>)
-	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                   std::string)
-	WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                     Proxy)
-	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                       std::string)
-	//WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",           std::string)
-	WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",              LoggingPrefs)
-	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",			 std::string)
-	WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",		 std::string)
+	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "binary",                               FirefoxBinary)
+	WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                                std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                              std::string)
+	WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                                Proxy)
+	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                                  std::string)
+	//WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",                      std::string)
+	WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",                         LoggingPrefs)
+	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",                       std::string)
+	WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",                  std::string)
 	// Tested section
-	WEBDRIVERXX_PROPERTY(FirefoxArgs,           "args",						 std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(FirefoxArgs,           "args",                                 std::vector<std::string>)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 	
 // FIXME: Deprecated FirefoxProfile
 struct FirefoxProfile : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxProfile)
-	WEBDRIVERXX_PROPERTY(AcceptUntrustedCerts,  "webdriver_accept_untrusted_certs",  bool)
-	WEBDRIVERXX_PROPERTY(AssumeUntrustedIssuer, "webdriver_assume_untrusted_issuer", bool)
-	WEBDRIVERXX_PROPERTY(LogDriver,             "webdriver.log.driver",              log_level::Value)
-	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "webdriver.log.file",                std::string)
-	WEBDRIVERXX_PROPERTY(LoadStrategy,          "webdriver.load.strategy",           std::string)
-	WEBDRIVERXX_PROPERTY(Port,               "webdriver_firefox_port",            int) // default 7055
+	WEBDRIVERXX_PROPERTY(AcceptUntrustedCerts,  "webdriver_accept_untrusted_certs",     bool)
+	WEBDRIVERXX_PROPERTY(AssumeUntrustedIssuer, "webdriver_assume_untrusted_issuer",    bool)
+	WEBDRIVERXX_PROPERTY(LogDriver,             "webdriver.log.driver",                 log_level::Value)
+	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "webdriver.log.file",                   std::string)
+	WEBDRIVERXX_PROPERTY(LoadStrategy,          "webdriver.load.strategy",              std::string)
+	WEBDRIVERXX_PROPERTY(Port,                  "webdriver_firefox_port",               int) // default 7055
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
@@ -119,7 +119,8 @@ struct Firefox : Capabilities { // copyable
 	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(Firefox)
-	WEBDRIVERXX_PROPERTY(FirefoxOptions,      "moz:firefoxOptions",     FirefoxOptions)
+	WEBDRIVERXX_PROPERTY(FirefoxOptions,        "moz:firefoxOptions",                   FirefoxOptions)
+	WEBDRIVERXX_PROPERTY(DebuggerAddress,       "moz:debuggerAddress",                  bool)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
