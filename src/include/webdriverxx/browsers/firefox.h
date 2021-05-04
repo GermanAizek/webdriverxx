@@ -82,19 +82,29 @@ private:
 	std::string enviroment_;
 };
 
+struct LogLevel : JsonObject {
+	WEBDRIVERXX_PROPERTIES_BEGIN(LogLevel)
+	WEBDRIVERXX_PROPERTY(Level,                 "level",                                log_level::Value)
+	WEBDRIVERXX_PROPERTIES_END()
+};
+
 struct FirefoxOptions : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxOptions)
 	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "binary",                               FirefoxBinary)
 	WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                                std::vector<std::string>)
 	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                              std::string)
 	WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                                Proxy)
-	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                                  std::string)
+
 	//WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",                      std::string)
 	WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",                         LoggingPrefs)
 	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",                       std::string)
 	WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",                  std::string)
 	// Tested section
 	WEBDRIVERXX_PROPERTY(FirefoxArgs,           "args",                                 std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                                  LogLevel)
+	WEBDRIVERXX_PROPERTY(FirefoxPrefs,          "prefs",                                JsonObject)
+	// TODO: BUG dont use std::map in WEBDRIVERXX_PROPERTY
+	//WEBDRIVERXX_PROPERTY(FirefoxEnv,          "env",                                  std::map<std::string,JsonObject>)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 	
