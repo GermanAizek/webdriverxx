@@ -42,10 +42,21 @@ ConstValue Java             = "JAVA";
 namespace unexpected_alert_behaviour {
 typedef std::string Value;
 typedef const char* const ConstValue;
+ConstValue Ignore           = "ignore";
 ConstValue Accept           = "accept";
 ConstValue Dismiss          = "dismiss";
-ConstValue Ignore           = "ignore";
+ConstValue AcceptAndNotify  = "accept and notify";
+ConstValue DismissAndNotify = "dismiss and notify";
 } // namespace unexpected_alert_behaviour
+
+namespace page_load_strategy {
+typedef std::string Value;
+typedef const char* const ConstValue;
+ConstValue Default          = "default";
+ConstValue Normal           = "normal";
+ConstValue Eager            = "eager";
+ConstValue None             = "none";
+} // namespace page_load_strategy
 
 namespace proxy_type {
 typedef std::string Value;
