@@ -90,16 +90,15 @@ struct LogLevel : JsonObject {
 
 struct FirefoxOptions : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxOptions)
-	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "binary",                               FirefoxBinary)
-	WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                                std::vector<std::string>)
-	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                              std::string)
-	WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                                Proxy)
-
+	//WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                                std::vector<std::string>)
+	//WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                                Proxy)
 	//WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",                      std::string)
-	WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",                         LoggingPrefs)
+	//WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",                         LoggingPrefs)
 	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",                       std::string)
-	WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",                  std::string)
+	//WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",                  std::string)
 	// Tested section
+	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                              std::string) // BASE64 STR
+	WEBDRIVERXX_PROPERTY(FirefoxBinary,         "binary",                               std::string)
 	WEBDRIVERXX_PROPERTY(FirefoxArgs,           "args",                                 std::vector<std::string>)
 	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                                  LogLevel)
 	WEBDRIVERXX_PROPERTY(FirefoxPrefs,          "prefs",                                JsonObject)
