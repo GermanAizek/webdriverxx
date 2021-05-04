@@ -82,13 +82,19 @@ private:
 	std::string enviroment_;
 };
 
-struct Options : JsonObject {
-	WEBDRIVERXX_PROPERTIES_BEGIN(Options)
+struct FirefoxOptions : JsonObject {
+	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxOptions)
 	//WEBDRIVERXX_PROPERTY(FirefoxBinary,         "binary",                    FirefoxBinary)
 	WEBDRIVERXX_PROPERTY(FirefoxPreferences,    "prefs",                     std::vector<std::string>)
 	WEBDRIVERXX_PROPERTY(FirefoxProfile,        "profile",                   std::string)
 	WEBDRIVERXX_PROPERTY(FirefoxProxy,          "proxy",                     Proxy)
 	WEBDRIVERXX_PROPERTY(FirefoxLogFile,        "log",                       std::string)
+	//WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",           std::string)
+	WEBDRIVERXX_PROPERTY(LoggingPrefs,          "loggingPrefs",              LoggingPrefs)
+	//WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",			 std::string)
+	WEBDRIVERXX_PROPERTY(PageLoadingStrategy,   "pageLoadingStrategy",		 std::string)
+	// Tested section
+	WEBDRIVERXX_PROPERTY(FirefoxArgs,           "args",						 std::vector<std::string>)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 	
@@ -113,14 +119,7 @@ struct Firefox : Capabilities { // copyable
 	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(Firefox)
-	// Profile is a profile folder, zipped and base64 encoded.
-	// base64 string FirefoxProfile : JsonObject
-	WEBDRIVERXX_PROPERTY(FirefoxProfile,      "firefox_profile",     std::string)
-	WEBDRIVERXX_PROPERTY(LoggingPrefs,        "loggingPrefs",        LoggingPrefs)
-	WEBDRIVERXX_PROPERTY(FirefoxBinary,       "firefox_binary",      std::string)
-	WEBDRIVERXX_PROPERTY(PageLoadingStrategy, "pageLoadingStrategy", std::string)
-	// TODO: This is experimental prop
-	WEBDRIVERXX_PROPERTY(FirefoxArgs,         "args",                std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(FirefoxOptions,      "moz:firefoxOptions",     FirefoxOptions)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
