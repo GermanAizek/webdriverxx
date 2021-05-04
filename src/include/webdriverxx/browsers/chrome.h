@@ -84,16 +84,8 @@ struct PerfLoggingPrefs : JsonObject {
 
 } // namespace chrome
 
-struct Chrome : Capabilities { // copyable
-	Chrome(const Capabilities& defaults = Capabilities())
-		: Capabilities(defaults) {
-		SetBrowserName(browser::Chrome);
-		SetVersion("");
-		SetPlatform(platform::Any);
-	}
-
-	// See https://sites.google.com/a/chromium.org/chromedriver/capabilities for details
-	WEBDRIVERXX_PROPERTIES_BEGIN(Chrome)
+struct ChromeOptions : JsonObject {
+	WEBDRIVERXX_PROPERTIES_BEGIN(ChromeOptions)
 	WEBDRIVERXX_PROPERTY(Args,                      "args",             std::vector<std::string>)
 	WEBDRIVERXX_PROPERTY(Binary,                    "binary",           std::string)
 	// Each extension is a base64-encoded .crx file
@@ -105,14 +97,29 @@ struct Chrome : Capabilities { // copyable
 	WEBDRIVERXX_PROPERTY(ExcludeSwitches,           "excludeSwitches",  std::vector<std::string>)
 	WEBDRIVERXX_PROPERTY(MinidumpPath,              "minidumpPath",     std::string)
 	WEBDRIVERXX_PROPERTY(MobileEmulation,           "mobileEmulation",  chrome::MobileEmulation)
-	WEBDRIVERXX_PROPERTY(PerfLoggingPrefs,          "perfLoggingPrefs", chrome::PerfLoggingPrefs)
 	WEBDRIVERXX_PROPERTY(WindowTypes,               "windowTypes",      std::vector<std::string>)
-	
+	WEBDRIVERXX_PROPERTY(SpecCompliantProtocol,     "w3c",              bool)
+
 	// Read-only capabilities
 	WEBDRIVERXX_PROPERTY_RONLY(ChromeDriverVersion, "chrome.chromedriverVersion", std::string)
 	WEBDRIVERXX_PROPERTY_RONLY(UserDataDir,         "userDataDir",                std::string)
-	
+
 	WEBDRIVERXX_PROPERTY(LoggingPrefs,              "loggingPrefs",     LoggingPrefs)
+	WEBDRIVERXX_PROPERTIES_END()
+};
+
+struct Chrome : Capabilities { // copyable
+	Chrome(const Capabilities& defaults = Capabilities())
+		: Capabilities(defaults) {
+		SetBrowserName(browser::Chrome);
+		SetVersion("");
+		SetPlatform(platform::Any);
+	}
+
+	// See https://sites.google.com/a/chromium.org/chromedriver/capabilities for details
+	WEBDRIVERXX_PROPERTIES_BEGIN(Chrome)
+	WEBDRIVERXX_PROPERTY(ChromeOptions,             "goog:chromeOptions",                  ChromeOptions)
+	WEBDRIVERXX_PROPERTY(PerfLoggingPrefs,          "goog:perfLoggingPrefs",               chrome::PerfLoggingPrefs)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
