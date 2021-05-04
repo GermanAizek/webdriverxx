@@ -205,8 +205,8 @@ struct Capabilities : JsonObject { // copyable
 	WEBDRIVERXX_PROPERTIES_BEGIN(Capabilities)
 	// Used by the selenium server for browser selection
 	WEBDRIVERXX_PROPERTY(BrowserName, "browserName", browser::Value)
-	WEBDRIVERXX_PROPERTY(Version, "version", std::string)
-	WEBDRIVERXX_PROPERTY(Platform, "platform", platform::Value)
+	WEBDRIVERXX_PROPERTY(Version, "browserVersion", std::string)
+	WEBDRIVERXX_PROPERTY(Platform, "platformName", platform::Value)
 	
 	// Read-only capabilities
 	WEBDRIVERXX_PROPERTY_RONLY(HandlesAlerts, "handlesAlerts", bool)
