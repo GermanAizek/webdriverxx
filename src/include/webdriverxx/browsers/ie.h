@@ -23,7 +23,7 @@ struct IEOptions : JsonObject {
 	WEBDRIVERXX_PROPERTY(EnablePersistentHover,     "enablePersistentHover",         bool)
 	//WEBDRIVERXX_PROPERTY(EnableElementCacheCleanup, "enableElementCacheCleanup",     bool)
 	// syntax error
-	WEBDRIVERXX_PROPERTY(ЕlementScrollBehavior,     "elementScrollBehavior",         ie::ElementScrollBehavior)
+	//WEBDRIVERXX_PROPERTY(ЕlementScrollBehavior,     "elementScrollBehavior",         ie::ElementScrollBehavior)
 	WEBDRIVERXX_PROPERTY(RequireWindowFocus,        "requireWindowFocus",            bool)
 	WEBDRIVERXX_PROPERTY(BrowserAttachTimeoutMs,    "browserAttachTimeout",          int)
 	WEBDRIVERXX_PROPERTY(ForceCreateProcessApi,     "ie.forceCreateProcessApi",      bool)
