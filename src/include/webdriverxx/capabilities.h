@@ -176,15 +176,14 @@ struct SocksProxy : ManualProxy { // copyable
 namespace log_level {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Off              = "OFF";
-ConstValue Severe           = "SEVERE";
-ConstValue Warning          = "WARNING";
-ConstValue Info             = "INFO";
-ConstValue Config           = "CONFIG";
-ConstValue Fine             = "FINE";
-ConstValue Finer            = "FINER";
-ConstValue Finest           = "FINEST";
-ConstValue All              = "ALL";
+ConstValue Trace           = "trace";
+ConstValue Debug           = "debug";
+ConstValue Config          = "config";
+ConstValue Info            = "info";
+ConstValue Warn            = "warn";
+ConstValue Error           = "error";
+ConstValue Fatal           = "fatal";
+ConstValue Default         = "default";
 } // namespace log_level
 
 struct LoggingPrefs : JsonObject {
