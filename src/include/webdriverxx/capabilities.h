@@ -21,6 +21,7 @@ ConstValue Mock             = "mock";
 ConstValue Opera            = "opera";
 ConstValue Safari           = "safari";
 ConstValue PhantomJS        = "phantomjs";
+ConstValue Edge             = "MicrosoftEdge";
 } // namespace browser
 
 namespace platform {

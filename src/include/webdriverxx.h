@@ -8,6 +8,7 @@
 #include "webdriverxx/browsers/safari.h"
 #include "webdriverxx/browsers/phantom.h"
 #include "webdriverxx/browsers/opera.h"
+#include "webdriverxx/browsers/edge.h"
 #include "webdriverxx/wait.h"
 #include "webdriverxx/wait_match.h"
 
