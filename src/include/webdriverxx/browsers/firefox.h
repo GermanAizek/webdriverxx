@@ -54,6 +54,7 @@ auto ff = Start(Firefox(binary=binary));\n\
 #ifdef WIN32_
 			startcmd = std::getenv("USERPROFILE") + startcmd;
 #else
+*/
 			/*
 			>>> os.path.expanduser(~/file.txt)
 			# '/home/docs/file.txt'
@@ -65,6 +66,7 @@ auto ff = Start(Firefox(binary=binary));\n\
 			>>> os.path.expanduser('~docs/file.txt')
 			# '/home/docs/file.txt'
 			*/
+/*
 #endif
 
 		} else if (platform_ == "windows") {
@@ -83,6 +85,7 @@ private:
 	std::string enviroment_;
 };
 */
+
 struct LogLevel : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(LogLevel)
 	WEBDRIVERXX_PROPERTY(Level,                 "level",                                log_level::Value)
