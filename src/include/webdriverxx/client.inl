@@ -52,12 +52,12 @@ Session Client::CreateSession(
 			.Set("requiredCapabilities", static_cast<picojson::value>(required))
 			);
 
-	WEBDRIVERXX_CHECK(response.get("sessionId").is<std::string>(), "Session ID is not a string");
+	const auto sessionId = response.get("sessionId");
+
+	WEBDRIVERXX_CHECK(sessionId.is<std::string>(),                  "Session ID is not a string");
 	WEBDRIVERXX_CHECK(response.get("value").is<picojson::object>(), "Capabilities is not an object");
 	
-	const auto sessionId = response.get("sessionId").to_str();
-	
-	return MakeSession(sessionId, detail::Resource::IsOwner);
+	return MakeSession(sessionId.to_str(), detail::Resource::IsOwner);
 	WEBDRIVERXX_FUNCTION_CONTEXT_END()
 }
 
