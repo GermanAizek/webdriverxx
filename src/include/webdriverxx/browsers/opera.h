@@ -8,8 +8,8 @@ namespace webdriverxx {
 
 struct OperaOptions : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(OperaOptions)
-	WEBDRIVERXX_PROPERTY(Args,           "args",                                 std::vector<std::string>)
-	WEBDRIVERXX_PROPERTY(Binary,         "binary",                               std::string)
+	WEBDRIVERXX_PROPERTY(Args,                      "args",             std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(Binary,                    "binary",           std::string)
 	WEBDRIVERXX_PROPERTY(Extensions,                "extensions",       std::vector<std::string>)
 	WEBDRIVERXX_PROPERTY(LocalState,                "localState",       JsonObject)
 	WEBDRIVERXX_PROPERTY(Prefs,                     "prefs",            JsonObject)

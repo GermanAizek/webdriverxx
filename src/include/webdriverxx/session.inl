@@ -1,7 +1,6 @@
 ﻿#include "conversions.h"
 #include "detail/error_handling.h"
 #include "detail/types.h"
-#include <algorithm>
 
 namespace webdriverxx {
 
@@ -460,14 +459,46 @@ picojson::value Session::PrintPage(
 		);
 }
 
+std::string char_to_string(char x[], int size_recv)
+{
+	int num_car = 0;
+	int stop_while = size_recv;
+	std::string output = "";
+
+	while (stop_while > 0)
+	{
+		output += x[num_car];
+		if (num_car < size_recv) { num_car++; }
+
+		stop_while--;
+	}
+
+	return output;
+}
+
 // TODO: Make session install addon
 inline
 const Session& Session::InstallAddon(const std::string& path) const {
-	if (IsFirefox()) {
-		std::cout << "Test addon install";
-		resource_->Post("moz/addon/install", "path", path);
+	if (path.empty()) {
+		throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
+	}
+
+	//if (IsFirefox()) { // BUG: this is crashed
+	FILE* file_input = fopen(path.c_str(), "ab+");
+	char buff_read[1];
+	if (file_input != NULL) {
+		std::string b64data = "";
+		while (fread(buff_read, sizeof(buff_read), 1, file_input)) {
+			b64data += (buff_read, sizeof(buff_read));
+			//std::cout << b64data << std::endl;
+			memset(buff_read, 0, sizeof(buff_read));
+		}
+		//std::cout << b64encode(b64data) << std::endl << std::endl;
+		resource_->Post("moz/addon/install", "addon", b64encode(b64data)); // BUG: unknown freeze
+		fclose(file_input);
 	}
 	return *this;
+	//}
 }
 
 inline
