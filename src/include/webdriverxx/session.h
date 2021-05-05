@@ -101,8 +101,9 @@ public:
 		std::vector<std::string> page_ranges = {"1"}, float margin_top = 0.0,
 		float margin_left = 0.0, float margin_bottom = 0.0, float margin_right = 0.0) const;
 
-	const Session& InstallAddon(const std::string& path) const;
+	const Session& InstallAddonFromFile(const std::string& path) const;
 	const Session& UninstallAddon(const std::string& id) const;
+	std::string GetFullPageScreenshot() const;
 	const Session& GetLog() const;
 
 	void DeleteSession() const; // No need to delete sessions created by WebDriver or Client

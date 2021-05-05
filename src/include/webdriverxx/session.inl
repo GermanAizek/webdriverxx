@@ -2,6 +2,10 @@
 #include "detail/error_handling.h"
 #include "detail/types.h"
 
+#ifdef CXX17_2X
+#include <filesystem>
+#endif
+
 namespace webdriverxx {
 
 inline
@@ -478,25 +482,36 @@ std::string char_to_string(char x[], int size_recv)
 
 // TODO: Make session install addon
 inline
-const Session& Session::InstallAddon(const std::string& path) const {
+const Session& Session::InstallAddonFromFile(const std::string& path) const {
 	if (path.empty()) {
-		throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
+		throw WebDriverException("Add-on file name must not be null or the empty string");
 	}
+
+#ifdef CXX17_2X
+	if (!std::filesystem::exists(path)) {
+		throw WebDriverException("File " + path + " does not exist");
+	}
+#else
+	std::ifstream exists(path);
+	if (!exists.good()) {
+		throw WebDriverException("File " + path + " does not exist");
+	}
+#endif
 
 	//if (IsFirefox()) { // BUG: this is crashed
 	FILE* file_input = fopen(path.c_str(), "ab+");
 	char buff_read[1];
 	if (file_input != NULL) {
-		std::string b64data = "";
-		while (fread(buff_read, sizeof(buff_read), 1, file_input)) {
-			b64data += (buff_read, sizeof(buff_read));
-			//std::cout << b64data << std::endl;
-			memset(buff_read, 0, sizeof(buff_read));
-		}
-		//std::cout << b64encode(b64data) << std::endl << std::endl;
-		resource_->Post("moz/addon/install", "addon", b64encode(b64data)); // BUG: unknown freeze
-		fclose(file_input);
-	}
+	std::string b64data = "";
+	while (fread(buff_read, sizeof(buff_read), 1, file_input)) {
+	b64data += (buff_read, sizeof(buff_read));
+	//std::cout << b64data << std::endl;
+	memset(buff_read, 0, sizeof(buff_read));
+}
+	//std::cout << b64encode(b64data) << std::endl << std::endl;
+	resource_->Post("moz/addon/install", "addon", b64encode(b64data)); // BUG: unknown freeze
+	fclose(file_input);
+}
 	return *this;
 	//}
 }
@@ -504,10 +519,15 @@ const Session& Session::InstallAddon(const std::string& path) const {
 inline
 const Session& Session::UninstallAddon(const std::string& id) const {
 	if (id.empty()) {
-		throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
-	}
+	throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
+}
 	resource_->Post("moz/addon/uninstall", "id", id);
 	return *this;
+}
+
+inline
+std::string Session::GetFullPageScreenshot() const {
+	return b64decode(resource_->GetString("moz/screenshot/full"));
 }
 
 inline
