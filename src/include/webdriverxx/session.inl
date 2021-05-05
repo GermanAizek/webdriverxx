@@ -2,7 +2,7 @@
 #include "detail/error_handling.h"
 #include "detail/types.h"
 
-#ifdef CXX17_2X
+#if CXX17_2X
 #include <filesystem>
 #endif
 
@@ -487,7 +487,7 @@ const Session& Session::InstallAddonFromFile(const std::string& path) const {
 		throw WebDriverException("Add-on file name must not be null or the empty string");
 	}
 
-#ifdef CXX17_2X
+#if CXX17_2X
 	if (!std::filesystem::exists(path)) {
 		throw WebDriverException("File " + path + " does not exist");
 	}
@@ -509,7 +509,7 @@ const Session& Session::InstallAddonFromFile(const std::string& path) const {
 	memset(buff_read, 0, sizeof(buff_read));
 }
 	//std::cout << b64encode(b64data) << std::endl << std::endl;
-	resource_->Post("moz/addon/install", "addon", b64encode(b64data)); // BUG: unknown freeze
+	InstallAddon(b64data); // BUG: unknown freeze
 	fclose(file_input);
 }
 	return *this;
@@ -517,10 +517,19 @@ const Session& Session::InstallAddonFromFile(const std::string& path) const {
 }
 
 inline
+const Session& Session::InstallAddon(const std::string& b64addon) const {
+	if (b64addon.empty()) {
+		throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
+	}
+	resource_->Post("moz/addon/install", "addon", b64encode(b64addon));
+	return *this;
+}
+
+inline
 const Session& Session::UninstallAddon(const std::string& id) const {
 	if (id.empty()) {
-	throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
-}
+		throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
+	}
 	resource_->Post("moz/addon/uninstall", "id", id);
 	return *this;
 }

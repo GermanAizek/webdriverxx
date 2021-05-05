@@ -102,6 +102,7 @@ public:
 		float margin_left = 0.0, float margin_bottom = 0.0, float margin_right = 0.0) const;
 
 	const Session& InstallAddonFromFile(const std::string& path) const;
+	const Session& InstallAddon(const std::string& b64addon) const;
 	const Session& UninstallAddon(const std::string& id) const;
 	std::string GetFullPageScreenshot() const;
 	const Session& GetLog() const;
