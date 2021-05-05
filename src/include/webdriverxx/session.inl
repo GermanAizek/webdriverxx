@@ -502,6 +502,15 @@ const Session& Session::InstallAddon(const std::string& path) const {
 }
 
 inline
+const Session& Session::UninstallAddon(const std::string& id) const {
+	if (id.empty()) {
+		throw WebDriverException("Base64 encoded add-on must not be null or the empty string");
+	}
+	resource_->Post("moz/addon/uninstall", "id", id);
+	return *this;
+}
+
+inline
 const Session& Session::GetLog() const {
 	std::cout << "Test get log";
 	resource_->Post("log");
