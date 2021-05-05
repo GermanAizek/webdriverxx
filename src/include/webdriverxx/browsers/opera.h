@@ -5,6 +5,21 @@
 
 namespace webdriverxx {
 
+
+struct OperaOptions : JsonObject {
+	WEBDRIVERXX_PROPERTIES_BEGIN(OperaOptions)
+	WEBDRIVERXX_PROPERTY(Args,           "args",                                 std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(Binary,         "binary",                               std::string)
+	WEBDRIVERXX_PROPERTY(Extensions,                "extensions",       std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(LocalState,                "localState",       JsonObject)
+	WEBDRIVERXX_PROPERTY(Prefs,                     "prefs",            JsonObject)
+	WEBDRIVERXX_PROPERTY(Detach,                    "detach",           bool)
+	WEBDRIVERXX_PROPERTY(DebuggerAddress,           "debuggerAddress",  std::string)
+	WEBDRIVERXX_PROPERTY(ExcludeSwitches,           "excludeSwitches",  std::vector<std::string>)
+	WEBDRIVERXX_PROPERTY(MinidumpPath,              "minidumpPath",     std::string)
+	WEBDRIVERXX_PROPERTIES_END()
+};
+
 struct Opera : Capabilities { // copyable
 	Opera(const Capabilities& defaults = Capabilities())
 		: Capabilities(defaults) {
@@ -14,8 +29,7 @@ struct Opera : Capabilities { // copyable
 	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(Opera)
-	// Profile is a profile folder, zipped and base64 encoded.
-	// TODO: add OperaProfile
+	WEBDRIVERXX_PROPERTY(OperaOptions,         "ms:edgeOptions",                               OperaOptions)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 

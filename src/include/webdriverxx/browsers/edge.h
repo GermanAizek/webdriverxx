@@ -19,8 +19,8 @@ struct Edge : Capabilities { // copyable
 		SetPlatform(platform::Any);
 	}
 
-        WEBDRIVERXX_PROPERTIES_BEGIN(Edge)
-        WEBDRIVERXX_PROPERTY(EdgeOptions,         "ms:edgeOptions",                               EdgeOptions)
+	WEBDRIVERXX_PROPERTIES_BEGIN(Edge)
+	WEBDRIVERXX_PROPERTY(EdgeOptions,         "ms:edgeOptions",                               EdgeOptions)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
