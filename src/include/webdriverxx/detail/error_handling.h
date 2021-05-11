@@ -61,6 +61,9 @@ inline bool BoolCast(T value) {
 		<< ", file " << __FILE__ \
 		)
 
+#define WEBDRIVERXX_ISEMPTY_THROW(value, message) \
+	if (value.empty()) WEBDRIVERXX_THROW(message)
+
 #define WEBDRIVERXX_CHECK(pred, message) \
 	for (;!detail::BoolCast(pred);) \
 		WEBDRIVERXX_THROW(message)
