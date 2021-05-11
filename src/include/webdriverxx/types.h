@@ -51,27 +51,30 @@ struct Cookie {
 	std::string value;
 	std::string path;
 	std::string domain;
+	std::string same_site;
 	bool secure;
 	bool http_only;
 	int expiry; // seconds since midnight, January 1, 1970 UTC
 
 	Cookie() : secure(false), http_only(false), expiry(NoExpiry) {}
 	Cookie(
-		const std::string& name,
-		const std::string& value,
-		const std::string& path = std::string(),
-		const std::string& domain = std::string(),
-		bool secure = false,
-		bool http_only = false,
-		int expiry = NoExpiry
-		)
-		: name(name)
-		, value(value)
-		, path(path)
-		, domain(domain)
-		, secure(secure)
-		, http_only(http_only)
-		, expiry(expiry)
+	const std::string& name,
+	const std::string& value,
+	const std::string& path = std::string(),
+	const std::string& domain = std::string(),
+	const std::string& same_site = std::string(),
+	bool secure = false,
+	bool http_only = false,
+	int expiry = NoExpiry
+	)
+	: name(name)
+	, value(value)
+	, path(path)
+	, domain(domain)
+	, same_site(same_site)
+	, secure(secure)
+	, http_only(http_only)
+	, expiry(expiry)
 	{
 		if (name.empty()) {
 			WEBDRIVERXX_THROW("Cookie name cannot be null or empty string");
@@ -88,13 +91,13 @@ struct Cookie {
 
 	bool operator == (const Cookie& c) const {
 		return name == c.name
-			&& value == c.value
-			&& path == c.path
-			&& domain == c.domain
-			&& secure == c.secure
-			&& http_only == c.http_only
-			&& expiry == c.expiry
-			;
+		&& value == c.value
+		&& path == c.path
+		&& domain == c.domain
+		&& same_site == c.same_site
+		&& secure == c.secure
+		&& http_only == c.http_only
+		&& expiry == c.expiry;
 	}
 };
 

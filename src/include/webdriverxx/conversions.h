@@ -269,6 +269,8 @@ picojson::value CustomToJson(const Cookie& cookie) {
 	result.Set("value", cookie.value);
 	if (!cookie.path.empty()) result.Set("path", cookie.path);
 	if (!cookie.domain.empty()) result.Set("domain", cookie.domain);
+	if (cookie.same_site.empty()) result.Set("sameSite", "Lax");
+	if (cookie.same_site == "None") result.Set("secure", true);
 	if (cookie.secure) result.Set("secure", true);
 	if (cookie.http_only) result.Set("httpOnly", true);
 	if (cookie.expiry != Cookie::NoExpiry) result.Set("expiry", cookie.expiry);
@@ -282,6 +284,7 @@ void CustomFromJson(const picojson::value& value, Cookie& result) {
 	result.value = FromJson<std::string>(value.get("value"));
 	result.path = OptionalFromJson<std::string>(value.get("path"));
 	result.domain = OptionalFromJson<std::string>(value.get("domain"));
+	result.same_site = OptionalFromJson<std::string>(value.get("sameSite"));
 	result.secure = OptionalFromJson<bool>(value.get("secure"), false);
 	result.http_only = OptionalFromJson<bool>(value.get("httpOnly"), false);
 	result.expiry = OptionalFromJson<int>(value.get("expiry"), Cookie::NoExpiry);
