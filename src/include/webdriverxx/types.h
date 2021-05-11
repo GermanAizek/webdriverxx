@@ -76,13 +76,8 @@ struct Cookie {
 	, http_only(http_only)
 	, expiry(expiry)
 	{
-		if (name.empty()) {
-			WEBDRIVERXX_THROW("Cookie name cannot be null or empty string");
-		}
-
-		if (value.empty()) {
-			WEBDRIVERXX_THROW("Cookie value cannot be null");
-		}
+		WEBDRIVERXX_ISEMPTY_THROW(name, "Cookie name cannot be null or empty string");
+		WEBDRIVERXX_ISEMPTY_THROW(value, "Cookie value cannot be null");
 
 		if (name.find(';') != std::string::npos) {
 			WEBDRIVERXX_THROW(std::string("Cookie names cannot contain a ';': ") + name);
