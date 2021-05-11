@@ -256,6 +256,18 @@ std::vector<Cookie> Session::GetCookies() const {
 
 inline
 const Session& Session::SetCookie(const Cookie& cookie) const {
+	if (cookie.name.empty()) {
+		WEBDRIVERXX_THROW("Cookie name cannot be null or empty string");
+	}
+
+	if (cookie.value.empty()) {
+		WEBDRIVERXX_THROW("Cookie value cannot be null");
+	}
+
+	if (cookie.name.find(';') != std::string::npos) {
+		WEBDRIVERXX_THROW(std::string("Cookie names cannot contain a ';': ") + cookie.name);
+	}
+
 	resource_->Post("cookie", JsonObject()
 		.Set("cookie", ToJson(cookie)));
 	return *this;

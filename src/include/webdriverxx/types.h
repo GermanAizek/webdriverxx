@@ -1,6 +1,7 @@
 #ifndef WEBDRIVERXX_TYPES_H
 #define WEBDRIVERXX_TYPES_H
 
+#include "detail/error_handling.h"
 #include <string>
 #include <vector>
 #include <cstdint>
@@ -71,7 +72,19 @@ struct Cookie {
 		, secure(secure)
 		, http_only(http_only)
 		, expiry(expiry)
-	{}
+	{
+		if (name.empty()) {
+			WEBDRIVERXX_THROW("Cookie name cannot be null or empty string");
+		}
+
+		if (value.empty()) {
+			WEBDRIVERXX_THROW("Cookie value cannot be null");
+		}
+
+		if (name.find(';') != std::string::npos) {
+			WEBDRIVERXX_THROW(std::string("Cookie names cannot contain a ';': ") + name);
+		}
+	}
 
 	bool operator == (const Cookie& c) const {
 		return name == c.name
