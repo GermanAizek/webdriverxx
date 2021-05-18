@@ -11,7 +11,7 @@ namespace webdriverxx {
 struct RelativeFilter : JsonObject {
     WEBDRIVERXX_PROPERTIES_BEGIN(RelativeFilter)
     WEBDRIVERXX_PROPERTY(Kind,        "kind",                  std::string)
-    WEBDRIVERXX_PROPERTY(Args,        "args",                  std::vector<Element>)
+    WEBDRIVERXX_PROPERTY(Args,        "args",                  std::vector<Element>) // Element and int
     WEBDRIVERXX_PROPERTIES_END()
 };
 
@@ -30,6 +30,43 @@ public:
                 RelativeFilter filter;
                 filter.SetKind("above")
                       .SetArgs({elemlocator});
+                filters_.push_back(filter);
+                return *this;
+        }
+
+        const RelativeBy& Below(const Element& elemlocator) {
+                WEBDRIVERXX_ISEMPTY_THROW(elemlocator.GetRef(), "Element or locator must be given when calling above method");
+                RelativeFilter filter;
+                filter.SetKind("below")
+                      .SetArgs({elemlocator});
+                filters_.push_back(filter);
+                return *this;
+        }
+
+        const RelativeBy& ToLeftOf(const Element& elemlocator) {
+                WEBDRIVERXX_ISEMPTY_THROW(elemlocator.GetRef(), "Element or locator must be given when calling above method");
+                RelativeFilter filter;
+                filter.SetKind("left")
+                      .SetArgs({elemlocator});
+                filters_.push_back(filter);
+                return *this;
+        }
+
+        const RelativeBy& ToRightOf(const Element& elemlocator) {
+                WEBDRIVERXX_ISEMPTY_THROW(elemlocator.GetRef(), "Element or locator must be given when calling above method");
+                RelativeFilter filter;
+                filter.SetKind("right")
+                      .SetArgs({elemlocator});
+                filters_.push_back(filter);
+                return *this;
+        }
+
+        // TODO:
+        const RelativeBy& Near(int elemlocatorDistance) {
+                WEBDRIVERXX_ISEMPTY_THROW(elemlocatorDistance.GetRef(), "Element or locator or distance must be given when calling above method");
+                RelativeFilter filter;
+                filter.SetKind("near")
+                      .SetArgs(/*{elemlocatorDistance}*/);
                 filters_.push_back(filter);
                 return *this;
         }
