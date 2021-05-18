@@ -63,10 +63,10 @@ public:
 
         // TODO:
         const RelativeBy& Near(int elemlocatorDistance) {
-                WEBDRIVERXX_ISEMPTY_THROW(elemlocatorDistance.GetRef(), "Element or locator or distance must be given when calling above method");
+                //WEBDRIVERXX_ISEMPTY_THROW(elemlocatorDistance.GetRef(), "Element or locator or distance must be given when calling above method");
                 RelativeFilter filter;
-                filter.SetKind("near")
-                      .SetArgs(/*{elemlocatorDistance}*/);
+                filter.SetKind("near");
+                      //.SetArgs({elemlocatorDistance});
                 filters_.push_back(filter);
                 return *this;
         }
