@@ -4,6 +4,7 @@
 #include "element.h"
 #include "window.h"
 #include "by.h"
+#include "relativeby.h"
 #include "capabilities.h"
 #include "keys.h"
 #include "js_args.h"
