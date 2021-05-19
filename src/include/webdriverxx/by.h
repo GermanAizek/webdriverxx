@@ -8,10 +8,15 @@ namespace webdriverxx {
 
 class By { // copyable
 public:
+        By() : strategy_("css selector"), value_(nullptr) {}
+
 	By(const std::string& strategy, const std::string& value)
 		: strategy_(strategy)
 		, value_(value)
-	{}
+        {
+            WEBDRIVERXX_ISEMPTY_THROW(strategy, "strategy can not be null");
+            WEBDRIVERXX_ISEMPTY_THROW(value, "strategy value can not be null");
+        }
 
 	inline
 	const std::string& GetStrategy() const {
