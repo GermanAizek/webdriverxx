@@ -132,6 +132,11 @@ std::vector<std::string> split(const std::string str, char delimiter = ' ') {
     return result;
 }
 
+template<class T>
+bool is_instance(T value) {
+	return dynamic_cast<T*>(value) != nullptr ? true : false;
+}
+
 } // namespace webdriverxx
 
 #endif
