@@ -27,10 +27,16 @@ cd webdriverxx
 
 ## Installing Requirements
 
-### Debian/Ubuntu
+### Debian
 
 ```bash
 sudo apt-get install default-jre cmake g++ make curl
+```
+
+### Ubuntu and Ubuntu Touch
+
+```bash
+sudo apt-get install default-jre cmake g++ make curl libcurl4-openssl-dev
 ```
 
 ### Arch Linux
