@@ -1,4 +1,4 @@
-﻿#include "conversions.h"
+#include "conversions.h"
 #include "detail/error_handling.h"
 #include "detail/types.h"
 
@@ -506,19 +506,19 @@ const Session& Session::InstallAddonFromFile(const std::string& path) const {
 #endif
 
 	//if (IsFirefox()) { // BUG: this is crashed
-	FILE* file_input = fopen(path.c_str(), "ab+");
+	FILE* file_input;
+	fopen_s(&file_input, path.c_str(), "ab+");
 	char buff_read[1];
 	if (file_input != NULL) {
-	std::string b64data = "";
-	while (fread(buff_read, sizeof(buff_read), 1, file_input)) {
-	b64data += (buff_read, sizeof(buff_read));
-	//std::cout << b64data << std::endl;
-	memset(buff_read, 0, sizeof(buff_read));
-}
-	//std::cout << b64encode(b64data) << std::endl << std::endl;
-	InstallAddon(b64data); // BUG: unknown freeze
-	fclose(file_input);
-}
+		std::string b64data = "";
+		while (fread(buff_read, sizeof(buff_read), 1, file_input)) {
+			b64data += (buff_read, sizeof(buff_read));
+			memset(buff_read, 0, sizeof(buff_read));
+		}
+		//std::cout << b64encode(b64data) << std::endl << std::endl;
+		InstallAddon(b64data); // BUG: unknown freeze
+		fclose(file_input);
+	}
 	return *this;
 	//}
 }
