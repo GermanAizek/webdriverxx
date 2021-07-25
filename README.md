@@ -135,9 +135,15 @@ You need to download and run selenium-server-standalone.
 
 #### Windows
 
-Download Java Runtime Enviroment and install: https://www.oracle.com/java/technologies/javase-jre8-downloads.html
+Download OpenJDK and unpack: https://openjdk.java.net/
 
-Selenium Server can be seen here: https://selenium-release.storage.googleapis.com/4.0-beta-2/selenium-server-4.0.0-beta-2.jar
+Official Selenium server can be seen here: https://selenium-release.storage.googleapis.com/index.html
+
+Set the path enviroment variable to OpenJDK or move to the OpenJDK folder
+
+```bash
+java -jar /path_to/selenium-server-4.0.0-beta-4.jar standalone
+```
 
 #### Linux
 
@@ -151,8 +157,8 @@ java -jar /usr/share/selenium-server/selenium-server-standalone.jar
 ##### Any Linux distribution
 
 ```bash
-wget https://selenium-release.storage.googleapis.com/4.0-beta-2/selenium-server-4.0.0-beta-2.jar
-java -jar selenium-server-4.0.0-beta-2.jar
+wget https://selenium-release.storage.googleapis.com/4.0-beta-4/selenium-server-4.0.0-beta-4.jar
+java -jar selenium-server-4.0.0-beta-4.jar standalone
 ```
 
 ### Example codes
@@ -187,9 +193,10 @@ cmake -DCURL_INCLUDE_DIR=<path_folder_webdriverxx>/src/thirdparty/curl/include .
 - Lightweight dependencies:
     - [libcurl](http://curl.haxx.se/libcurl/),
     - [picojson](https://github.com/kazuho/picojson).
+    - [picobase64](https://github.com/GermanAizek/picobase64).
 - Can be used with any testing framework.
 - Linux, Mac, FreeBSD and Windows.
-- Tested on GCC 9.3, Clang 10.0 and MSVC Visual Studio 2019.
+- Tested on GCC 9.x, Clang 10.x and MSVC Visual Studio 2019.
 
 ## More examples
 
