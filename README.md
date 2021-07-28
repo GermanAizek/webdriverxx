@@ -18,54 +18,39 @@ SPECIAL THANKS
  * 2020 xloem ([0xloem@gmail.com](mailto:0xloem@gmail.com))
  * 2021 SrMilton ([miltonmanuelcramos@gmail.com](mailto:miltonmanuelcramos@gmail.com))
  
-## Downloading
+## Cloning repository
 
 ```bash
-git clone --recurse-submodules https://github.com/GermanAizek/webdriverxx.git
+git clone https://github.com/GermanAizek/webdriverxx.git
 cd webdriverxx
 ```
 
 ## Compilation requirements
 
 ### Debian
-
 ```bash
 sudo apt-get install cmake g++ make curl
 ```
-
 ### Ubuntu and Ubuntu Touch
-
 ```bash
 sudo apt-get install cmake g++ make curl libcurl4-openssl-dev
 ```
-
 ### Arch Linux
-
 ```bash
 sudo pacman -Syu cmake g++ make curl
 ```
 ### Gentoo
-
 ```bash
 sudo emerge -av dev-util/cmake sys-devel/gcc sys-devel/make net-misc/curl
 ```
 
-## Compile on Linux
-
+## Compile on Linux, FreeBSD, OpenBSD
 ```bash
 mkdir build && cd build && cmake ../src
 sudo make
 ```
 
-## Compile on FreeBSD
-
-```bash
-mkdir build && cd build && cmake ../src
-make
-```
-
 ## Compile on Windows
-
 ```bash
 mkdir build
 cd build
@@ -73,29 +58,25 @@ cmake ../src
 # For example, open a solution in Visual Studio
 ```
 
-## Install geckodriver or chromedriver on Linux
+## Install GeckoDriver or ChromeDriver on Linux
 
 ### GeckoDriver
 
-To work with geckodriver, you need any browser built on the Gecko engine.
+To work with GeckoDriver, you need any browser built on the Gecko engine.
 
 Firefox (ESR, Nightly), IceCat, Waterfox, Pale Moon, SeaMonkey and etc.
 
-In our examples, we will install regular Firefox.
+In our examples, we will install official stable Firefox.
 
-#### Debian/Ubuntu
-
+#### Debian, Ubuntu, Ubuntu Touch
 ```bash
 sudo apt-get install geckodriver
 ```
-
 #### Arch Linux
-
 ```bash
 sudo pacman -Syu geckodriver
 ```
 #### Gentoo
-
 ```bash
 USE="geckodriver" sudo emerge -av www-client/firefox
 ```
@@ -106,22 +87,17 @@ To work with chromedriver, you need any browser built on the Chromium engine.
 
 Chromium, Google Chrome, Opera, Vivaldi and etc.
 
-In our examples, we will install official current Google Chrome.
+In our examples, we will install official stable Google Chrome.
 
-#### Debian/Ubuntu
-
+#### Debian, Ubuntu, Ubuntu Touch
 ```bash
 sudo apt-get install chromium-driver
 ```
-
 #### Arch Linux
-
 ```bash
 sudo yay -S --aur aur/chromedriver
 ```
-
 #### Gentoo
-
 ```bash
 sudo emerge -av www-client/chromedriver-bin
 ```
@@ -150,26 +126,15 @@ java -jar /path_to/selenium-server-4.0.0-beta-4.jar standalone
 
 Download latest OpenJDK from packet manager distributions Linux.
 
-##### Arch Linux
-
-```bash
-sudo pacman -Syu jre-openjdk jre-openjdk-headless
-```
-
 ##### Debian, Ubuntu, Ubuntu Touch
-
 ```bash
 sudo apt-get install default-jre
 ```
-
 ##### Arch Linux
-
 ```bash
-sudo pacman -Syu jre-openjdk
+sudo pacman -Syu jre-openjdk jre-openjdk-headless
 ```
-
 ##### Gentoo
-
 ```bash
 sudo emerge -av virtual/jre
 ```
@@ -200,6 +165,17 @@ If Selenium server standalone was downloaded from AUR (Arch Linux), then:
 java -jar /usr/share/selenium-server/selenium-server-standalone.jar
 ```
 
+### Run Google Test for testing html pages
+
+On Windows:
+
+```bash
+cd src/vcprojects/
+# Open a solution 'webdriverxx.sln' in Visual Studio and compile it
+```
+
+More info in MSDN: [Build and run a C++ app project](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-160)
+
 ### Examples
 
 Build CMakeLists in 'examples' folder and run binary.
@@ -214,18 +190,6 @@ make
 ./example_start_browsers
 ```
 
-On Windows:
-
-```bash
-cd examples/example_start_browsers
-mkdir build && cd build
-cmake -DCURL_INCLUDE_DIR=<path_folder_webdriverxx>/src/thirdparty/curl/include ..
-# Open a solution in Visual Studio and compile it
-```
-
-More info in MSDN: [Build and run a C++ app project](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-160)
-
-
 ## Features
 
 - **Very lightweight framework** (When compared with all implementations of api selenium)
@@ -236,7 +200,7 @@ More info in MSDN: [Build and run a C++ app project](https://docs.microsoft.com/
     - [libcurl](http://curl.haxx.se/libcurl/)
     - [picojson](https://github.com/kazuho/picojson)
 - Can be used with any testing framework
-- Linux, Mac, FreeBSD and Windows
+- Linux, FreeBSD, OpenBSD, Mac and Windows
 - Tested on GCC 9.x, Clang 10.x and MSVC Visual Studio 2019
 
 ## More examples
