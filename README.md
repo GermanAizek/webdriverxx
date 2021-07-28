@@ -8,7 +8,7 @@ You can use this library in any C++ project.
 
 COPYRIGHTS
 
- * 2019 - Current Herman Semenov ([germanaizek@yandex.ru](mailto:germanaizek@yandex.ru))
+ * 2018 - Current Herman Semenov ([germanaizek@yandex.ru](mailto:germanaizek@yandex.ru))
  * 2014 - 2018 Sergey Kogan ([sekogan@gmail.com](mailto:sekogan@gmail.com))
  * 2017 Ilya Durdyev (IDurdyev)
  
@@ -25,46 +25,46 @@ git clone --recurse-submodules https://github.com/GermanAizek/webdriverxx.git
 cd webdriverxx
 ```
 
-## Installing Requirements
+## Compilation requirements
 
 ### Debian
 
 ```bash
-sudo apt-get install default-jre cmake g++ make curl
+sudo apt-get install cmake g++ make curl
 ```
 
 ### Ubuntu and Ubuntu Touch
 
 ```bash
-sudo apt-get install default-jre cmake g++ make curl libcurl4-openssl-dev
+sudo apt-get install cmake g++ make curl libcurl4-openssl-dev
 ```
 
 ### Arch Linux
 
 ```bash
-sudo pacman -Syu jre-openjdk cmake g++ make curl
+sudo pacman -Syu cmake g++ make curl
 ```
 ### Gentoo
 
 ```bash
-sudo emerge -av virtual/jre dev-util/cmake sys-devel/gcc sys-devel/make net-misc/curl
+sudo emerge -av dev-util/cmake sys-devel/gcc sys-devel/make net-misc/curl
 ```
 
-## Install on Linux
+## Compile on Linux
 
 ```bash
 mkdir build && cd build && cmake ../src
-sudo make && sudo make install
+sudo make
 ```
 
-## Install on FreeBSD
+## Compile on FreeBSD
 
 ```bash
 mkdir build && cd build && cmake ../src
-make && make install
+make
 ```
 
-## Install on Windows
+## Compile on Windows
 
 ```bash
 mkdir build
@@ -106,7 +106,7 @@ To work with chromedriver, you need any browser built on the Chromium engine.
 
 Chromium, Google Chrome, Opera, Vivaldi and etc.
 
-In our examples, we will install regular Google Chrome.
+In our examples, we will install official current Google Chrome.
 
 #### Debian/Ubuntu
 
@@ -119,6 +119,7 @@ sudo apt-get install chromium-driver
 ```bash
 sudo yay -S --aur aur/chromedriver
 ```
+
 #### Gentoo
 
 ```bash
@@ -135,7 +136,7 @@ You need to download and run selenium-server-standalone.
 
 #### Windows
 
-Download OpenJDK and unpack: https://openjdk.java.net/
+Download latest OpenJDK and unpack: https://openjdk.java.net/
 
 Official Selenium server can be seen here: https://selenium-release.storage.googleapis.com/index.html
 
@@ -147,25 +148,64 @@ java -jar /path_to/selenium-server-4.0.0-beta-4.jar standalone
 
 #### Linux
 
+Download latest OpenJDK from packet manager distributions Linux.
+
 ##### Arch Linux
 
 ```bash
-sudo yay -S --aur aur/selenium-server-standalone
-java -jar /usr/share/selenium-server/selenium-server-standalone.jar
+sudo pacman -Syu jre-openjdk jre-openjdk-headless
 ```
+
+##### Debian, Ubuntu, Ubuntu Touch
+
+```bash
+sudo apt-get install default-jre
+```
+
+##### Arch Linux
+
+```bash
+sudo pacman -Syu jre-openjdk
+```
+
+##### Gentoo
+
+```bash
+sudo emerge -av virtual/jre
+```
+
+Official Selenium server can be seen here: https://selenium-release.storage.googleapis.com/index.html
+
+```bash
+wget https://selenium-release.storage.googleapis.com/4.0-beta-4/selenium-server-4.0.0-beta-4.jar
+```
+
+or download from AUR [here](https://aur.archlinux.org/packages/selenium-server-standalone/):
+
+```bash
+sudo yay -S --aur aur/selenium-server-standalone
+```
+
+After now you can start.
 
 ##### Any Linux distribution
 
 ```bash
-wget https://selenium-release.storage.googleapis.com/4.0-beta-4/selenium-server-4.0.0-beta-4.jar
 java -jar selenium-server-4.0.0-beta-4.jar standalone
 ```
 
-### Example codes
+If Selenium server standalone was downloaded from AUR (Arch Linux), then:
 
-Build cmakelists in examples folder and run binary.
+```bash
+java -jar /usr/share/selenium-server/selenium-server-standalone.jar
+```
+
+### Examples
+
+Build CMakeLists in 'examples' folder and run binary.
 
 On Linux:
+
 ```bash
 cd examples/example_start_browsers
 mkdir build && cd build
@@ -175,32 +215,33 @@ make
 ```
 
 On Windows:
+
 ```bash
 cd examples/example_start_browsers
 mkdir build && cd build
 cmake -DCURL_INCLUDE_DIR=<path_folder_webdriverxx>/src/thirdparty/curl/include ..
-# For example, open a solution in Visual Studio
+# Open a solution in Visual Studio and compile it
 ```
 
+More info in MSDN: [Build and run a C++ app project](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-160)
 
 
 ## Features
 
 - **Very lightweight framework** (When compared with all implementations of api selenium)
-- Chainable commands.
-- Value-like objects compatible with STL containers.
-- Header-only.
+- Chainable commands
+- Value-like objects compatible with STL containers
+- Header-only
 - Lightweight dependencies:
-    - [libcurl](http://curl.haxx.se/libcurl/),
-    - [picojson](https://github.com/kazuho/picojson).
-    - [picobase64](https://github.com/GermanAizek/picobase64).
-- Can be used with any testing framework.
-- Linux, Mac, FreeBSD and Windows.
-- Tested on GCC 9.x, Clang 10.x and MSVC Visual Studio 2019.
+    - [libcurl](http://curl.haxx.se/libcurl/)
+    - [picojson](https://github.com/kazuho/picojson)
+- Can be used with any testing framework
+- Linux, Mac, FreeBSD and Windows
+- Tested on GCC 9.x, Clang 10.x and MSVC Visual Studio 2019
 
 ## More examples
 
-All examples are in the examples folder.
+All examples are in 'examples' folder.
 
 ### Use proxy
 
