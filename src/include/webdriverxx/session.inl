@@ -507,7 +507,11 @@ const Session& Session::InstallAddonFromFile(const std::string& path) const {
 
 	//if (IsFirefox()) { // BUG: this is crashed
 	FILE* file_input;
+#if _MSC_VER
 	fopen_s(&file_input, path.c_str(), "ab+");
+#else
+	file_input = fopen(path.c_str(), "ab+");
+#endif
 	char buff_read[1];
 	if (file_input != NULL) {
 		std::string b64data = "";
