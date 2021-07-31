@@ -21,7 +21,7 @@ SPECIAL THANKS
 ## Cloning repository
 
 ```bash
-git clone https://github.com/GermanAizek/webdriverxx.git
+git clone --recurse-submodules https://github.com/GermanAizek/webdriverxx.git
 cd webdriverxx
 ```
 
