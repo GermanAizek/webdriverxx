@@ -7,3 +7,8 @@
 	path = src/include/webdriverxx/utils
 	url = https://github.com/GermanAizek/picobase64.git
 	branch = origin/master
+	
+[submodule "/src/include/webdriverxx/utils"]
+	path = src/include/webdriverxx/utils
+	url = https://github.com/kazuho/picojson.git
+	branch = origin/master
