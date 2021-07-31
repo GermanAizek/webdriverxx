@@ -13,7 +13,7 @@
 #include "detail/shared.h"
 #include "detail/factories_impl.h"
 #include "picojson.h"
-#include "picobase64.h"
+#include "utils/picobase64.h"
 #include <string>
 #include <fstream>
 

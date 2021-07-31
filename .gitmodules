@@ -3,7 +3,7 @@
 	url = https://github.com/curl/curl.git
 	branch = master
 
-[submodule "/src/include/utils"]
-	path = src/include/utils
+[submodule "/src/include/webdriverxx/utils"]
+	path = src/include/webdriverxx/utils
 	url = https://github.com/GermanAizek/picobase64.git
 	branch = origin/master
