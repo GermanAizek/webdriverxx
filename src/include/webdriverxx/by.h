@@ -42,21 +42,21 @@ By ByCss(const std::string& value) {
 inline
 By ByClass(const std::string& value) {
 	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when the class name expression is null.");
-	std::string selector = '.' + value;
+	const std::string selector = '.' + value;
 	return ByCss(selector);
 }
 
 inline
 By ById(const std::string& value) {
 	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements with a null id attribute.");
-	std::string selector = "*[id=\"" + value + "\"]";
+	const std::string selector = "*[id=\"" + value + "\"]";
 	return ByCss(selector);
 }
 
 inline
 By ByName(const std::string& value) {
 	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when name text is null.");
-	std::string selector = "*[name=\"" + value + "\"]";
+	const std::string selector = "*[name=\"" + value + "\"]";
 	return ByCss(selector);
 }
 
@@ -75,14 +75,14 @@ By ByPartialLinkText(const std::string& value) {
 inline
 By ByLink(const std::string& value) {
 	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when href link is null.");
-	std::string selector = "*[href=\"" + value + "\"]";
+	const std::string selector = "*[href=\"" + value + "\"]";
 	return ByCss(selector);
 }
 
 inline
 By ByPartialLink(const std::string& value) {
 	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when partial href link is null.");
-	std::string selector = "*[href*=\"" + value + "\"]";
+	const std::string selector = "*[href*=\"" + value + "\"]";
 	return ByCss(selector);
 }
 
