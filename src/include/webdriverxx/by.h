@@ -73,6 +73,20 @@ By ByPartialLinkText(const std::string& value) {
 }
 
 inline
+By ByLink(const std::string& value) {
+	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when href link is null.");
+	std::string selector = "*[href=\"" + value + "\"]";
+	return ByCss(selector);
+}
+
+inline
+By ByPartialLink(const std::string& value) {
+	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when partial href link is null.");
+	std::string selector = "*[href*=\"" + value + "\"]";
+	return ByCss(selector);
+}
+
+inline
 By ByTag(const std::string& value) {
 	WEBDRIVERXX_ISEMPTY_THROW(value, "Cannot find elements when name tag name is null.");
 	return ByCss(value);
