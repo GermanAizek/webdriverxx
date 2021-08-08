@@ -552,7 +552,6 @@ std::string Session::GetFullPageScreenshot() const {
 
 inline
 const Session& Session::GetLog() const {
-	std::cout << "Test get log";
 	resource_->Post("log");
 	return *this;
 }

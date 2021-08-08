@@ -86,18 +86,18 @@ public:
 	}
 
 	template<typename T>
-	inline void Post(
+	inline picojson::value Post(
 		const std::string& command,
 		const std::string& arg_name,
 		const T& arg_value
 		) const {
-		Post(command, JsonObject().Set(arg_name, arg_value));
+		return Post(command, JsonObject().Set(arg_name, arg_value));
 	}	
 
 	template<typename T>
-	inline void PostValue(const std::string& command, const T& value) const {
+	inline picojson::value PostValue(const std::string& command, const T& value) const {
 		WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
-		Post(command, ToJson(value));
+		return Post(command, ToJson(value));
 		WEBDRIVERXX_FUNCTION_CONTEXT_END_EX(detail::Fmt() <<
 			"command: " << command
 			)
