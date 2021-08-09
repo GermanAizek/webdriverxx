@@ -112,6 +112,7 @@ struct FirefoxOptions : JsonObject {
 };
 	
 // FIXME: Deprecated FirefoxProfile
+/*
 struct FirefoxProfile : JsonObject {
 	WEBDRIVERXX_PROPERTIES_BEGIN(FirefoxProfile)
 	WEBDRIVERXX_PROPERTY(AcceptUntrustedCerts,  "webdriver_accept_untrusted_certs",     bool)
@@ -122,13 +123,14 @@ struct FirefoxProfile : JsonObject {
 	WEBDRIVERXX_PROPERTY(Port,                  "webdriver_firefox_port",               int) // default 7055
 	WEBDRIVERXX_PROPERTIES_END()
 };
+*/
 
 struct Firefox : Capabilities { // copyable
 	Firefox(const Capabilities& defaults = Capabilities())
 		: Capabilities(defaults) {
+		SetAcceptInsecureCerts(true);
 		SetBrowserName(browser::Firefox);
-		SetVersion("");
-		SetPlatform(platform::Any);
+		SetDebuggerAddress(true);
 	}
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(Firefox)
