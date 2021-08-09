@@ -10,18 +10,18 @@ namespace webdriverxx {
 namespace browser {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Android          = "android";
 ConstValue Chrome           = "chrome";
+ConstValue Edge             = "MicrosoftEdge";
 ConstValue Firefox          = "firefox";
 ConstValue HtmlUnit         = "htmlunit";
 ConstValue InternetExplorer = "internet explorer";
-ConstValue IPhone           = "iPhone";
 ConstValue IPad             = "iPad";
-ConstValue Mock             = "mock";
+ConstValue IPhone           = "iPhone";
 ConstValue Opera            = "opera";
 ConstValue Safari           = "safari";
+ConstValue WebKitGTK        = "MiniBrowser";
+ConstValue Mock             = "mock";
 ConstValue PhantomJS        = "phantomjs";
-ConstValue Edge             = "MicrosoftEdge";
 } // namespace browser
 
 namespace platform {
@@ -247,6 +247,9 @@ struct Capabilities : JsonObject { // copyable
 	WEBDRIVERXX_PROPERTY(SeleniumProtocol, "seleniumProtocol", std::string)
 	WEBDRIVERXX_PROPERTY(MaxInstances, "maxInstances", int)
 	WEBDRIVERXX_PROPERTY(Environment, "environment", std::string)
+
+	// Firefox-specific
+	WEBDRIVERXX_PROPERTY(AcceptInsecureCerts, "acceptInsecureCerts", bool)
 	
 	WEBDRIVERXX_PROPERTIES_END()
 };
