@@ -112,7 +112,6 @@ struct Chrome : Capabilities { // copyable
 	Chrome(const Capabilities& defaults = Capabilities())
 		: Capabilities(defaults) {
 		SetBrowserName(browser::Chrome);
-		SetVersion("");
 		SetPlatform(platform::Any);
 	}
 
