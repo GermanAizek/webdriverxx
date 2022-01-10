@@ -487,6 +487,8 @@ std::string char_to_string(char x[], int size_recv)
 	return output;
 }
 
+// Only Firefox features
+// 
 // TODO: Make session install addon
 inline
 const Session& Session::InstallAddonFromFile(const std::string& path) const {
@@ -554,6 +556,18 @@ inline
 const Session& Session::GetLog() const {
 	resource_->Post("log");
 	return *this;
+}
+
+// Chromium features
+//
+
+inline
+void Session::ExecuteCdpCommand(const std::string& commandName, const JsonObject& args) const {
+	resource_->Post("{}/cdp/execute",
+		JsonObject()
+		.Set("cmd", commandName)
+		.Set("params", args)
+	);
 }
 
 } // namespace webdriverxx
