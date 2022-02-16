@@ -562,8 +562,8 @@ const Session& Session::GetLog() const {
 //
 
 inline
-void Session::ExecuteCdpCommand(const std::string& commandName, const JsonObject& args) const {
-	resource_->Post("{}/cdp/execute",
+picojson::value Session::ExecuteCdpCommand(const std::string& commandName, const JsonObject& args) const {
+	return resource_->Post("goog/cdp/execute",
 		JsonObject()
 		.Set("cmd", commandName)
 		.Set("params", args)

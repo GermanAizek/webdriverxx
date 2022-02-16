@@ -59,6 +59,7 @@ public:
 	const Element& SendKeys(const Shortcut& shortcut) const;
 	const Element& KeyDown(const std::string& keys) const;
 	const Element& KeyUp(const std::string& keys) const;
+	const Element& SendInput(const std::string& input) const;
 
 	bool Equals(const Element& other) const;
 	bool operator != (const Element& other) const;

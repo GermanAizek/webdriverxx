@@ -45,6 +45,12 @@ public:
 		shortcut.removeHoldKey(keys);
 		return SendKeys(shortcut << keys);
 	}
+	
+	inline
+	const Keyboard& SendInput(const std::string& input) const {
+		resource_->Post(command_, JsonObject().Set("text", input));
+		return *this;
+	}
 
 private:
 	Shared<Resource> resource_;

@@ -46,13 +46,21 @@ Session Client::CreateSession(
 	const Capabilities& required
 	) const {
 	WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
+
+	picojson::array capabilities;
+	capabilities.push_back(picojson::value(desired));
+
+	picojson::object firstMatch;
+	firstMatch.insert(std::make_pair("firstMatch", picojson::value(capabilities)));
+
 	const auto response = resource_->Post("session",
 		JsonObject()
-			.Set("desiredCapabilities", static_cast<picojson::value>(desired))
-			.Set("requiredCapabilities", static_cast<picojson::value>(required))
-			);
+			//.Set("desiredCapabilities", firstMatch) // don't set this, for some reason it will fuck up.
+			.Set("capabilities", firstMatch)
+			.Set("requiredCapabilities", firstMatch)
+		);
 
-	const auto sessionId = response.get("sessionId");
+	const auto sessionId = response.get("value").get("sessionId");
 
 	WEBDRIVERXX_CHECK(sessionId.is<std::string>(),                  "Session ID is not a string");
 	WEBDRIVERXX_CHECK(response.get("value").is<picojson::object>(), "Capabilities is not an object");

@@ -147,6 +147,12 @@ const Element& Element::KeyUp(const std::string& keys) const {
 }
 
 inline
+const Element& Element::SendInput(const std::string& input) const {
+	GetKeyboard().SendInput(input);
+	return *this;
+}
+
+inline
 bool Element::Equals(const Element& other) const {
 	return GetResource().GetBool(std::string("equals/") + other.ref_);
 }
