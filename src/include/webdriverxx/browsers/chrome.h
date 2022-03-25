@@ -112,6 +112,7 @@ struct Chrome : Capabilities { // copyable
 	Chrome(const Capabilities& defaults = Capabilities())
 		: Capabilities(defaults) {
 		SetBrowserName(browser::Chrome);
+		SetVersion(defaults.GetVersion());   // 加上这句就可以，BrowserName不能为空
 		SetPlatform(platform::Any);
 	}
 
