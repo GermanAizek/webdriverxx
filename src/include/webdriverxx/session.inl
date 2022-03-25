@@ -561,6 +561,35 @@ const Session& Session::GetLog() const {
 // Chromium features
 //
 
+/*
+	Gets Chromium network emulation settings.
+
+	:Returns:
+		A dict. For example:
+		{'latency': 4, 'download_throughput': 2, 'upload_throughput': 2,
+		'offline': False}
+ */
+inline
+picojson::value Session::GetNetworkConditions() const {
+	return resource_->Get("chromium/network_conditions");
+}
+
+/*
+	Execute Chrome Devtools Protocol command and get returned result
+	The command and command args should follow chrome devtools protocol domains/commands, refer to link
+	https://chromedevtools.github.io/devtools-protocol/
+
+	:Args:
+	 - cmd: A str, command name
+	 - cmd_args: A dict, command args. empty dict {} if there is no command args
+	:Usage:
+		::
+			driver.execute_cdp_cmd('Network.getResponseBody', {'requestId': requestId})
+	:Returns:
+		A dict, empty dict {} if there is no result to return.
+		For example to getResponseBody:
+		{'base64Encoded': False, 'body': 'response body string'}
+ */
 inline
 picojson::value Session::ExecuteCdpCommand(const std::string& commandName, const JsonObject& args) const {
 	return resource_->Post("goog/cdp/execute",
@@ -568,6 +597,22 @@ picojson::value Session::ExecuteCdpCommand(const std::string& commandName, const
 		.Set("cmd", commandName)
 		.Set("params", args)
 	);
+}
+
+/*
+	:Returns: A list of sinks available for Cast.
+ */
+inline
+picojson::value Session::GetSinks() const {
+	return resource_->Get("goog/cast/get_sinks");
+}
+
+/*
+	:Returns: An error message when there is any issue in a Cast session.
+ */
+inline
+picojson::value Session::GetIssueMessage() const {
+	return resource_->Get("goog/cast/get_issue_message");
 }
 
 } // namespace webdriverxx

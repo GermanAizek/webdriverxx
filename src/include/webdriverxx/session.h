@@ -110,7 +110,10 @@ public:
 	const Session& GetLog() const;
 
 	// Chrome features
+	picojson::value Session::GetNetworkConditions() const;
 	picojson::value ExecuteCdpCommand(const std::string& commandName, const JsonObject& args) const;
+	picojson::value GetSinks() const;
+	picojson::value GetIssueMessage() const;
 
 	void DeleteSession() const; // No need to delete sessions created by WebDriver or Client
 	virtual ~Session() {}
