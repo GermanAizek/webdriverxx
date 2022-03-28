@@ -110,7 +110,10 @@ public:
 	const Session& GetLog() const;
 
 	// Chrome features
-	picojson::value Session::GetNetworkConditions() const;
+	const Session& LaunchApp(const std::string& id) const;
+	picojson::value GetNetworkConditions() const;
+	const Session& SetNetworkConditions(bool offline, uint64_t latency, uint64_t download_throughput,
+										uint64_t upload_throughput) const;
 	picojson::value ExecuteCdpCommand(const std::string& commandName, const JsonObject& args) const;
 	picojson::value GetSinks() const;
 	picojson::value GetIssueMessage() const;

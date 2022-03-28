@@ -562,6 +562,53 @@ const Session& Session::GetLog() const {
 //
 
 /*
+	Launches Chromium app specified by id.
+ */
+
+inline
+const Session& Session::LaunchApp(const std::string& id) const {
+	if (id.empty()) {
+		throw WebDriverException("Chromium app id must not be null or the empty string");
+	}
+	resource_->Post("chromium/launch_app", "id", id);
+	return *this;
+}
+
+/*
+	Sets Chromium network emulation settings.
+
+	:Args:
+	 - network_conditions: A dict with conditions specification.
+
+	:Usage:
+		::
+
+			driver.set_network_conditions(
+				offline=False,
+				latency=5,  # additional latency (ms)
+				download_throughput=500 * 1024,  # maximal throughput
+				upload_throughput=500 * 1024)  # maximal throughput
+
+		Note: 'throughput' can be used to set both (for download and upload).
+ */
+
+inline
+const Session& Session::SetNetworkConditions(bool offline, uint64_t latency, uint64_t download_throughput,
+											 uint64_t upload_throughput) const {
+	if (id.empty()) {
+		throw WebDriverException("Chromium app id must not be null or the empty string");
+	}
+	resource_->Post("chromium/launch_app", JsonObject().Set("network_conditions",
+			JsonObject()
+				.Set("offline", offline)
+				.Set("latency", latency)
+				.Set("download_throughput", download_throughput)
+				.Set("upload_throughput", upload_throughput)
+	));
+	return *this;
+}
+
+/*
 	Gets Chromium network emulation settings.
 
 	:Returns:
