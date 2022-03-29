@@ -142,6 +142,7 @@ private:
 	const Session& InternalMouseButtonCommand(const char* command, mouse::Button button) const;
 
 private:
+    std::string vendorpre_;
 	detail::Shared<detail::Resource> resource_;
 	detail::Shared<detail::SessionFactory> factory_;
 };

@@ -2,7 +2,7 @@
 #include "detail/error_handling.h"
 #include "detail/types.h"
 
-#if CXX17_2X
+#if defined(CXX17_2X)
 #include <filesystem>
 #endif
 
@@ -12,7 +12,13 @@ inline
 Session::Session(const detail::Shared<detail::Resource>& resource)
 	: resource_(resource)
 	, factory_(new detail::SessionFactory(resource))
-{}
+{
+    if (IsChrome()) {
+        vendorpref_ = "chromium";
+    } elseif (IsFirefox()) {
+        vendorpref_ = "firefox";
+    }
+}
 
 inline
 void Session::DeleteSession() const {
@@ -496,7 +502,7 @@ const Session& Session::InstallAddonFromFile(const std::string& path) const {
 		throw WebDriverException("Add-on file name must not be null or the empty string");
 	}
 
-#if CXX17_2X
+#if defined(CXX17_2X)
 	if (!std::filesystem::exists(path)) {
 		throw WebDriverException("File " + path + " does not exist");
 	}
@@ -575,6 +581,30 @@ const Session& Session::LaunchApp(const std::string& id) const {
 }
 
 /*
+    Sets Applicable Permission.
+
+    :Args:
+     - name: The item to set the permission on.
+     - value: The value to set on the item
+
+    :Usage:
+        ::
+            driver.set_permissions('clipboard-read', 'denied')
+ */
+
+inline
+const Session& Session::SetPermissions(const std::string& name, const std::string& value) const {
+    if (id.empty()) {
+        throw WebDriverException("Chromium app id must not be null or the empty string");
+    }
+    auto json = JsonObject();
+    json.Set("descriptor", JsonObject().Set("name", name));
+    json.Set("state", value);
+    resource_->Post("permissions", json);
+    return *this;
+}
+
+/*
 	Sets Chromium network emulation settings.
 
 	:Args:
@@ -622,6 +652,15 @@ picojson::value Session::GetNetworkConditions() const {
 }
 
 /*
+ * Resets Chromium network emulation settings.
+ */
+
+inline
+void Session::DeleteNetworkConditions() const {
+    resource_->Delete("chromium/network_conditions");
+}
+
+/*
 	Execute Chrome Devtools Protocol command and get returned result
 	The command and command args should follow chrome devtools protocol domains/commands, refer to link
 	https://chromedevtools.github.io/devtools-protocol/
@@ -660,6 +699,20 @@ picojson::value Session::GetSinks() const {
 inline
 picojson::value Session::GetIssueMessage() const {
 	return resource_->Get("goog/cast/get_issue_message");
+}
+
+/*
+ * Starts a tab mirroring session on a specific receiver target.
+ *
+ *      :Args:
+ *       - sink_name: Name of the sink to use as the target.
+ */
+
+inline
+picojson::value Session::SetSinkToUse(const std::string& sinkname) const {
+    return resource_->Post(vendorpref_ + "/cast/set_sink_to_use",
+        JsonObject().Set("startTabMirroring", JsonObject().Set("sinkName", sinkname))
+    );
 }
 
 } // namespace webdriverxx
