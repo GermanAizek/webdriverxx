@@ -129,8 +129,9 @@ endif()
 # Google test
 externalproject_add(googletest
 		PREFIX googletest
-		GIT_REPOSITORY https://github.com/google/googletest
-		UPDATE_COMMAND ""
+		GIT_REPOSITORY  https://github.com/google/googletest
+		GIT_TAG			main
+		UPDATE_COMMAND  ""
 		INSTALL_COMMAND ""
 )
 externalproject_get_property(googletest source_dir binary_dir)
