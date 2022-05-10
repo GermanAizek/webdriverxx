@@ -17,7 +17,7 @@ SPECIAL THANKS
  * 2019 xingyun86 ([peipengshuai@hotmail.com](mailto:peipengshuai@hotmail.com))
  * 2020 xloem ([0xloem@gmail.com](mailto:0xloem@gmail.com))
  * 2021 SrMilton ([miltonmanuelcramos@gmail.com](mailto:miltonmanuelcramos@gmail.com)), Mecanik ([Norbert.Boros@liveguard-software.com](mailto:Norbert.Boros@liveguard-software.com))
- * 2022 Mecanik ([Norbert.Boros@liveguard-software.com](mailto:Norbert.Boros@liveguard-software.com))
+ * 2022 Mecanik ([Norbert.Boros@liveguard-software.com](mailto:Norbert.Boros@liveguard-software.com)), No-47 ([jacquessetsee34@gmail.com](mailto:jacquessetsee34@gmail.com))
  
 ## Cloning repository
 
