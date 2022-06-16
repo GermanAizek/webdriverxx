@@ -3,14 +3,16 @@
 
 namespace test {
 
-using namespace webdriverxx;
+	using namespace webdriverxx;
 
-TEST(Chrome, DefaultEmulateDeviceChrome) {
-	chrome::MobileEmulation me;
-	me.SetdeviceName(chrome::device::Get("Galaxy Note 3"));
-	auto gc = Chrome();
-	gc.SetMobileEmulation(me);
-	ASSERT_EQ(gc.GetMobileEmulation().GetdeviceName(), me.GetdeviceName());
-}
+	TEST(Chrome, DefaultEmulateDeviceChrome) {
+		chrome::MobileEmulation me;
+		me.SetdeviceName(chrome::device::Get("Galaxy Note 3"));
+		auto gc = Chrome();
+		//gc.SetMobileEmulation(me);
+		gc.GetChromeOptions().SetMobileEmulation(me);
+		// ASSERT_EQ(gc.GetMobileEmulation().GetdeviceName(), me.GetdeviceName());
+		ASSERT_EQ(gc.GetChromeOptions().GetMobileEmulation().GetdeviceName(), me.GetdeviceName());
+	}
 
 } // namespace test

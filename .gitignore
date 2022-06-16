@@ -31,5 +31,11 @@
 *.out
 *.app
 
+# backup file
+*.bak
+
 # Folders
 /build
+/v17
+/.vs
+/cmake_build
