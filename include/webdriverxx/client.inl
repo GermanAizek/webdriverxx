@@ -57,7 +57,7 @@ Session Client::CreateSession(
 		JsonObject()
 			//.Set("desiredCapabilities", firstMatch) // don't set this, for some reason it will fuck up.
 			.Set("capabilities", firstMatch)
-			.Set("requiredCapabilities", firstMatch)
+			// .Set("requiredCapabilities", firstMatch) //removing because this doesn't seem to match enough in 4.4.0 will add back later.
 		);
 
 	const auto sessionId = response.get("value").get("sessionId");
