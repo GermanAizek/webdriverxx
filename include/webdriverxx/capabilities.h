@@ -219,6 +219,7 @@ struct Capabilities : JsonObject { // copyable
 	WEBDRIVERXX_PROPERTY(BrowserName, "browserName", browser::Value)
 	WEBDRIVERXX_PROPERTY(Version, "browserVersion", std::string)
 	WEBDRIVERXX_PROPERTY(Platform, "platformName", platform::Value)
+	WEBDRIVERXX_PROPERTY(PageLoadStrategy, "pageLoadStrategy", page_load_strategy::Value)
 	
 	// Read-only capabilities
 	WEBDRIVERXX_PROPERTY_RONLY(HandlesAlerts, "handlesAlerts", bool)
