@@ -11,7 +11,7 @@
 
 namespace webdriverxx {
 
-const char *const kDefaultWebDriverUrl = "http://localhost:4444/wd/hub/";
+const char *const kDefaultWebDriverUrl = "http://localhost:4444";
 
 // Gives low level access to server's resources. You normally should not use it.
 class Client { // copyable
