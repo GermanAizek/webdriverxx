@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/Greeley/Workspace/Cppspace/webdriverxx'
+/usr/local/Cellar/cmake/3.24.1/bin/cmake -S/Users/Greeley/Workspace/Cppspace/webdriverxx -B/Users/Greeley/Workspace/Cppspace/webdriverxx --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/local/Cellar/cmake/3.24.1/bin/cmake -E cmake_progress_start /Users/Greeley/Workspace/Cppspace/webdriverxx/CMakeFiles /Users/Greeley/Workspace/Cppspace/webdriverxx//CMakeFiles/progress.marks
+/Library/Developer/CommandLineTools/usr/bin/make -s -f CMakeFiles/Makefile2 all
+/usr/local/Cellar/cmake/3.24.1/bin/cmake -E cmake_progress_start /Users/Greeley/Workspace/Cppspace/webdriverxx/CMakeFiles 0
+make: Leaving directory `/Users/Greeley/Workspace/Cppspace/webdriverxx'
+ 
