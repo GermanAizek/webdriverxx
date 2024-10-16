@@ -16,7 +16,7 @@ public:
 	{}
 
 	~Window() {
-		delete this;
+		//delete this;
 	}
 
 	inline

@@ -23,22 +23,22 @@ picojson::object Client::GetStatus() const {
 	WEBDRIVERXX_FUNCTION_CONTEXT_END()
 }
 
-inline
-std::vector<Session> Client::GetSessions() const {
-	WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
-	const auto sessions =
-		FromJson<std::vector<detail::SessionRef>>(
-			resource_->Get("sessions").get("value")
-			);
-	std::vector<Session> result;
-	result.reserve(sessions.size());
-	std::transform(sessions.begin(), sessions.end(), std::back_inserter(result),
-		[this](const detail::SessionRef& session_ref) {
-			return MakeSession(session_ref.id, detail::Resource::IsObserver);
-		});
-	return result;
-	WEBDRIVERXX_FUNCTION_CONTEXT_END()
-}
+// inline
+// std::vector<Session> Client::GetSessions() const {
+// 	WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
+// 	const auto sessions =
+// 		FromJson<std::vector<detail::SessionRef>>(
+// 			resource_->Get("sessions").get("value")
+// 			);
+// 	std::vector<Session> result;
+// 	result.reserve(sessions.size());
+// 	std::transform(sessions.begin(), sessions.end(), std::back_inserter(result),
+// 		[this](const detail::SessionRef& session_ref) {
+// 			return MakeSession(session_ref.id, detail::Resource::IsObserver);
+// 		});
+// 	return result;
+// 	WEBDRIVERXX_FUNCTION_CONTEXT_END()
+// }
 
 inline
 Session Client::CreateSession(
@@ -65,16 +65,17 @@ Session Client::CreateSession(
 	WEBDRIVERXX_CHECK(sessionId.is<std::string>(),                  "Session ID is not a string");
 	WEBDRIVERXX_CHECK(response.get("value").is<picojson::object>(), "Capabilities is not an object");
 	
-	return MakeSession(sessionId.to_str(), detail::Resource::IsOwner);
+	return MakeSession(sessionId.to_str(), Capabilities(response.get("value").get("capabilities").get<picojson::object>()), detail::Resource::IsOwner);
 	WEBDRIVERXX_FUNCTION_CONTEXT_END()
 }
 
 inline
 Session Client::MakeSession(
 	const std::string& id,
+	const Capabilities &capabilities,
 	detail::Resource::Ownership mode
 	) const {
-	return Session(detail::MakeSubResource(resource_, "session", id, mode));
+	return Session(detail::MakeSubResource(resource_, "session", id, mode), capabilities);
 }
 
 } // namespace webdriverxx

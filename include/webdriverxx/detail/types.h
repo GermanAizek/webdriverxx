@@ -6,7 +6,9 @@
 #include "../picojson.h"
 #include <string>
 
-#define CXX17_2X ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
+#if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
+#define CXX17_2X 
+#endif
 
 namespace webdriverxx {
 namespace detail {

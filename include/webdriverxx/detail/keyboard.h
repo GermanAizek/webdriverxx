@@ -24,6 +24,7 @@ public:
 	inline
 	const Keyboard& SendKeys(const Shortcut& shortcut) const {
 		resource_->Post(command_, JsonObject()
+			.Set("text", shortcut.keys_)
 			.Set("value", ToJson(shortcut.keys_)));
 		return *this;
 	}
