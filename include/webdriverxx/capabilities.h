@@ -61,11 +61,11 @@ ConstValue None             = "none";
 namespace proxy_type {
 typedef std::string Value;
 typedef const char* const ConstValue;
-ConstValue Direct           = "DIRECT";         // Direct connection, no proxy (default on Windows).
-ConstValue Manual           = "MANUAL";         // Manual proxy settings (e.g., for httpProxy).
-ConstValue Pac              = "PAC";            // Proxy autoconfiguration from URL.
-ConstValue Autodetect       = "AUTODETECT";     // Proxy autodetection (presumably with WPAD).
-ConstValue System           = "SYSTEM";         // Use system settings (default on Linux).
+ConstValue Direct           = "direct";         // Direct connection, no proxy (default on Windows).
+ConstValue Manual           = "manual";         // Manual proxy settings (e.g., for httpProxy).
+ConstValue Pac              = "pac";            // Proxy autoconfiguration from URL.
+ConstValue Autodetect       = "autodetecct";     // Proxy autodetection (presumably with WPAD).
+ConstValue System           = "system";         // Use system settings (default on Linux).
 } // namespace proxy_type
 
 #define WEBDRIVERXX_PROPERTIES_BEGIN(this_class) typedef this_class This;
@@ -113,6 +113,11 @@ struct ManualProxy : Proxy { // copyable
 
 	WEBDRIVERXX_PROPERTIES_BEGIN(ManualProxy)
 	WEBDRIVERXX_PROPERTY(NoProxyFor, "noProxy", std::string)
+	WEBDRIVERXX_PROPERTY(FtpProxyAddress, "ftpProxy", std::string)
+	WEBDRIVERXX_PROPERTY(HttpProxyAddress, "httpProxy", std::string)
+	WEBDRIVERXX_PROPERTY(SslProxyAddress, "sslProxy", std::string)
+	WEBDRIVERXX_PROPERTY(SocksProxyAddress, "socksProxy", std::string)
+	WEBDRIVERXX_PROPERTY(SocksVersion, "socksVersion", int)
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
@@ -206,6 +211,15 @@ struct LoggingPrefs : JsonObject {
 	WEBDRIVERXX_PROPERTIES_END()
 };
 
+struct Timeouts : JsonObject {
+	explicit Timeouts(int implicit=0, int pageLoad=30000, int script=30000) {SetImplicitTimeout(implicit);SetPageLoadTimeout(pageLoad);SetScriptTimeout(script);}
+	WEBDRIVERXX_PROPERTIES_BEGIN(Timeouts)
+	WEBDRIVERXX_PROPERTY(ImplicitTimeout, "implicit",  int)
+	WEBDRIVERXX_PROPERTY(PageLoadTimeout, "pageLoad",  int)
+	WEBDRIVERXX_PROPERTY(ScriptTimeout, "script", int)
+	WEBDRIVERXX_PROPERTIES_END()
+};
+
 // List of keys and values indicating features that server can or should provide.
 struct Capabilities : JsonObject { // copyable
 	Capabilities() {}
@@ -251,6 +265,8 @@ struct Capabilities : JsonObject { // copyable
 
 	// Firefox-specific
 	WEBDRIVERXX_PROPERTY(AcceptInsecureCerts, "acceptInsecureCerts", bool)
+
+	WEBDRIVERXX_PROPERTY(Timeouts, "timeouts", Timeouts)
 	
 	WEBDRIVERXX_PROPERTIES_END()
 };

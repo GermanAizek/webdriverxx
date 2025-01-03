@@ -106,19 +106,19 @@ std::vector<Element> Element::FindElements(const By& by) const {
 
 inline
 const Element& Element::Clear() const {
-	GetResource().Post("clear");
+	GetResource().Post("clear", picojson::value(picojson::object_type, 0));
 	return *this;
 }
 
 inline
 const Element& Element::Click() const {
-	GetResource().Post("click");
+	GetResource().Post("click", picojson::value(picojson::object_type, 0));
 	return *this;
 }
 
 inline
 const Element& Element::Submit() const {
-	GetResource().Post("submit");
+	GetResource().Post("submit", picojson::value(picojson::object_type, 0));
 	return *this;
 }
 

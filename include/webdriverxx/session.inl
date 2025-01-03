@@ -9,9 +9,10 @@
 namespace webdriverxx {
 
 	inline
-		Session::Session(const detail::Shared<detail::Resource>& resource)
+		Session::Session(const detail::Shared<detail::Resource>& resource, const Capabilities& capabilities)
 		: resource_(resource)
 		, factory_(new detail::SessionFactory(resource))
+		, capabilities_(capabilities)
 	{
 		if (IsChrome()) {
 			// vendorpref_ = "chromium";
@@ -29,8 +30,9 @@ namespace webdriverxx {
 	}
 
 	inline
-		Capabilities Session::GetCapabilities() const {
-		return Capabilities(resource_->Get().get<picojson::object>());
+		const Capabilities& Session::GetCapabilities() const {
+		// return Capabilities(resource_->Get().get<picojson::object>());
+		return this->capabilities_;
 	}
 
 	inline
@@ -104,7 +106,7 @@ namespace webdriverxx {
 	inline
 		Window Session::GetCurrentWindow() const {
 		WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
-			return MakeWindow(resource_->GetString("window_handle"));
+			return MakeWindow(resource_->GetString("window"));
 		WEBDRIVERXX_FUNCTION_CONTEXT_END()
 	}
 
@@ -178,8 +180,8 @@ namespace webdriverxx {
 	}
 
 	inline
-		const Session& Session::SetFocusToWindow(const std::string& window_name_or_handle) const {
-		resource_->Post("window", "name", window_name_or_handle);
+		const Session& Session::SetFocusToWindow(const std::string& window_handle) const {
+		resource_->Post("window", "handle", window_handle);
 		return *this;
 	}
 
@@ -226,7 +228,7 @@ namespace webdriverxx {
 		WEBDRIVERXX_FUNCTION_CONTEXT_BEGIN()
 			const auto handles =
 			FromJson<std::vector<std::string>>(
-				resource_->Get("window_handles") // in W3C Get("window/handles")
+				resource_->Get("window/handles") // in W3C Get("window/handles")
 				);
 
 		std::vector<Window> result;

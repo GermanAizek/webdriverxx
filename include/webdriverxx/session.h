@@ -28,7 +28,7 @@ namespace webdriverxx {
 		inline bool IsFirefox() const { return GetBrowserName() == webdriverxx::browser::Firefox; }
 		inline bool IsPhantomJS() const { return GetBrowserName() == webdriverxx::browser::PhantomJS; }
 
-		Capabilities GetCapabilities() const;
+		const Capabilities& GetCapabilities() const;
 		std::string GetPageSource() const;
 		std::string GetTitle() const;
 		std::string GetUrl() const;
@@ -58,7 +58,7 @@ namespace webdriverxx {
 		std::vector<Window> GetWindows() const;
 		Window GetCurrentWindow() const;
 		const Session& CloseCurrentWindow() const;
-		const Session& SetFocusToWindow(const std::string& window_name) const;
+		const Session& SetFocusToWindow(const std::string& window_handle) const;
 		const Session& SetFocusToWindow(const Window& window) const;
 
 		Element GetActiveElement() const;
@@ -131,7 +131,7 @@ namespace webdriverxx {
 	private:
 		friend class Client; // Only Client can create Sessions
 
-		explicit Session(const detail::Shared<detail::Resource>& resource);
+		explicit Session(const detail::Shared<detail::Resource>& resource, const Capabilities& capabilities);
 
 		Window MakeWindow(const std::string& handle) const;
 		detail::Keyboard GetKeyboard() const;
@@ -152,6 +152,7 @@ namespace webdriverxx {
 		std::string vendorpre_;
 		detail::Shared<detail::Resource> resource_;
 		detail::Shared<detail::SessionFactory> factory_;
+		Capabilities capabilities_;
 	};
 
 } // namespace webdriverxx

@@ -49,6 +49,10 @@ public:
 	inline
 	HttpResponse Execute() {
 		curl_easy_reset(http_connection_);
+#ifdef DEBUG
+		SetOption(CURLOPT_VERBOSE, 1L);
+#endif
+
 		SetOption(CURLOPT_URL, url_.c_str());
 		HttpResponse response;
 		SetOption(CURLOPT_WRITEFUNCTION, &WriteCallback);
@@ -70,6 +74,9 @@ public:
 			);
 
 		response.http_code = GetHttpCode();
+#ifdef DEBUG
+		fprintf(stderr, "%s\n", response.body.c_str());
+#endif
 		return response;
 	}
 

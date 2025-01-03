@@ -22,7 +22,7 @@ public:
 	picojson::object GetStatus() const;
 
 	// Returns existing sessions.
-	std::vector<Session> GetSessions() const;
+	// std::vector<Session> GetSessions() const;
 
 	// Creates new session.
 	Session CreateSession(
@@ -33,6 +33,7 @@ public:
 private:
 	Session MakeSession(
 		const std::string& id,
+		const Capabilities& capabilities,
 		detail::Resource::Ownership mode
 		) const;
 
