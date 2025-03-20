@@ -47,7 +47,7 @@ sudo emerge -av dev-util/cmake sys-devel/gcc sys-devel/make net-misc/curl
 
 ## Compile on Linux, FreeBSD, OpenBSD
 ```bash
-mkdir build && cd build && cmake ../src
+mkdir build && cd build && cmake ..
 sudo make
 ```
 
@@ -55,7 +55,7 @@ sudo make
 ```bash
 mkdir build
 cd build
-cmake ../src
+cmake ..
 # For example, open a solution in Visual Studio
 ```
 
