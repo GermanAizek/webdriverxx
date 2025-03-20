@@ -19,6 +19,7 @@ SPECIAL THANKS
  * 2021 SrMilton ([miltonmanuelcramos@gmail.com](mailto:miltonmanuelcramos@gmail.com)), Mecanik ([Norbert.Boros@liveguard-software.com](mailto:Norbert.Boros@liveguard-software.com))
  * 2022 Mecanik ([Norbert.Boros@liveguard-software.com](mailto:Norbert.Boros@liveguard-software.com)), No-47 ([jacquessetsee34@gmail.com](mailto:jacquessetsee34@gmail.com))
  * 2024 Foxgoblin Xing ([foxgoblin@shockwest.com](mailto:foxgoblin@shockwest.com))
+ * 2025 DanielAtCosmicDNA (Daniel Kaminski) ([daniel@cosmicdna.co.uk](mailto:daniel@cosmicdna.co.uk))
 ## Cloning repository
 
 ```bash
